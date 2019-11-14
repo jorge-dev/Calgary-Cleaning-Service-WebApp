@@ -55,12 +55,15 @@
             </p>
         </form> -->
 
-        <form class=" validate-form login-form text-center">
-            <h3 class=" font-weight-light text-uppercase">Welcome!</h3>
-            <p class=" font-weight-light">Please login</p>
+        <form class="validate-form login-form text-center">
+            <div class=" js-tilt" data-tilt>
+                <img src="images/logo.png" alt="IMG">
+            </div>
+            <h3 class=" text-uppercase">Welcome!</h3>
+            <p class=" mt-2 fill_text">Please login</p>
 
-            <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                <input class="input100" type="text" name="email" placeholder="Email">
+            <div class=" mt-2 wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <input class="input100 form-control" type="text" name="email" placeholder="Email">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -68,17 +71,16 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Password is required">
-                <input class="input100" type="password" name="pass" placeholder="Password">
+                <input class="input100 form-control" type="password" name="pass" placeholder="Password">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
                 </span>
             </div>
-            <div class="wrap-input100 validate-input ">
-
-                <select class="custom-control mr-0 form-control rounded-pill input100" id="inlineFormCustomSelect">
-                    <option selected >Select User</option>
-                    <option  value="Admin">Admin</option>
+            <div class="wrap-input100  ">
+                <select required class=" form-control input100" id="selector">
+                    <option value="">Select User</option>
+                    <option value="Admin">Admin</option>
                     <option value="Customer">Customer</option>
                     <option value="Employee">Employee</option>
 
@@ -86,24 +88,26 @@
 
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
                 </span>
 
 
 
             </div>
             <div class=" forgot-link form-group d-flex justify-content-between align-items-center">
-                <div class="form-check">
+                <!-- <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="remember" />
                     <label class="form-check-label" for="remember">Remember Password</label>
                 </div>
-                <a href="#">Forgot Password?</a>
+                <a href="#">Forgot Password?</a> -->
             </div>
-            <button type="submit" class="btn mt-2 rounded-pill btn-lg btn-custom btn-block text-uppercase">
+            <button type="submit" id="login_button"
+                class="btn mt-2 rounded-pill btn-lg btn-custom btn-block text-uppercase">
                 Log in
             </button>
-            <p class="mt-3 font-weight-normal">
-                Don't have an account? <a href="#"><strong>Create Account</strong></a>
+            <p class=" fill_text mt-3 font-weight-normal">
+                Don't have an account? <afontawesome
+                 href="#"><br/><strong class="create_acc_text">Create Account</strong></a>
             </p>
         </form>
 
