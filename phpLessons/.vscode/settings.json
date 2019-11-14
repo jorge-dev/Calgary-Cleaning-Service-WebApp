@@ -1,8 +1,0 @@
-{
-  //Enable/disable built-in PHP validation
-  "php.validate.enable": true,
-  //Point to the PHP executable
-  "php.executablePath": "C:/php/php.exe",
-  //Whether the linter is run on save or on type
-  "php.validate.run": "onSave"
-}
