@@ -18,8 +18,8 @@ body {
 .login-form {
     margin: auto;
     width: 400px;
-    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.911);
-    background: rgba(0, 0, 0, 0.808);
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.959);
+    background: rgba(75, 5, 97, 0.925);
 
 
     border-radius: 1rem;
@@ -31,8 +31,8 @@ body {
 .signup_form {
     margin: auto;
     width: 660px;
-    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.911);
-    background: rgba(0, 0, 0, 0.808);
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.925);
+    background: rgba(75, 5, 97, 0.925);
 
 
     border-radius: 1rem;
@@ -101,6 +101,23 @@ a {
 .btn-custom:focus {
     box-shadow: 2px 2px 2px 2px rgba(96, 231, 96, 0.5);
 }
+
+label{
+    padding-bottom: 3px;
+    display: flex;
+    margin: 0 7px;
+    align-content: flex-start;
+}
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: dotted;
+    border-width: 1px;
+  } 
 
 
 /* ================================================================== */
@@ -301,6 +318,7 @@ iframe {
 .txt2 {
     font-family: Poppins-Regular;
     font-size: 1em;
+    font-weight: 800;
     line-height: 1.5;
     color: #4073fd;
 }
@@ -412,7 +430,7 @@ iframe {
     background: #ffffff;
     height: 50px;
     border-radius: 10px;
-    padding: 0 20px 0 40px;
+    padding: 0px 20px 0px 40px;
 }
 
 .input300 {
@@ -491,8 +509,9 @@ iframe {
     width: 100%;
     height: 100%;
     padding-left: 15px;
+    padding-top:2rem;
     pointer-events: none;
-    color: #235e80;
+    color: #2367a7;
 
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
@@ -504,10 +523,12 @@ iframe {
     color: #57b846;
     padding-left: 20px;
 }
+
 .input200:focus+.focus-input100+.symbol-input100 {
     color: #57b846;
     padding-left: 20px;
 }
+
 .input300:focus+.focus-input100+.symbol-input100 {
     color: #57b846;
     padding-left: 20px;
@@ -664,4 +685,14 @@ iframe {
         visibility: visible;
         opacity: 1;
     }
+}
+
+.js-tilt{
+    height:150px;
+    width: 100%;
+}
+
+.js-tilt img{
+    height: 150px;
+    width:150px
 }

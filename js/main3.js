@@ -5,7 +5,7 @@
   
     /*==================================================================
     [ Validate ]*/
-    var input = $('.validate-input .input100');
+    var input = $('.validate-input .input300');
 
     $('.validate-form').on('submit',function(){
         var check = true;
@@ -21,7 +21,7 @@
     });
 
 
-    $('.validate-form .input100').each(function(){
+    $('.validate-form .input300').each(function(){
         $(this).focus(function(){
            hideValidate(this);
         });
@@ -53,8 +53,6 @@
         $(thisAlert).removeClass('alert-validate');
     }
     
-    
-      
     
 
 })(jQuery);

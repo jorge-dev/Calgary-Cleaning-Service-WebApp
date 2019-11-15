@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="custom.css" />
+    <link rel="stylesheet" type="text/css" href="custom2.css" />
     <title>Calgary Cleaners</title>
 </head>
 
@@ -32,7 +33,8 @@
             <p class=" mt-2 fill_text">Please login</p>
 
             <div class=" mt-2 wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                <input class="input100 form-control" type="text" name="email" placeholder="Email">
+            <label for="cust-type">Email/Username</label>
+                <input class="input100 form-control" type="text" name="email" placeholder="Email/Username">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -40,6 +42,7 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Password is required">
+            <label for="cust-type">Password</label>
                 <input class="input100 form-control" type="password" name="pass" placeholder="Password">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
@@ -47,6 +50,7 @@
                 </span>
             </div>
             <div class="wrap-input100  ">
+            <label for="cust-type">User</label>
                 <select required class=" form-control input100" id="selector">
                     <option value="">Select User</option>
                     <option value="Admin">Admin</option>
