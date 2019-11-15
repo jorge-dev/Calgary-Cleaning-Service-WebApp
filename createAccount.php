@@ -20,7 +20,8 @@
 </head>
 
 <body>
-    <div class="d-flex justify-content-center align-items-center login-container ">
+
+    <div class="d-flex justify-content-center align-items-center signup-container ">
 
 
         <form class="validate-form signup_form text-center">
@@ -31,7 +32,7 @@
                 <div class="  wrap-input100 form-group ">
 
                     <label for="cust-type">Customer Type</label>
-                    <select required class=" form-control input200" id="cust_type" >
+                    <select required class=" form-control input200" id="cust_type">
                         <option value="">Select Customer type</option>
                         <option value="Residential">Residential</option>
                         <option value="Company">Commercial</option>
@@ -44,7 +45,7 @@
 
                 </div>
             </div>
-            <hr  class="cust_type_input"/>
+            <hr class="cust_type_input" />
 
             <div class="form-row cust_residential" style="display:none;">
                 <div class=" wrap-input100  validate-input form-group col-md-4" data-validate="First name is required">
@@ -77,10 +78,10 @@
                 </div>
 
             </div>
-            <hr  class="cust_type_input cust_residential" style="display:none;"/>
+            <hr class="cust_type_input cust_residential" style="display:none;" />
 
             <div class="form-row cust_company" style="display:none;">
-                <div class=" wrap-input100  validate-input form-group col-md-6" data-validate="Company Name is required" >
+                <div class=" wrap-input100  validate-input form-group col-md-6" data-validate="Company Name is required">
                     <label for="cust-type">Company Name</label>
                     <input class="input300 form-control " type="text" name="Company_name" placeholder="Company Name">
                     <span class="focus-input100"></span>
@@ -94,11 +95,11 @@
                 </div>
 
             </div>
-            <hr  class="cust_company" style="display:none;"/>
+            <hr class="cust_company" style="display:none;" />
 
             <div class="form-row ">
                 <div class="wrap-input100 validate-input form-group " data-validate="Username is required">
-                <label for="cust-type">Username</label>
+                    <label for="cust-type">Username</label>
                     <input class="input200 form-control" type="text" name="user_name" placeholder="Username">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
@@ -106,7 +107,7 @@
                     </span>
                 </div>
                 <div class="wrap-input100 validate-input form-group " data-validate="Valid email is required: ex@abc.xyz">
-                <label for="cust-type">Email</label>
+                    <label for="cust-type">Email</label>
                     <input class="input200 form-control" type="text" name="email" placeholder="Email">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
@@ -115,7 +116,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input form-group " data-validate="Password is required">
-                <label for="cust-type">Password</label>
+                    <label for="cust-type">Password</label>
                     <input class="input200 form-control" type="password" name="pwd" placeholder="Password">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
@@ -123,7 +124,7 @@
                     </span>
                 </div>
                 <div class="wrap-input100 validate-input form-group" data-validate="Password is required">
-                <label for="cust-type">Confirm password</label>
+                    <label for="cust-type">Confirm password</label>
                     <input class="input200 form-control" type="password" name="pwd_Repeat" placeholder="Repeat Password">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
@@ -132,36 +133,36 @@
                 </div>
 
             </div>
-            <hr  class="cust_type_input"/>
+            <hr class="cust_type_input" />
 
             <div class="form-row ">
                 <div class=" wrap-input100  validate-input form-group " data-validate="Address is required">
-                <label for="cust-type">Address</label>
+                    <label for="cust-type">Address</label>
                     <input class="input300 form-control " type="text" name="address" placeholder="1234 Main St">
                     <span class="focus-input100"></span>
                 </div>
                 <div class=" wrap-input100 form-group ">
-                <label for="cust-type">Secondary/Business Adrress</label>
+                    <label for="cust-type">Secondary/Business Adrress</label>
                     <input class="input300 form-control " type="text" name="Building_address" placeholder="4321 Maple Blvd">
                     <span class="focus-input100"></span>
                 </div>
             </div>
-            <hr  class="cust_type_input"/>
+            <hr class="cust_type_input" />
 
             <div class="form-row">
                 <div class=" wrap-input100  validate-input form-group col-md-4" data-validate="City is required">
-                <label for="cust-type">City</label>
+                    <label for="cust-type">City</label>
                     <input class="input300 form-control " type="text" name="city" placeholder="Calgary">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input form-group col-md-4" data-validate="Postal Code is required">
-                <label for="cust-type">Postal Code</label>
+                    <label for="cust-type">Postal Code</label>
                     <input class=" input300 form-control " type="text" name="postal_code" placeholder="Postal Code">
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 form-group col-md-4">
-                <label for="cust-type">Province</label>
+                    <label for="cust-type">Province</label>
                     <select required class=" form-control input200" id="province">
                         <option hidden value="">Province</option>
                         <option value="AB">Alberta</option>
@@ -188,7 +189,7 @@
                 </div>
 
             </div>
-            <hr  class="cust_type_input"/>
+            <hr class="cust_type_input" />
 
 
             <button type="submit" id="login_button" class="btn mt-2 rounded-pill btn-md btn-custom btn-block text-uppercase">
@@ -223,16 +224,19 @@
 
         // show the company or residential inputs depending on slected customer type
         $('#cust_type').on('change', function() {
-        if ( $(this).val() === 'Company' ) {
-          $('.cust_company').show();
-          $("#gender").removeAttr("required");
+            if ($(this).val() === 'Company') {
+                $('.cust_company').show();
+                $('.cust_residential').hide();
+                $("#gender").removeAttr("required");
 
-        }
-        else if( $(this).val() === 'Residential' ) {
-          $('.cust_residential').show();
-        }
-        
-      });
+            } else if ($(this).val() === 'Residential') {
+                $('.cust_residential').show();
+                $('.cust_company').hide();
+                //   $("#gender").removeAttr("required");
+                $("#gender").attr("required", "required")
+            }
+
+        });
     </script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>

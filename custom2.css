@@ -1,18 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
 
 body {
+
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     background-image: url('images/bg2.jpg');
+    height:100%;
+   width:100%;
 
-
+   background-repeat:no-repeat;/*we want to have one single image not a repeated one*/  
+   background-size:auto;/*this sets the image to fullscreen covering the whole screen*/  
+   /*css hack for ie*/     
+  
     color: rgb(250, 246, 246);
+    
 }
 
 
 .login-container {
     height: 100vh;
     width: 100%;
+    
+}
+.signup-container {
+    height: 100vh;
+    width: 100%;
+    margin:5%;
+    padding-top: 5%;
 }
 
 .login-form {
@@ -29,8 +43,9 @@ body {
 }
 
 .signup_form {
-    margin: auto;
-    width: 660px;
+    
+    margin:5%;
+    width: 560px;
     box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.925);
     background: rgba(75, 5, 97, 0.925);
 
@@ -451,7 +466,7 @@ iframe {
 
 /*------------------------------------------------------------------
 [ Focus ]*/
-.focus-input100 {
+.focus-input100:not(label) {
     display: block;
     position: absolute;
     border-radius: 25px;
@@ -464,7 +479,7 @@ iframe {
     color: rgba(87, 184, 70, 0.8);
 }
 
-.input100:focus+.focus-input100 {
+.input100:focus+.focus-input100{
     -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
     animation: anim-shadow 0.5s ease-in-out forwards;
 }
@@ -474,7 +489,7 @@ iframe {
     animation: anim-shadow 0.5s ease-in-out forwards;
 }
 
-.input300:focus+.focus-input100 {
+.input300:focus+.focus-input100{
     -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
     animation: anim-shadow 0.5s ease-in-out forwards;
 }
