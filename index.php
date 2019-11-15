@@ -7,53 +7,22 @@
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="mainS.css" />
+    <link rel="stylesheet" type="text/css" href="custom.css" />
     <title>Calgary Cleaners</title>
 </head>
 
 <body>
     <div class="d-flex justify-content-center align-items-center login-container ">
-        <!-- <form class="login-form text-center">
-            <h3 class=" font-weight-light text-uppercase">Welcome!</h3>
-            <p class=" font-weight-light">Please login</p>
-            <div class="form-group">
-                <input type="text" class="form-control rounded-pill form-control-lg" placeholder="Username" />
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control rounded-pill form-control-lg" placeholder="Password" />
-            </div>
-            <div class="form-group form_control">
-                <select class="custom-select mr-sm-2 rounded-pill " id="inlineFormCustomSelect">
-                    <option selected>Select User</option>
-                    <option value="Admin">One</option>
-                    <option value="Customer">Two</option>
-                    <option value="Employee">Three</option>
-                </select>
-            </div>
-            <div class="forgot-link form-group d-flex justify-content-between align-items-center">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="remember" />
-                    <label class="form-check-label" for="remember">Remember Password</label>
-                </div>
-                <a href="#">Forgot Password?</a>
-            </div>
-            <button type="submit" class="btn mt-5 rounded-pill btn-lg btn-custom btn-block text-uppercase">
-                Log in
-            </button>
-            <p class="mt-3 font-weight-normal">
-                Don't have an account? <a href="#"><strong>Register Now</strong></a>
-            </p>
-        </form> -->
+       
 
         <form class="validate-form login-form text-center">
             <div class=" js-tilt" data-tilt>
@@ -94,20 +63,18 @@
 
 
             </div>
-            <div class=" forgot-link form-group d-flex justify-content-between align-items-center">
-                <!-- <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="remember" />
-                    <label class="form-check-label" for="remember">Remember Password</label>
-                </div>
-                <a href="#">Forgot Password?</a> -->
-            </div>
-            <button type="submit" id="login_button"
-                class="btn mt-2 rounded-pill btn-lg btn-custom btn-block text-uppercase">
+           
+            <button type="submit" id="login_button" class="btn mt-4  text-center btn-lg btn-custom btn-block text-uppercase">
                 Log in
             </button>
             <p class=" fill_text mt-3 font-weight-normal">
-                Don't have an account? <afontawesome
-                 href="#"><br/><strong class="create_acc_text">Create Account</strong></a>
+                Don't have an account?
+                <div class="text-center p-t-136">
+                    <a class="txt2" href="createAccount.php">
+                        Create your Account
+                        <i class="fa fa-chevron-circle-right " aria-hidden="true"></i>
+                    </a>
+                </div>
             </p>
         </form>
 
@@ -124,6 +91,7 @@
     <script src="vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
     <script src="vendor/tilt/tilt.jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
     <script>
         $('.js-tilt').tilt({
             scale: 1.1
