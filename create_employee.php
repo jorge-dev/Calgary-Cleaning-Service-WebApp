@@ -16,7 +16,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
     <link rel="stylesheet" type="text/css" href="custom2.css" />
-    <title>Sign Up</title>
+    <title>Create Employee</title>
 </head>
 
 <body>
@@ -26,37 +26,37 @@
 
         <form class="validate-form signup_form text-center">
 
-            <h3 class=" text-uppercase">Sign Up</h3>
+            <h3 class=" text-uppercase">Enter Information</h3>
             <div class=" mt-3 form-row ">
 
                 <div class="  wrap-input100 form-group ">
 
-                    <label for="cust-type">Customer Type</label>
-                    <select required class=" form-control input200" id="cust_type">
-                        <option value="">Select Customer type</option>
-                        <option value="Residential">Residential</option>
-                        <option value="Company">Commercial</option>
+                    <label for="cust-type">Employee Type</label>
+                    <select required class=" form-control input200" id="Emp_type">
+                        <option value="">Select type</option>
+                        <option value="Residential">Employee</option>
+                        <option value="Company">Admin</option>
                     </select>
 
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
-                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
                     </span>
 
                 </div>
             </div>
             <hr class="cust_type_input" />
 
-            <div class="form-row cust_residential" style="display:none;">
-                <div class=" wrap-input100  validate-input form-group col-md-4" data-validate="First name is required">
-                    <label for="" class="mt-2">First Name</label>
-                    <input class="input300 form-control" type="text" name="f_name" placeholder="First Name">
+            <div class="form-row " >
+                <div class=" wrap-input100  validate-input form-group col-md-4" data-validate="SIN is required">
+                    <label for="" class="mt-2">SIN </label>
+                    <input class="input300 form-control" type="text" name="emp_sin" placeholder="999-999-999">
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="wrap-input100  validate-input col-md-4" data-validate="Last Name is required">
-                    <label for="" class="mt-2">Last Name</label>
-                    <input class="input300 form-control " type="text" name="l_name" placeholder="Last Name">
+                <div class="wrap-input100  validate-input col-md-4" data-validate="Id is required">
+                    <label for="" class="mt-2">Employee ID</label>
+                    <input class="input300 form-control " type="int" name="emp_id" placeholder="Minimum 5 digits">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -197,7 +197,7 @@
                 Sign Up
             </button>
             <div class=" mt-4 text-center p-t-136">
-                    <a class="txt2" href="index.html">
+                    <a class="txt2" href="index.php">
                         Go Back
                     </a>
                 </div>

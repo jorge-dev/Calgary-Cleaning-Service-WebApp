@@ -25,7 +25,7 @@
     <div class="d-flex justify-content-center align-items-center login-container ">
        
 
-        <form class="validate-form login-form text-center">
+        <form  action="include/login_inc.php" method="POST" class="validate-form login-form text-center">
             <div class=" js-tilt" data-tilt>
                 <img src="images/logo.png" alt="IMG">
             </div>
@@ -34,7 +34,7 @@
 
             <div class=" mt-2 wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
             <label for="cust-type">Email / Username</label>
-                <input class="input100 form-control" type="text" name="email" placeholder="Email/Username">
+                <input class="input100 form-control" type="text" name="email_uid" placeholder="Email/Username">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -43,7 +43,7 @@
 
             <div class="wrap-input100 validate-input" data-validate="Password is required">
             <label for="cust-type">Password</label>
-                <input class="input100 form-control" type="password" name="pass" placeholder="*********">
+                <input class="input100 form-control" type="password" name="pwd_login" placeholder="*********">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
@@ -51,7 +51,7 @@
             </div>
             <div class="wrap-input100  ">
             <label for="cust-type">User</label>
-                <select required class=" form-control input100" id="selector">
+                <select required class=" form-control input100" name= "user_type"id="selector">
                     <option value="">Select User</option>
                     <option value="Admin">Admin</option>
                     <option value="Customer">Customer</option>
@@ -68,13 +68,13 @@
 
             </div>
            
-            <button type="submit" id="login_button" class="btn mt-4  text-center btn-lg btn-custom btn-block text-uppercase">
+            <button type="submit" name="login_submit" id="login_button" class="btn mt-4  text-center btn-lg btn-custom btn-block text-uppercase">
                 Log in
             </button>
             <p class=" fill_text mt-3 font-weight-normal">
                 Don't have an account?
                 <div class="text-center p-t-136">
-                    <a class="txt2" href="createAccount.html">
+                    <a class="txt2" href="signUp.php">
                         Create your Account
                         <i class="fa fa-chevron-circle-right " aria-hidden="true"></i>
                     </a>
