@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST['login_submit'])) {
-    require 'dbh_connection_inc.php';
+    require 'db_connection_inc.php';
     $emailuid= mysqli_real_escape_string($connect ,$_POST['email_uid']);
     $password= mysqli_real_escape_string($connect ,$_POST['pwd_login']);
     $usr_type= mysqli_real_escape_string($connect ,$_POST['user_type']);
@@ -14,7 +14,7 @@ if (isset($_POST['login_submit'])) {
         $sql="SELECT * From employee AS E Where username=? AND (user_type=? OR email =?;)";
         $stmt= mysqli_stmt_init($connect);
         if (!mysqli_stmt_prepare($stmt,$sql)) {
-            header("Location: ../index.php?error=sqlErrorSelectAdimn");
+            header("Location: ../index.php?error=sqlErrorSelectAdmin");
             exit();
         }
         else {

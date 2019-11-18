@@ -7,8 +7,8 @@
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
@@ -23,9 +23,9 @@
 
 <body>
     <div class="d-flex justify-content-center align-items-center login-container ">
-       
 
-        <form  action="include/login_inc.php" method="POST" class="validate-form login-form text-center">
+
+        <form action="include/login_inc.php" method="POST" class="validate-form login-form text-center">
             <div class=" js-tilt" data-tilt>
                 <img src="images/logo.png" alt="IMG">
             </div>
@@ -33,7 +33,7 @@
             <p class=" mt-2 fill_text">Please login</p>
 
             <div class=" mt-2 wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-            <label for="cust-type">Email / Username</label>
+                <label for="cust-type">Email / Username</label>
                 <input class="input100 form-control" type="text" name="email_uid" placeholder="Email/Username">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
@@ -42,7 +42,7 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Password is required">
-            <label for="cust-type">Password</label>
+                <label for="cust-type">Password</label>
                 <input class="input100 form-control" type="password" name="pwd_login" placeholder="*********">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
@@ -50,12 +50,13 @@
                 </span>
             </div>
             <div class="wrap-input100  ">
-            <label for="cust-type">User</label>
-                <select required class=" form-control input100" name= "user_type"id="selector">
-                    <option value="">Select User</option>
-                    <option value="Admin">Admin</option>
-                    <option value="Customer">Customer</option>
-                    <option value="Employee">Employee</option>
+                <label for="cust-type">User</label>
+                <select required class=" form-control input-100" name="user_type" id="selector">
+                    <option value="" class='select-icon'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select User
+                    </option>
+                    <option value="Admin">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admin</option>
+                    <option value="Customer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Customer</option>
+                    <option value="Employee">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Employee</option>
 
                 </select>
 
@@ -67,8 +68,9 @@
 
 
             </div>
-           
-            <button type="submit" name="login_submit" id="login_button" class="btn mt-4  text-center btn-lg btn-custom btn-block text-uppercase">
+
+            <button type="submit" name="login_submit" id="login_button"
+                class="btn mt-4  text-center btn-lg btn-custom btn-block text-uppercase">
                 Log in
             </button>
             <p class=" fill_text mt-3 font-weight-normal">
@@ -97,9 +99,9 @@
     <script src="vendor/tilt/tilt.jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
     <script>
-        $('.js-tilt').tilt({
-            scale: 1.1
-        })
+    $('.js-tilt').tilt({
+        scale: 1.1
+    })
     </script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
