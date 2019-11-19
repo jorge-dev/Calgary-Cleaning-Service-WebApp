@@ -7,8 +7,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--===============================================================================================-->
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
@@ -20,9 +19,9 @@
     <title>Sign Up</title>
 </head>
 
-<body>
+<body >
 
-    <div class="d-flex justify-content-center align-items-center signup-container ">
+    <div class="d-flex justify-content-center align-items-center  ">
 
 
         <form class="validate-form signup_form text-center">
@@ -34,9 +33,9 @@
 
                     <label for="cust-type">Customer Type</label>
                     <select required class=" form-control input200" id="cust_type">
-                        <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select Customer type</option>
-                        <option value="Residential">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Residential</option>
-                        <option value="Company">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Commercial</option>
+                        <option value="">&nbsp;&nbsp;Select Customer type</option>
+                        <option value="Residential">&nbsp;&nbsp;Residential</option>
+                        <option value="Company">&nbsp;&nbsp;Commercial</option>
                     </select>
 
                     <span class="focus-input100"></span>
@@ -64,10 +63,10 @@
                 <div class="wrap-input100 form-group form-group col-md-4">
                     <label for="" class="mt-2">Gender</label>
                     <select required class=" form-control input200" id="gender">
-                        <option value="" hidden>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select Gender</option>
-                        <option value="Male">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Male</option>
-                        <option value="Female">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Female</option>
-                        <option value="Other">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other</option>
+                        <option value="" hidden>&nbsp;Select Gender</option>
+                        <option value="Male">&nbsp;Male</option>
+                        <option value="Female">&nbsp;Female</option>
+                        <option value="Other">&nbsp;Other</option>
 
                     </select>
 
@@ -82,8 +81,7 @@
             <hr class="cust_type_input cust_residential" style="display:none;" />
 
             <div class="form-row cust_company" style="display:none;">
-                <div class=" wrap-input100  validate-input form-group col-md-6"
-                    data-validate="Company Name is required">
+                <div class=" wrap-input100  validate-input form-group col-md-6" data-validate="Company Name is required">
                     <label for="cust-type">Company Name</label>
                     <input class="input300 form-control " type="text" name="Company_name" placeholder="Company Name">
                     <span class="focus-input100"></span>
@@ -91,8 +89,7 @@
 
                 <div class="wrap-input100  validate-input col-md-6" data-validate="Rep# is required">
                     <label for="cust-type">Company Representative</label>
-                    <input class=" input300 form-control " type="text" name="Comp_Rep_num"
-                        placeholder="Company Representative #">
+                    <input class=" input300 form-control " type="text" name="Comp_Rep_num" placeholder="Company Representative #">
                     <span class="focus-input100"></span>
 
                 </div>
@@ -109,8 +106,7 @@
                         <i class="fa fa-user-check" aria-hidden="true"></i>
                     </span>
                 </div>
-                <div class="wrap-input100 validate-input form-group "
-                    data-validate="Valid email is required: ex@abc.xyz">
+                <div class="wrap-input100 validate-input form-group " data-validate="Valid email is required: ex@abc.xyz">
                     <label for="cust-type">Email</label>
                     <input class="input200 form-control" type="text" name="email" placeholder="Email">
                     <span class="focus-input100"></span>
@@ -140,6 +136,11 @@
             <hr class="cust_type_input" />
 
             <div class="form-row ">
+                <div class=" wrap-input100  validate-input form-group " data-validate="Phone is required">
+                    <label for="cust-type">Phone Number (Format: 123-456-7890)</label>
+                    <input class="input300 form-control " type="tel" name="phone_num" require pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="587-451-6780">
+                    <span class="focus-input100"></span>
+                </div>
                 <div class=" wrap-input100  validate-input form-group " data-validate="Address is required">
                     <label for="cust-type">Address</label>
                     <input class="input300 form-control " type="text" name="address" placeholder="1234 Main St">
@@ -147,8 +148,7 @@
                 </div>
                 <div class=" wrap-input100 form-group ">
                     <label for="cust-type">Secondary/Business Adrress</label>
-                    <input class="input300 form-control " type="text" name="Building_address"
-                        placeholder="4321 Maple Blvd">
+                    <input class="input300 form-control " type="text" name="Building_address" placeholder="4321 Maple Blvd">
                     <span class="focus-input100"></span>
                 </div>
             </div>
@@ -169,20 +169,20 @@
                 <div class="wrap-input100 form-group col-md-4">
                     <label for="cust-type">Province</label>
                     <select required class=" form-control input200" id="province">
-                        <option hidden value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Province</option>
-                        <option value="AB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alberta</option>
-                        <option value="BC">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;British Columbia</option>
-                        <option value="MB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manitoba</option>
-                        <option value="NB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New Brunswick</option>
-                        <option value="NL">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Newfoundland and Labrador</option>
-                        <option value="NS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nova Scotia</option>
-                        <option value="ON">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ontario</option>
-                        <option value="PE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prince Edward Island</option>
-                        <option value="QC">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quebec</option>
-                        <option value="SK">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Saskatchewan</option>
-                        <option value="NT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Northwest Territories</option>
-                        <option value="NU">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nunavut</option>
-                        <option value="YT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yukon</option>
+                        <option hidden value="">&nbsp;&nbsp;Province</option>
+                        <option value="AB">&nbsp;&nbsp;Alberta</option>
+                        <option value="BC">&nbsp;&nbsp;British Columbia</option>
+                        <option value="MB">&nbsp;&nbsp;Manitoba</option>
+                        <option value="NB">&nbsp;&nbsp;New Brunswick</option>
+                        <option value="NL">&nbsp;&nbsp;Newfoundland and Labrador</option>
+                        <option value="NS">&nbsp;&nbsp;Nova Scotia</option>
+                        <option value="ON">&nbsp;&nbsp;Ontario</option>
+                        <option value="PE">&nbsp;&nbsp;Prince Edward Island</option>
+                        <option value="QC">&nbsp;&nbsp;Quebec</option>
+                        <option value="SK">&nbsp;&nbsp;Saskatchewan</option>
+                        <option value="NT">&nbsp;&nbsp;Northwest Territories</option>
+                        <option value="NU">&nbsp;&nbsp;Nunavut</option>
+                        <option value="YT">&nbsp;&nbsp;Yukon</option>
 
                     </select>
 
@@ -198,8 +198,7 @@
 
 
 
-            <button type="submit" id="login_button"
-                class="btn mt-2 rounded-pill btn-md btn-custom btn-block text-uppercase">
+            <button type="submit" id="login_button" class="btn mt-2 rounded-pill btn-md btn-custom btn-block text-uppercase">
                 Sign Up
             </button>
             <div class=" mt-4 text-center p-t-136">
@@ -236,25 +235,25 @@
     <script src="vendor/tilt/tilt.jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
     <script>
-    $('.js-tilt').tilt({
-        scale: 1.1
-    })
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
 
-    // show the company or residential inputs depending on slected customer type
-    $('#cust_type').on('change', function() {
-        if ($(this).val() === 'Company') {
-            $('.cust_company').show();
-            $('.cust_residential').hide();
-            $("#gender").removeAttr("required");
+        // show the company or residential inputs depending on slected customer type
+        $('#cust_type').on('change', function() {
+            if ($(this).val() === 'Company') {
+                $('.cust_company').show();
+                $('.cust_residential').hide();
+                $("#gender").removeAttr("required");
 
-        } else if ($(this).val() === 'Residential') {
-            $('.cust_residential').show();
-            $('.cust_company').hide();
-            //   $("#gender").removeAttr("required");
-            $("#gender").attr("required", "required")
-        }
+            } else if ($(this).val() === 'Residential') {
+                $('.cust_residential').show();
+                $('.cust_company').hide();
+                //   $("#gender").removeAttr("required");
+                $("#gender").attr("required", "required")
+            }
 
-    });
+        });
     </script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
