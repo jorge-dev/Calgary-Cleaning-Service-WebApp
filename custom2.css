@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
 
+
 body {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
@@ -10,19 +11,51 @@ body {
   background-repeat: no-repeat;
   /*we want to have one single image not a repeated one*/
   background-size: auto;
+
+ 
   /*this sets the image to fullscreen covering the whole screen*/
   /*css hack for ie*/
 
   color: rgb(250, 246, 246);
 }
 
+.createEmp{
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  background-image: url("images/bg2.jpg");
+  height: 200%;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  /*we want to have one single image not a repeated one*/
+  background-size: 150% 205%;
+
+ 
+  /*this sets the image to fullscreen covering the whole screen*/
+  /*css hack for ie*/
+
+  color: rgb(250, 246, 246);
+}
+
+.create_emp_form{
+  margin-bottom: 35px;
+  margin-top: 35px;
+  width: 560px;
+  box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.925);
+  background: rgba(36, 1, 46, 0.925);
+
+  border-radius: 1rem;
+
+  padding: 15px;
+  max-width: 100%;
+}
 .login-container {
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 
 .signup-container {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   margin-top: 120px;
   padding-top: 5%;
@@ -42,6 +75,7 @@ body {
 
 .signup_form {
   margin-bottom: 35px;
+  margin-top: 35px;
   width: 560px;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.925);
   background: rgba(36, 1, 46, 0.925);
