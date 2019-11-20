@@ -67,7 +67,7 @@ if (isset($_POST['signup-submit'])) {
     }
     
     mysqli_stmt_close($stmt);
-    mysqli_query($connect);
+    mysqli_close($connect);
 
 }
 else {

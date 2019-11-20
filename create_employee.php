@@ -211,7 +211,7 @@
 
 
 
-            <button type="submit" id="create_emp_button" class="btn mt-4  btn-md btn-custom btn-block text-uppercase">
+            <button type="submit" name="create_emp_button" class="btn mt-4  btn-md btn-custom btn-block text-uppercase">
                 Create Employee
             </button>
             <div class=" mt-4 text-center p-t-136">

@@ -198,7 +198,7 @@
 
 
 
-            <button type="submit" id="login_button" class="btn mt-2 rounded-pill btn-md btn-custom btn-block text-uppercase">
+            <button type="submit" name="signUp_button" class="btn mt-2 rounded-pill btn-md btn-custom btn-block text-uppercase">
                 Sign Up
             </button>
             <div class=" mt-4 text-center p-t-136">
