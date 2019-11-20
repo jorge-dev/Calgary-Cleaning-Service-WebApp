@@ -141,7 +141,7 @@
             <div class="form-row ">
                 <div class="wrap-input100 validate-input form-group " data-validate="Username is required">
                     <label for="cust-type">Username</label>
-                    <input class="input200 form-control" type="text" name="emp_user_name" placeholder="Username">
+                    <input class="input200 form-control" type="text" pattern="[a-zA-Z][a-zA-Z0-9-_.]{1,20}" name="emp_user_name" placeholder="Username">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-user-check" aria-hidden="true"></i>
@@ -211,7 +211,7 @@
 
 
 
-            <button type="submit" id="create_emp_button" class="btn mt-4  btn-md btn-custom btn-block text-uppercase">
+            <button type="submit" name="create_emp_button" class="btn mt-4  btn-md btn-custom btn-block text-uppercase">
                 Create Employee
             </button>
             <div class=" mt-4 text-center p-t-136">

@@ -7,8 +7,7 @@
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
@@ -51,12 +50,12 @@
             </div>
             <div class="wrap-input100  ">
                 <label for="cust-type">User</label>
-                <select required class=" form-control input-100" name="user_type" id="selector">
-                    <option value="" class='select-icon'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select User
+                <select required class=" form-control input100" name="user_type" id="selector">
+                    <option value="">&nbsp;Select User
                     </option>
-                    <option value="Admin">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admin</option>
-                    <option value="Customer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Customer</option>
-                    <option value="Employee">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Employee</option>
+                    <option value="Admin">&nbsp;Admin</option>
+                    <option value="Customer">&nbsp;Customer</option>
+                    <option value="Employee">&nbsp;Employee</option>
 
                 </select>
 
@@ -69,8 +68,8 @@
 
             </div>
 
-            <button type="submit" name="login_submit" id="login_button"
-                class="btn mt-4  text-center btn-lg btn-custom btn-block text-uppercase">
+
+            <button type="submit" name="login_submit" id="login_button" class="btn mt-4  text-center btn-lg btn-custom btn-block text-uppercase">
                 Log in
             </button>
             <p class=" fill_text mt-3 font-weight-normal">
@@ -99,9 +98,9 @@
     <script src="vendor/tilt/tilt.jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
     <script>
-    $('.js-tilt').tilt({
-        scale: 1.1
-    })
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
     </script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
