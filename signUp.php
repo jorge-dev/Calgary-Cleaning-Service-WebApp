@@ -19,7 +19,7 @@
     <title>Sign Up</title>
 </head>
 
-<body >
+<body>
 
     <div class="d-flex justify-content-center align-items-center  ">
 
@@ -32,7 +32,7 @@
                 <div class="  wrap-input100 form-group ">
 
                     <label for="cust-type">Customer Type</label>
-                    <select required class=" form-control input200" id="cust_type">
+                    <select required class=" form-control input200" id="cust_type" oninvalid="this.setCustomValidity('Please Select a Type')" oninput="this.setCustomValidity('')">
                         <option value="">&nbsp;&nbsp;Select Customer type</option>
                         <option value="Residential">&nbsp;&nbsp;Residential</option>
                         <option value="Company">&nbsp;&nbsp;Commercial</option>
@@ -244,21 +244,37 @@
             if ($(this).val() === 'Company') {
                 $('.cust_company').show();
                 $('.cust_residential').hide();
-                $("#gender").removeAttr("required");
+                // $("#gender").removeAttr("required");
+                $("#gender").attr("disabled", "disabled");
+                $(".resi").attr("disabled", "disabled");
+
+
+                if ($(".comp").hasAttribute("disabled")) {
+                    $(".comp").removeAttr("disabled");
+
+
+                }
+
 
             } else if ($(this).val() === 'Residential') {
                 $('.cust_residential').show();
                 $('.cust_company').hide();
                 //   $("#gender").removeAttr("required");
-                $("#gender").attr("required", "required")
+                $("#gender").attr("required", "required");
+                $("#gender").attr("disabled", "disabled");
+                $(".comp").attr("disabled", "disabled");
+
+                if ($(".resi").hasAttribute("disabled")) {
+                    $(".resi").removeAttr("disabled");
+                }
             }
 
         });
     </script>
     <!--===============================================================================================-->
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script>
     <script src="js/main2.js"></script>
-    <script src="js/main3.js"></script>
+    <script src="js/main3.js"></script> -->
 
 
 
