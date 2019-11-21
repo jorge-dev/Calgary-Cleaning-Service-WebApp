@@ -48,21 +48,21 @@
             <hr class="cust_type_input" />
 
             <div class="form-row cust_residential" style="display:none;">
-                <div class=" wrap-input100  validate-input form-group col-md-4" data-validate="First name is required">
+                <div class=" wrap-input100  validate-input form-group col-md-4">
                     <label for="" class="mt-2">First Name</label>
-                    <input class="input300 form-control" type="text" name="f_name" placeholder="First Name">
+                    <input class="input300 form-control resi" required type="text" name="f_name" placeholder="First Name" id="cust_type" oninvalid="this.setCustomValidity('First name is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="wrap-input100  validate-input col-md-4" data-validate="Last Name is required">
+                <div class="wrap-input100  validate-input col-md-4">
                     <label for="" class="mt-2">Last Name</label>
-                    <input class="input300 form-control " type="text" name="l_name" placeholder="Last Name">
+                    <input class="input300 form-control resi" required type="text" name="l_name" placeholder="Last Name" id="cust_type" oninvalid="this.setCustomValidity('Last Name is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 form-group form-group col-md-4">
                     <label for="" class="mt-2">Gender</label>
-                    <select required class=" form-control input200" id="gender">
+                    <select required class=" form-control input200" id="gender" id="cust_type" oninvalid="this.setCustomValidity('Please Select a Gender')" oninput="this.setCustomValidity('')">
                         <option value="" hidden>&nbsp;Select Gender</option>
                         <option value="Male">&nbsp;Male</option>
                         <option value="Female">&nbsp;Female</option>
@@ -81,15 +81,15 @@
             <hr class="cust_type_input cust_residential" style="display:none;" />
 
             <div class="form-row cust_company" style="display:none;">
-                <div class=" wrap-input100  validate-input form-group col-md-6" data-validate="Company Name is required">
+                <div class=" wrap-input100  validate-input form-group col-md-6">
                     <label for="cust-type">Company Name</label>
-                    <input class="input300 form-control " type="text" name="Company_name" placeholder="Company Name">
+                    <input class="input300 form-control comp" required type="text" name="Company_name" placeholder="Company Name" oninvalid="this.setCustomValidity('Company Name is Required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="wrap-input100  validate-input col-md-6" data-validate="Rep# is required">
+                <div class="wrap-input100  validate-input col-md-6">
                     <label for="cust-type">Company Representative</label>
-                    <input class=" input300 form-control " type="text" name="Comp_Rep_num" placeholder="Company Representative #">
+                    <input class=" input300 form-control comp" required type="text" name="Comp_Rep_num" placeholder="Company Representative #" oninvalid="this.setCustomValidity('Company Rep# is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
 
                 </div>
@@ -98,34 +98,34 @@
             <hr class="cust_company" style="display:none;" />
 
             <div class="form-row ">
-                <div class="wrap-input100 validate-input form-group " data-validate="Username is required">
-                    <label for="cust-type">Username</label>
-                    <input class="input200 form-control" type="text" name="user_name" placeholder="Username">
+                <div class="wrap-input100 validate-input form-group ">
+                    <label for="cust-type">Username <span class="span_format">&nbsp;&nbsp;(Format: only letters, numbers and/or symbol "_" are allowed!)</span></label>
+                    <input class="input200 form-control" required type="text" name="user_name" placeholder="Username" pattern="[a-zA-Z][a-zA-Z0-9-_]{1,20}" oninvalid="this.setCustomValidity('Valid Username is Required: User1_E')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-user-check" aria-hidden="true"></i>
                     </span>
                 </div>
-                <div class="wrap-input100 validate-input form-group " data-validate="Valid email is required: ex@abc.xyz">
+                <div class="wrap-input100 validate-input form-group ">
                     <label for="cust-type">Email</label>
-                    <input class="input200 form-control" type="text" name="email" placeholder="Email">
+                    <input class="input200 form-control" type="text" name="email" placeholder="Email" oninvalid="this.setCustomValidity('Valid email is required: ex@abc.com')" oninput="this.setCustomValidity('')" required>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                     </span>
                 </div>
 
-                <div class="wrap-input100 validate-input form-group " data-validate="Password is required">
+                <div class="wrap-input100 validate-input form-group ">
                     <label for="cust-type">Password</label>
-                    <input class="input200 form-control" type="password" name="pwd" placeholder="*********">
+                    <input class="input200 form-control" required type="password" name="pwd" placeholder="*********" oninvalid="this.setCustomValidity('Password is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
                 </div>
-                <div class="wrap-input100 validate-input form-group" data-validate="Password is required">
+                <div class="wrap-input100 validate-input form-group">
                     <label for="cust-type">Confirm password</label>
-                    <input class="input200 form-control" type="password" name="pwd_Repeat" placeholder="*********">
+                    <input class="input200 form-control" required type="password" name="pwd_Repeat" placeholder="*********" oninvalid="this.setCustomValidity('Confirm Password is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -136,18 +136,18 @@
             <hr class="cust_type_input" />
 
             <div class="form-row ">
-                <div class=" wrap-input100  validate-input form-group " data-validate="Phone is required">
-                    <label for="cust-type">Phone Number (Format: 123-456-7890)</label>
-                    <input class="input300 form-control " type="tel" name="phone_num" require pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="587-451-6780">
+                <div class=" wrap-input100  validate-input form-group ">
+                    <label for="cust-type">Phone Number <span class="span_format">&nbsp;&nbsp;(Format: 123-456-7890)</span></label>
+                    <input class="input300 form-control " type="tel" name="phone_num" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="587-451-6780" oninvalid="this.setCustomValidity('Valid Phone Number is Required: 555-555-5555:')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
-                <div class=" wrap-input100  validate-input form-group " data-validate="Address is required">
+                <div class=" wrap-input100  validate-input form-group ">
                     <label for="cust-type">Address</label>
-                    <input class="input300 form-control " type="text" name="address" placeholder="1234 Main St">
+                    <input class="input300 form-control " type="text" name="address" placeholder="1234 Main St" required oninvalid="this.setCustomValidity('Address is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
                 <div class=" wrap-input100 form-group ">
-                    <label for="cust-type">Secondary/Business Adrress</label>
+                    <label for="cust-type">Secondary/Business Address</label>
                     <input class="input300 form-control " type="text" name="Building_address" placeholder="4321 Maple Blvd">
                     <span class="focus-input100"></span>
                 </div>
@@ -155,20 +155,20 @@
             <hr class="cust_type_input" />
 
             <div class="form-row">
-                <div class=" wrap-input100  validate-input form-group col-md-4" data-validate="City is required">
+                <div class=" wrap-input100  validate-input form-group col-md-4">
                     <label for="cust-type">City</label>
-                    <input class="input300 form-control " type="text" name="city" placeholder="Calgary">
+                    <input class="input300 form-control " type="text" name="city" placeholder="Calgary" required oninvalid="this.setCustomValidity('City is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input form-group col-md-4" data-validate="Postal Code is required">
+                <div class="wrap-input100 validate-input form-group col-md-4">
                     <label for="cust-type">Postal Code</label>
-                    <input class=" input300 form-control " type="text" name="postal_code" placeholder="Postal Code">
+                    <input class=" input300 form-control " type="text" name="postal_code" placeholder="T3k6R2" required oninvalid="this.setCustomValidity('Valid Postal Code is Required: A0A0A0')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 form-group col-md-4">
                     <label for="cust-type">Province</label>
-                    <select required class=" form-control input200" id="province">
+                    <select required class=" form-control input200" id="province" pattern="[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]" oninvalid="this.setCustomValidity('Please Select a Province/Territory')" oninput="this.setCustomValidity('')">
                         <option hidden value="">&nbsp;&nbsp;Province</option>
                         <option value="AB">&nbsp;&nbsp;Alberta</option>
                         <option value="BC">&nbsp;&nbsp;British Columbia</option>
@@ -202,7 +202,7 @@
                 Sign Up
             </button>
             <div class=" mt-4 text-center p-t-136">
-                <a class="txt2" href="index.php">
+                <a class="txt2" href="index.html">
                     Go Back
                 </a>
             </div>
@@ -245,28 +245,34 @@
                 $('.cust_company').show();
                 $('.cust_residential').hide();
                 // $("#gender").removeAttr("required");
+                // if ($(".comp").hasAttribute("disabled")) 
+                $(".comp").removeAttr("disabled");
+
+
                 $("#gender").attr("disabled", "disabled");
                 $(".resi").attr("disabled", "disabled");
+                $(".resi").removeAttr("required");
+                $("#gender").removeAttr("required");
+                // $(".comp").attr("required", "required");
 
 
-                if ($(".comp").hasAttribute("disabled")) {
-                    $(".comp").removeAttr("disabled");
-
-
-                }
 
 
             } else if ($(this).val() === 'Residential') {
                 $('.cust_residential').show();
                 $('.cust_company').hide();
                 //   $("#gender").removeAttr("required");
-                $("#gender").attr("required", "required");
-                $("#gender").attr("disabled", "disabled");
-                $(".comp").attr("disabled", "disabled");
+                // $("#gender").attr("required", "required");
+                // if ($(".resi").hasAttribute("disabled")) 
+                $(".resi").removeAttr("disabled");
 
-                if ($(".resi").hasAttribute("disabled")) {
-                    $(".resi").removeAttr("disabled");
-                }
+
+                $("#gender").removeAttr("disabled");
+                $(".comp").attr("disabled", "disabled");
+                $(".comp").removeAttr("required");
+                // $(".resi").attr("required", "required");
+
+
             }
 
         });

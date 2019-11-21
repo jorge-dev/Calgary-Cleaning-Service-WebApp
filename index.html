@@ -31,18 +31,18 @@
             <h3 class=" text-uppercase">Welcome!</h3>
             <p class=" mt-2 fill_text">Please login</p>
 
-            <div class=" mt-2 wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            <div class=" mt-2 wrap-input100 validate-input">
                 <label for="cust-type">Email / Username</label>
-                <input class="input100 form-control" type="text" name="email_uid" placeholder="Email/Username">
+                <input class="input100 form-control" type="email" name="email_uid" placeholder="Email/Username" id="cust_type" oninvalid="this.setCustomValidity('Valid email is required: ex@abc.com')" oninput="this.setCustomValidity('')" required>
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
                 </span>
             </div>
 
-            <div class="wrap-input100 validate-input" data-validate="Password is required">
+            <div class="wrap-input100 validate-input" >
                 <label for="cust-type">Password</label>
-                <input class="input100 form-control" type="password" name="pwd_login" placeholder="*********">
+                <input required class="input100 form-control" type="password" name="pwd_login" placeholder="*********" id="cust_type" oninvalid="this.setCustomValidity('Password is required')" oninput="this.setCustomValidity('')">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
@@ -50,7 +50,7 @@
             </div>
             <div class="wrap-input100  ">
                 <label for="cust-type">User</label>
-                <select required class=" form-control input100" name="user_type" id="selector">
+                <select required class=" form-control input100" name="user_type" id="selector" id="cust_type" oninvalid="this.setCustomValidity('Please Select a User')" oninput="this.setCustomValidity('')">
                     <option value="">&nbsp;Select User
                     </option>
                     <option value="Admin">&nbsp;Admin</option>
@@ -75,7 +75,7 @@
             <p class=" fill_text mt-3 font-weight-normal">
                 Don't have an account?
                 <div class="text-center p-t-136">
-                    <a class="txt2" href="signUp.php">
+                    <a class="txt2" href="signUp.html">
                         Create your Account
                         <i class="fa fa-chevron-circle-right " aria-hidden="true"></i>
                     </a>

@@ -24,15 +24,15 @@
     <div class="d-flex justify-content-center align-items-center ">
 
 
-        <form class="validate-form create_emp_form text-center">
+        <form class="validate-form create_emp_form text-center" action="include/create_emp_inc.php" method="POST">
 
-            <h3 class=" text-uppercase">Enter Information</h3>
+            <h3 class=" text-uppercase">Create Employee</h3>
             <div class=" mt-3 form-row ">
 
                 <div class="  wrap-input100 form-group ">
 
                     <label for="cust-type">Employee User Type</label>
-                    <select required class=" form-control input200" id="emp_type">
+                    <select required class=" form-control input200" name="emp_user_type" oninvalid="this.setCustomValidity('Please Select an Employee Type')" oninput="this.setCustomValidity('')">
                         <option value="">Select User type</option>
                         <option value="employee">Employee</option>
                         <option value="admin">Admin</option>
@@ -48,7 +48,7 @@
                 <div class="  wrap-input100 form-group ">
 
                     <label for="cust-type">JobType</label>
-                    <select required class=" form-control input200" id="emp_job_type">
+                    <select required class=" form-control input200" name="emp_job_type" required oninvalid="this.setCustomValidity('Please Select a Jobtype')" oninput="this.setCustomValidity('')">
                         <option value="">Select Job type</option>
                         <option value="employee">Employee</option>
                         <option value="admin">Admin/IT</option>
@@ -65,8 +65,8 @@
 
                 </div>
                 <div class=" wrap-input100  validate-input form-group" data-validate="Start Date is required">
-                    <label for="" class="mt-2">Start Date (YYYY/DD/MM)</label>
-                    <input class="input300 form-control" type="text" pattern="(?:19|20)[0-9]{2}/(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])-31))" name="emp_start_date" placeholder="YYYY/DD/MM">
+                    <label for="" class="mt-2">Start Date <span class="span_format"> &nbsp;&nbsp;(YYYY-MM-DD)</span>    </label>
+                    <input class="input300 form-control" type="text" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" name="emp_start_date" placeholder="YYYY-DD-MM" required oninvalid="this.setCustomValidity('Valid Start Date is Required: YYYY-MM-DD')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -74,21 +74,22 @@
             <hr class="cust_type_input" />
 
             <div class="form-row ">
-                <div class=" wrap-input100  validate-input form-group col-md-4" data-validate="SIN is required">
+                <div class=" wrap-input100  validate-input form-group col-md-6" >
                     <label for="" class="mt-2">SIN </label>
-                    <input class="input300 form-control" type="text" require pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" name="emp_sin" placeholder="999-999-999">
+                    <input class="input300 form-control" type="text" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" name="emp_sin" placeholder="999-999-999" oninvalid="this.setCustomValidity('Valid Sin Required: 000-000-000')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
+                
 
-                <div class="wrap-input100  validate-input col-md-4" data-validate="Id is required">
+                <!-- <div class="wrap-input100  validate-input col-md-4" data-validate="Id is required">
                     <label for="" class="mt-2">Employee ID</label>
                     <input class="input300 form-control " type="number" min="1" max='32700' name="emp_id" placeholder="Value from 0-32700">
                     <span class="focus-input100"></span>
-                </div>
+                </div> -->
 
-                <div class="wrap-input100 form-group form-group col-md-4">
+                <div class="wrap-input100 form-group form-group col-md-6">
                     <label for="" class="mt-2">Gender</label>
-                    <select required class=" form-control input200" id="emp_gender">
+                    <select required class=" form-control input200" id="emp_gender" oninvalid="this.setCustomValidity('Please Select a Gender')" oninput="this.setCustomValidity('')">
                         <option value="" hidden>Select Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -102,71 +103,69 @@
                     </span>
 
                 </div>
+                <div class=" wrap-input100  validate-input form-group">
+                    <label for="" class="mt-2">Date Of Birth<span class="span_format"> &nbsp;&nbsp;(YYYY-MM-DD)</span> </label>
+                    <input class="input300 form-control" type="text" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" name="emp_birthDate" placeholder="YYYY-DD-MM" required oninvalid="this.setCustomValidity('Valid Date Of Birth is Required: YYYY-MM-DD')" oninput="this.setCustomValidity('')">
+                    <span class="focus-input100"></span>
+                </div>
 
             </div>
             <hr class="" />
 
             <div class="form-row ">
-                <div class=" wrap-input100  validate-input form-group col-md-4" data-validate="First name is required">
+                <div class=" wrap-input100  validate-input form-group col-md-4" >
                     <label for="" class="mt-2">First Name</label>
-                    <input class="input300 form-control" type="text" name="emp_f_name" placeholder="First Name">
+                    <input class="input300 form-control" type="text" name="emp_f_name" placeholder="First Name" required oninvalid="this.setCustomValidity('First Name is Required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100  validate-input col-md-4">
                     <label for="" class="mt-2">Middle Name</label>
-                    <input class="input300 form-control " type="text" name="emp_middle_name" placeholder="Optional">
+                    <input class="input300 form-control " type="text" name="emp_middle_name" placeholder="Optional" >
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100  validate-input col-md-4" data-validate="Last Name is required">
                     <label for="" class="mt-2">Last Name</label>
-                    <input class="input300 form-control " type="text" name="emp_l_name" placeholder="Last Name">
+                    <input class="input300 form-control " type="text" name="emp_l_name" placeholder="Last Name" required oninvalid="this.setCustomValidity('Last Name is Required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
 
 
-            </div>
-            <div class='form-row'>
-                <div class=" wrap-input100  validate-input form-group" data-validate="Date of Birth is required">
-                    <label for="" class="mt-2">Date Of Birth (YYYY/DD/MM)</label>
-                    <input class="input300 form-control" type="text" pattern="(?:19|20)[0-9]{2}/(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])-31))" name="emp_birthDate" placeholder="YYYY/DD/MM">
-                    <span class="focus-input100"></span>
-                </div>
             </div>
 
             <hr class="" />
 
             <div class="form-row ">
-                <div class="wrap-input100 validate-input form-group " data-validate="Username is required">
+                <div class="wrap-input100 validate-input form-group " >
                     <label for="cust-type">Username</label>
-                    <input class="input200 form-control" type="text" pattern="[a-zA-Z][a-zA-Z0-9-_.]{1,20}" name="emp_user_name" placeholder="Username">
+                    <input class="input200 form-control" type="text" pattern="[a-zA-Z][a-zA-Z0-9-_]{1,20}" name="emp_user_name" placeholder="Username" required oninvalid="this.setCustomValidity('Valid Username is Required: User1_E')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-user-check" aria-hidden="true"></i>
                     </span>
                 </div>
-                <div class="wrap-input100 validate-input form-group " data-validate="Valid email is required: ex@abc.xyz">
+                <div class="wrap-input100 validate-input form-group " >
                     <label for="cust-type">Email</label>
-                    <input class="input200 form-control" type="text" name="emp_email" placeholder="Email">
+                    <input class="input200 form-control" type="text" name="emp_email" placeholder="Email" required oninvalid="this.setCustomValidity('Valid email is required: ex@abc.com')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                     </span>
                 </div>
 
-                <div class="wrap-input100 validate-input form-group " data-validate="Password is required">
+                <div class="wrap-input100 validate-input form-group " >
                     <label for="cust-type">Password</label>
-                    <input class="input200 form-control" type="password" name="emp_pwd" placeholder="*********">
+                    <input class="input200 form-control" type="password" name="emp_pwd" placeholder="*********" required oninvalid="this.setCustomValidity('Password is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
                 </div>
-                <div class="wrap-input100 validate-input form-group" data-validate="Password is required">
+                <div class="wrap-input100 validate-input form-group" >
                     <label for="cust-type">Confirm password</label>
-                    <input class="input200 form-control" type="password" name="emp_pwd_Repeat" placeholder="*********">
+                    <input class="input200 form-control" type="password" name="emp_pwd_Repeat" placeholder="*********" required oninvalid="this.setCustomValidity('Password is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -177,14 +176,14 @@
             <hr class="" />
 
             <div class="form-row ">
-                <div class=" wrap-input100  validate-input form-group " data-validate="Phone is required">
+                <div class=" wrap-input100  validate-input form-group " >
                     <label for="cust-type">Phone Number (Format: 123-456-7890)</label>
-                    <input class="input300 form-control " type="tel" name="emp_phone_num" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="587-451-6780">
+                    <input class="input300 form-control " type="tel" name="emp_phone_num" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="587-451-6780" required oninvalid="this.setCustomValidity('Valid Phone Number is Required: 555-555-5555:')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
-                <div class=" wrap-input100  validate-input form-group  " data-validate="Address is required">
+                <div class=" wrap-input100  validate-input form-group  " >
                     <label for="cust-type">Address</label>
-                    <input class="input300 form-control " type="text" name="emp_address" placeholder="1234 Main St">
+                    <input class="input300 form-control " type="text" name="emp_address" placeholder="1234 Main St" required oninvalid="this.setCustomValidity('Address is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -193,15 +192,15 @@
 
 
             <div class="form-row">
-                <div class=" wrap-input100  validate-input form-group col-md-6" data-validate="City is required">
+                <div class=" wrap-input100  validate-input form-group col-md-6" >
                     <label for="cust-type">City</label>
-                    <input class="input300 form-control " type="text" name="city" placeholder="Calgary">
+                    <input class="input300 form-control " type="text" name="city" placeholder="Calgary" required oninvalid="this.setCustomValidity('City is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input form-group col-md-6" data-validate="Postal Code is required">
+                <div class="wrap-input100 validate-input form-group col-md-6">
                     <label for="cust-type">Postal Code (Format: A1A1A1)</label>
-                    <input class=" input300 form-control " type="text" name="postal_code" pattern="[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]" placeholder="T3K6Y7">
+                    <input class=" input300 form-control " type="text" name="postal_code" pattern="[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]" placeholder="T3K6Y7" required oninvalid="this.setCustomValidity('Valid Postal Code is Required: A0A0A0')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -211,11 +210,11 @@
 
 
 
-            <button type="submit" name="create_emp_button" class="btn mt-4  btn-md btn-custom btn-block text-uppercase">
+            <button type="submit" name="create_emp_submit" class="btn mt-4  btn-md btn-custom btn-block text-uppercase">
                 Create Employee
             </button>
             <div class=" mt-4 text-center p-t-136">
-                <a class="txt2" href="index.php">
+                <a class="txt2" href="index.html">
                     Go Back
                 </a>
             </div>

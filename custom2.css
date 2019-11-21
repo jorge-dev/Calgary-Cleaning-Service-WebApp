@@ -19,11 +19,17 @@ body {
   color: rgb(250, 246, 246);
 }
 
+.span_format{
+  font-size: .87em;
+  color:rgb(197, 196, 196);
+  
+}
+
 .createEmp{
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   background-image: url("images/bg2.jpg");
-  height: 200%;
+  height: 100%;
   width: 100%;
 
   background-repeat: no-repeat;
