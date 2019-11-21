@@ -1,11 +1,24 @@
 <?php
-if (isset($_POST['signup-submit'])) {
-    require 'db_connection_inc.php';
 
-    $userName = $_POST['uid'];
-    $email = $_POST['email'];
-    $password = $_POST['pwd'];
-    $passwordRepeat = $_POST['pwd-repeat'];
+if (isset($_POST['create_emp_submit'])) {
+    require 'db_connection_inc.php';
+    $emp_user_type = mysqli_real_escape_string($connect,$_POST['emp_user_type']);
+    $emp_job_type =mysqli_real_escape_string($connect,$_POST['emp_job_type']);
+    $emp_job_type =mysqli_real_escape_string($connect,$_POST['emp_job_type']);
+    $emp_job_type =mysqli_real_escape_string($connect,$_POST['emp_job_type']);
+    $emp_job_type =mysqli_real_escape_string($connect,$_POST['emp_job_type']);
+    $emp_job_type =mysqli_real_escape_string($connect,$_POST['emp_job_type']);
+    $emp_job_type =mysqli_real_escape_string($connect,$_POST['emp_job_type']);
+    $emp_job_type =mysqli_real_escape_string($connect,$_POST['emp_job_type']);
+    $emp_job_type =mysqli_real_escape_string($connect,$_POST['emp_job_type']);
+    $userName = mysqli_real_escape_string($connect,$_POST['uid']);
+    $email = mysqli_real_escape_string($connect,$_POST['email']);
+    $password = mysqli_real_escape_string($connect,$_POST['pwd']);
+    $passwordRepeat = mysqli_real_escape_string($connect,$_POST['pwd-repeat']);
+    $emp_job_type =mysqli_real_escape_string($connect,$_POST['emp_job_type']);
+    $emp_job_type =mysqli_real_escape_string($connect,$_POST['emp_job_type']);
+    $emp_job_type =mysqli_real_escape_string($connect,$_POST['emp_job_type']);
+    $emp_job_type =mysqli_real_escape_string($connect,$_POST['emp_job_type']);
 
     $emailCheck = filter_var($email, FILTER_VALIDATE_EMAIL);
     $userNameCheck = preg_match("/^[a-zA-Z0-9]*$/", $userName);
