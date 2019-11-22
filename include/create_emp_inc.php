@@ -21,6 +21,9 @@ if (isset($_POST['create_emp_submit'])) {
     $emp_city =mysqli_real_escape_string($connect,$_POST['emp_city']);
     $emp_postal_code =mysqli_real_escape_string($connect,$_POST['emp_postal_code']);
 
+    if ($emp_middle_name == "")
+        $emp_middle_name = NULL;
+    
     $emp_dept_no = 0;
     switch ($emp_job_type) {
         case 'cleaner':
@@ -111,16 +114,16 @@ if (isset($_POST['create_emp_submit'])) {
                 header("Location: ../create_employee.html?error=employeeAlreadyExists");
                 exit();
             } else {
-                $sql =  "INSERT INTO employee(SIN, Id, username, pwd, user_type, gender, f_name, m_name, l_name, street, postal_code, city, birth_date, job_type, email, phone_num, start_date, Dnum) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,);";
+                $sql =  "INSERT INTO employee (SIN, Id, username, pwd, user_type, gender, f_name, m_name, l_name, street, postal_code, city, birth_date, job_type, email, phone_num, start_date, Dnum) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
                 $stmt = mysqli_stmt_init($connect); 
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    header("Location: ../signup.php?error=sqleInsertError");
+                    header("Location: ../create_employee.html?error=sqleInsertError");
                     exit();
                 } else {
                     $hashpwd = password_hash($emp_pwd, PASSWORD_DEFAULT);
-                    mysqli_stmt_bind_param($stmt, "ssssssssssssssssss", $emp_sin,$emp_id,$emp_username,$emp_pwd,$emp_user_type,$emp_gender,$emp_f_name,$emp_middle_name,$emp_l_name,$emp_address,$emp_postal_code,$emp_city,$emp_birthDate,$emp_job_type,$emp_email,$emp_start_date,$emp_dept_no);
+                    mysqli_stmt_bind_param($stmt, "sssssssssssssssssi", $emp_sin,$emp_id,$emp_username,$hashpwd,$emp_user_type,$emp_gender,$emp_f_name,$emp_middle_name,$emp_l_name,$emp_address,$emp_postal_code,$emp_city,$emp_birthDate,$emp_job_type,$emp_email,$emp_phone_num,$emp_start_date,$emp_dept_no);
                     mysqli_stmt_execute($stmt);
-                    header("Location: ../signup.php?signup=success");
+                    header("Location: ../admin.php?signup=success");
                     exit();
                 }
             }
