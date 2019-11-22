@@ -89,7 +89,7 @@
 
                 <div class="wrap-input100 form-group form-group col-md-6">
                     <label for="" class="mt-2">Gender</label>
-                    <select required class=" form-control input200" id="emp_gender" oninvalid="this.setCustomValidity('Please Select a Gender')" oninput="this.setCustomValidity('')">
+                    <select required class=" form-control input200" name="emp_gender" oninvalid="this.setCustomValidity('Please Select a Gender')" oninput="this.setCustomValidity('')">
                         <option value="" hidden>Select Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -140,7 +140,7 @@
             <div class="form-row ">
                 <div class="wrap-input100 validate-input form-group " >
                     <label for="cust-type">Username</label>
-                    <input class="input200 form-control" type="text" pattern="[a-zA-Z][a-zA-Z0-9-_]{1,20}" name="emp_user_name" placeholder="Username" required oninvalid="this.setCustomValidity('Valid Username is Required: User1_E')" oninput="this.setCustomValidity('')">
+                    <input class="input200 form-control" type="text" pattern="[a-zA-Z][a-zA-Z0-9-_]{1,20}" name="emp_username" placeholder="Username" required oninvalid="this.setCustomValidity('Valid Username is Required: User1_E')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-user-check" aria-hidden="true"></i>
@@ -194,13 +194,13 @@
             <div class="form-row">
                 <div class=" wrap-input100  validate-input form-group col-md-6" >
                     <label for="cust-type">City</label>
-                    <input class="input300 form-control " type="text" name="city" placeholder="Calgary" required oninvalid="this.setCustomValidity('City is required')" oninput="this.setCustomValidity('')">
+                    <input class="input300 form-control " type="text" name="emp_city" placeholder="Calgary" required oninvalid="this.setCustomValidity('City is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input form-group col-md-6">
                     <label for="cust-type">Postal Code (Format: A1A1A1)</label>
-                    <input class=" input300 form-control " type="text" name="postal_code" pattern="[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]" placeholder="T3K6Y7" required oninvalid="this.setCustomValidity('Valid Postal Code is Required: A0A0A0')" oninput="this.setCustomValidity('')">
+                    <input class=" input300 form-control " type="text" name="emp_postal_code" pattern="[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]" placeholder="T3K6Y7" required oninvalid="this.setCustomValidity('Valid Postal Code is Required: A0A0A0')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 

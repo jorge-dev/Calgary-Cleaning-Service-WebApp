@@ -117,7 +117,7 @@
 
                 <div class="wrap-input100 validate-input form-group ">
                     <label for="cust-type">Password</label>
-                    <input class="input200 form-control" required type="password" name="pwd" placeholder="*********" oninvalid="this.setCustomValidity('Password is required')" oninput="this.setCustomValidity('')">
+                    <input class="input200 form-control" required type="password" id ="pwd"name="pwd" placeholder="*********" oninvalid="this.setCustomValidity('Password is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -125,7 +125,7 @@
                 </div>
                 <div class="wrap-input100 validate-input form-group">
                     <label for="cust-type">Confirm password</label>
-                    <input class="input200 form-control" required type="password" name="pwd_Repeat" placeholder="*********" oninvalid="this.setCustomValidity('Confirm Password is required')" oninput="this.setCustomValidity('')">
+                    <input class="input200 form-control" required type="password" id="confirm_pwd" name="pwd_Repeat" placeholder="*********" oninvalid="this.setCustomValidity('Confirm Password is required')" oninput="this.setCustomValidity('')"/><span id='message'></span>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -198,7 +198,7 @@
 
 
 
-            <button type="submit" name="signUp_button" class="btn mt-2 rounded-pill btn-md btn-custom btn-block text-uppercase">
+            <button type="submit" id ="submit" name="signUp_button" class="btn mt-2 rounded-pill btn-md btn-custom btn-block text-uppercase">
                 Sign Up
             </button>
             <div class=" mt-4 text-center p-t-136">
@@ -239,6 +239,8 @@
             scale: 1.1
         })
 
+       
+
         // show the company or residential inputs depending on slected customer type
         $('#cust_type').on('change', function() {
             if ($(this).val() === 'Company') {
@@ -275,6 +277,32 @@
 
             }
 
+    //          // check for password mismatch
+    //     // $('#pwd, #confirm_pwd').on('keyup', function () {
+    //         function validatePassword(){
+    //     if ($('#pwd').value == $('#confirm_pwd').value) {
+    //         // $('#message').html('Password Match').css('color', 'green');
+    //         $('#confirm_pwd').setCustomValidity("Passwords Don't Match");
+    // }    else {
+    //         $('#confirm_pwd').setCustomValidity("");
+    //         // $('#message').html('Password Doesnt Match').css('color', 'red');
+    //         // $('#submit').attr("disabled","disabled");
+    //     }
+    //     pwd.onchange = validatePassword;
+    //     confirm_pwd.onkeyup = validatePassword;
+    // }
+    // });
+
+        });
+        // $(function () {
+        $("#submit").click(function () {
+            var pwd = $("#pwd").val();
+            var confirm_pwd = $("#confirm_pwd").val();
+            if (pwd != confirm_pwd) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
         });
     </script>
     <!--===============================================================================================-->

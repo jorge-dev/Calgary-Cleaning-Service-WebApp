@@ -1,5 +1,4 @@
-
-    <?php
+<?php
     require 'include/db_connection_inc.php';
 
     function checkIds($connect, $randString)
@@ -33,8 +32,8 @@
         return $randStr;
     }
 
-   $ex = generateId($connect);
+//    $ex = generateId($connect);
     
-    echo "<p>$ex</p>";
-    echo gettype($ex);
-    ?>
+//     echo "<p>$ex</p>";
+//     echo gettype($ex);
+    
