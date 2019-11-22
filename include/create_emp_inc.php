@@ -123,7 +123,7 @@ if (isset($_POST['create_emp_submit'])) {
                     $hashpwd = password_hash($emp_pwd, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt, "sssssssssssssssssi", $emp_sin,$emp_id,$emp_username,$hashpwd,$emp_user_type,$emp_gender,$emp_f_name,$emp_middle_name,$emp_l_name,$emp_address,$emp_postal_code,$emp_city,$emp_birthDate,$emp_job_type,$emp_email,$emp_phone_num,$emp_start_date,$emp_dept_no);
                     mysqli_stmt_execute($stmt);
-                    header("Location: ../admin.php?signup=success");
+                    header("Location: ../admin.html?signup=success");
                     exit();
                 }
             }
@@ -133,6 +133,6 @@ if (isset($_POST['create_emp_submit'])) {
     mysqli_stmt_close($stmt);
     mysqli_close($connect);
 } else {
-    header("Location: ../signup.php");
+    header("Location: ../admin.html");
     exit();
 }
