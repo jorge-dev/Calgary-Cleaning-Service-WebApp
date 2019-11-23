@@ -54,7 +54,7 @@ CREATE TABLE `cleaners` (
 
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
-  `C_ID` smallint(6) NOT NULL,
+  `C_ID` mediumint NOT NULL,
   `name` varchar(50) NOT NULL,
   `rep_num` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -83,7 +83,7 @@ CREATE TABLE `contract` (
   `num_hours` tinyint(4) NOT NULL,
   `status` varchar(10) NOT NULL,
   `Est_num` smallint(6) NOT NULL,
-  `C_id` smallint(4) NOT NULL
+  `C_id` mediumint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -104,7 +104,7 @@ CREATE TABLE `contract` (
 
 DROP TABLE IF EXISTS `customers`;
 CREATE TABLE `customers` (
-  `ID` smallint(6) NOT NULL,
+  `ID` mediumint NOT NULL,
   `username` varchar(20) NOT NULL,
   `pwd` varchar(30) NOT NULL,
   `user_type` varchar(15) NOT NULL,
@@ -357,7 +357,7 @@ CREATE TABLE `offered_locations` (
 
 DROP TABLE IF EXISTS `requested_building`;
 CREATE TABLE `requested_building` (
-  `C_ID` smallint(6) NOT NULL,
+  `C_ID` mediumint NOT NULL,
   `type` varchar(15) NOT NULL,
   `city` varchar(20) NOT NULL,
   `street` varchar(20) NOT NULL,
@@ -381,7 +381,7 @@ CREATE TABLE `requested_building` (
 
 DROP TABLE IF EXISTS `residential`;
 CREATE TABLE `residential` (
-  `C_ID` smallint(6) NOT NULL,
+  `C_ID` mediumint NOT NULL,
   `f_name` varchar(15) NOT NULL,
   `l_name` varchar(30) NOT NULL,
   `gender` varchar(10) NOT NULL DEFAULT 'other'
@@ -452,7 +452,7 @@ CREATE TABLE `special_res` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `comments` text DEFAULT NULL,
-  `C_id` smallint(4) NOT NULL
+  `C_id` mediumint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
