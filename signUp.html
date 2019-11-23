@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
     <link rel="stylesheet" type="text/css" href="custom2.css" />
     <title>Sign Up</title>
 </head>
@@ -32,7 +34,7 @@
                 <div class="  wrap-input100 form-group ">
 
                     <label for="cust-type">Customer Type</label>
-                    <select required class=" form-control input200" id="cust_type" oninvalid="this.setCustomValidity('Please Select a Type')" oninput="this.setCustomValidity('')">
+                    <select required class=" form-control input200" id="cust_type" oninvalid="this.setCustomValidity('Please Select a Type')" oninput="this.setCustomValidity('')" autofocus>
                         <option value="">&nbsp;&nbsp;Select Customer type</option>
                         <option value="Residential">&nbsp;&nbsp;Residential</option>
                         <option value="Company">&nbsp;&nbsp;Commercial</option>
@@ -117,7 +119,7 @@
 
                 <div class="wrap-input100 validate-input form-group ">
                     <label for="cust-type">Password</label>
-                    <input class="input200 form-control" required type="password" name="pwd" placeholder="*********" oninvalid="this.setCustomValidity('Password is required')" oninput="this.setCustomValidity('')">
+                    <input class="input200 form-control" required type="password" id ="pwd"name="pwd" placeholder="*********" oninvalid="this.setCustomValidity('Password is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -125,7 +127,7 @@
                 </div>
                 <div class="wrap-input100 validate-input form-group">
                     <label for="cust-type">Confirm password</label>
-                    <input class="input200 form-control" required type="password" name="pwd_Repeat" placeholder="*********" oninvalid="this.setCustomValidity('Confirm Password is required')" oninput="this.setCustomValidity('')">
+                    <input class="input200 form-control" required type="password" id="confirm_pwd" name="pwd_Repeat" placeholder="*********" oninvalid="this.setCustomValidity('Confirm Password is required')" oninput="this.setCustomValidity('')"/><span id='message'></span>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -198,7 +200,7 @@
 
 
 
-            <button type="submit" name="signUp_button" class="btn mt-2 rounded-pill btn-md btn-custom btn-block text-uppercase">
+            <button type="submit" id ="submit" name="signUp_button" class="btn mt-2 rounded-pill btn-md btn-custom btn-block text-uppercase">
                 Sign Up
             </button>
             <div class=" mt-4 text-center p-t-136">
@@ -234,10 +236,14 @@
     <!--===============================================================================================-->
     <script src="vendor/tilt/tilt.jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
     <script>
         $('.js-tilt').tilt({
             scale: 1.1
         })
+
+       
 
         // show the company or residential inputs depending on slected customer type
         $('#cust_type').on('change', function() {
@@ -275,6 +281,42 @@
 
             }
 
+    //          // check for password mismatch
+    //     // $('#pwd, #confirm_pwd').on('keyup', function () {
+    //         function validatePassword(){
+    //     if ($('#pwd').value == $('#confirm_pwd').value) {
+    //         // $('#message').html('Password Match').css('color', 'green');
+    //         $('#confirm_pwd').setCustomValidity("Passwords Don't Match");
+    // }    else {
+    //         $('#confirm_pwd').setCustomValidity("");
+    //         // $('#message').html('Password Doesnt Match').css('color', 'red');
+    //         // $('#submit').attr("disabled","disabled");
+    //     }
+    //     pwd.onchange = validatePassword;
+    //     confirm_pwd.onkeyup = validatePassword;
+    // }
+    // });
+
+        });
+        // $(function () {
+        $("#submit").click(function () {
+            var pwd = $("#pwd").val();
+            var confirm_pwd = $("#confirm_pwd").val();
+            if (pwd != confirm_pwd && (confirm_pwd != '')) {
+                $.alert({
+                    title: 'Passwords dont match!',
+                     content: 'Please try again',
+                     type:'purple',
+                     theme: 'modern',
+                     icon: 'fa fa-warning',
+                     animationBounce:2.5,
+                     
+                    
+                });
+                
+                return false;
+            }
+            return true;
         });
     </script>
     <!--===============================================================================================-->

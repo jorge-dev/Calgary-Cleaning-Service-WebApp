@@ -1,13 +1,12 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 17, 2019 at 11:09 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Host: localhost
+-- Generation Time: Nov 22, 2019 at 07:32 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.1.32
 
-SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -30,14 +29,13 @@ USE `471db_project`;
 --
 -- Table structure for table `cleaners`
 --
--- Creation: Nov 16, 2019 at 01:59 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `cleaners`;
-CREATE TABLE IF NOT EXISTS `cleaners` (
+CREATE TABLE `cleaners` (
   `SIN` varchar(11) NOT NULL,
-  `hourly_rate` decimal(6,4) NOT NULL,
-  UNIQUE KEY `SIN` (`SIN`)
+  `hourly_rate` decimal(6,4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -46,25 +44,19 @@ CREATE TABLE IF NOT EXISTS `cleaners` (
 --       `employee` -> `SIN`
 --
 
---
--- Truncate table before insert `cleaners`
---
-
-TRUNCATE TABLE `cleaners`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `company`
 --
--- Creation: Nov 14, 2019 at 05:20 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `company`;
-CREATE TABLE IF NOT EXISTS `company` (
+CREATE TABLE `company` (
   `C_ID` smallint(6) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `rep_num` smallint(6) NOT NULL,
-  UNIQUE KEY `C_ID` (`C_ID`)
+  `rep_num` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -73,21 +65,16 @@ CREATE TABLE IF NOT EXISTS `company` (
 --       `customers` -> `ID`
 --
 
---
--- Truncate table before insert `company`
---
-
-TRUNCATE TABLE `company`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `contract`
 --
--- Creation: Nov 14, 2019 at 05:01 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `contract`;
-CREATE TABLE IF NOT EXISTS `contract` (
+CREATE TABLE `contract` (
   `number` smallint(6) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
@@ -96,10 +83,7 @@ CREATE TABLE IF NOT EXISTS `contract` (
   `num_hours` tinyint(4) NOT NULL,
   `status` varchar(10) NOT NULL,
   `Est_num` smallint(6) NOT NULL,
-  `C_id` smallint(4) NOT NULL,
-  PRIMARY KEY (`number`),
-  KEY `contract_est_fk` (`Est_num`),
-  KEY `contract_cust_fk` (`C_id`)
+  `C_id` smallint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -110,21 +94,16 @@ CREATE TABLE IF NOT EXISTS `contract` (
 --       `estimate` -> `number`
 --
 
---
--- Truncate table before insert `contract`
---
-
-TRUNCATE TABLE `contract`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `customers`
 --
--- Creation: Nov 14, 2019 at 05:15 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `customers`;
-CREATE TABLE IF NOT EXISTS `customers` (
+CREATE TABLE `customers` (
   `ID` smallint(6) NOT NULL,
   `username` varchar(20) NOT NULL,
   `pwd` varchar(30) NOT NULL,
@@ -135,35 +114,26 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `postal_code` varchar(9) NOT NULL,
   `city` varchar(25) NOT NULL,
   `province` varchar(50) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `username` (`username`),
-  UNIQUE KEY `pwd` (`pwd`),
-  UNIQUE KEY `email` (`email`)
+  `email` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- RELATIONSHIPS FOR TABLE `customers`:
 --
 
---
--- Truncate table before insert `customers`
---
-
-TRUNCATE TABLE `customers`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `department`
 --
--- Creation: Nov 14, 2019 at 05:30 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
+-- Last update: Nov 21, 2019 at 09:40 PM
 --
 
 DROP TABLE IF EXISTS `department`;
-CREATE TABLE IF NOT EXISTS `department` (
-  `number` tinyint(4) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) NOT NULL,
-  PRIMARY KEY (`number`)
+CREATE TABLE `department` (
+  `number` tinyint(4) NOT NULL,
+  `name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -171,23 +141,30 @@ CREATE TABLE IF NOT EXISTS `department` (
 --
 
 --
--- Truncate table before insert `department`
+-- Dumping data for table `department`
 --
 
-TRUNCATE TABLE `department`;
+INSERT INTO `department` (`number`, `name`) VALUES
+(1, 'Cleaner Operations'),
+(2, 'Sales'),
+(3, 'IT'),
+(4, 'Maintenance'),
+(5, 'Finance'),
+(6, 'Marketing'),
+(7, 'Management');
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `dept_locations`
 --
--- Creation: Nov 14, 2019 at 05:32 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `dept_locations`;
-CREATE TABLE IF NOT EXISTS `dept_locations` (
+CREATE TABLE `dept_locations` (
   `Dnum` tinyint(4) NOT NULL,
-  `location` varchar(25) NOT NULL,
-  KEY `dept_deptloc_fk` (`Dnum`)
+  `location` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -196,29 +173,25 @@ CREATE TABLE IF NOT EXISTS `dept_locations` (
 --       `department` -> `number`
 --
 
---
--- Truncate table before insert `dept_locations`
---
-
-TRUNCATE TABLE `dept_locations`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `employee`
 --
--- Creation: Nov 16, 2019 at 01:59 AM
+-- Creation: Nov 22, 2019 at 06:15 AM
+-- Last update: Nov 22, 2019 at 06:30 AM
 --
 
 DROP TABLE IF EXISTS `employee`;
-CREATE TABLE IF NOT EXISTS `employee` (
+CREATE TABLE `employee` (
   `SIN` varchar(11) NOT NULL,
-  `Id` int(20) NOT NULL,
+  `Id` varchar(10) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `pwd` varchar(20) NOT NULL,
-  `user_type` char(1) NOT NULL,
+  `pwd` longtext NOT NULL,
+  `user_type` varchar(15) NOT NULL,
   `gender` varchar(10) NOT NULL DEFAULT 'Other',
   `f_name` varchar(15) NOT NULL,
-  `m_name` char(1) DEFAULT NULL,
+  `m_name` varchar(15) DEFAULT NULL,
   `l_name` varchar(30) NOT NULL,
   `street` varchar(30) NOT NULL,
   `postal_code` varchar(6) NOT NULL,
@@ -228,12 +201,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `email` varchar(30) NOT NULL,
   `phone_num` varchar(15) NOT NULL,
   `start_date` date NOT NULL,
-  `Dnum` tinyint(6) NOT NULL,
-  PRIMARY KEY (`SIN`),
-  UNIQUE KEY `Id` (`Id`),
-  UNIQUE KEY `username` (`username`),
-  UNIQUE KEY `email` (`email`),
-  KEY `emp_dep_fk` (`Dnum`)
+  `Dnum` tinyint(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -243,27 +211,29 @@ CREATE TABLE IF NOT EXISTS `employee` (
 --
 
 --
--- Truncate table before insert `employee`
+-- Dumping data for table `employee`
 --
 
-TRUNCATE TABLE `employee`;
+INSERT INTO `employee` (`SIN`, `Id`, `username`, `pwd`, `user_type`, `gender`, `f_name`, `m_name`, `l_name`, `street`, `postal_code`, `city`, `birth_date`, `job_type`, `email`, `phone_num`, `start_date`, `Dnum`) VALUES
+('876-789-765', '6892430', 'jhjhjh', '$2y$10$SnC/4jc9YxuZkBfuLt.hD.T.PpmyafhgF.quRMq1muQdNuHcCdY72', 'employee', 'Other', 'John', NULL, 'Smith', 'fdjgvh jhblikln', 'T2A6N9', 'Calgary', '1987-08-07', 'maintenance', 'sdfdf@gmail.com', '678-876-8788', '2018-09-23', 4),
+('987-888-654', '9706548', 'libl', '$2y$10$W36LLLPJz5OAqTdS3Ja2a.qCXrZcE1lXjYwWIq9DOSaxvEy/RlhLG', 'employee', 'Male', 'jjuu', NULL, 'iuytr', 'dfghdfgh', 't2a6n9', 'Clagary', '1987-08-07', 'employee', 'asas@gmail.com', '888-888-8888', '2015-01-30', NULL),
+('999-999-999', '1672504', 'jdev', '$2y$10$qKK6w.t6/5izE13wJc1D2.54ZOY3ejxcYxPjLSqqjAaVr8NK2c3Yi', 'admin', 'Female', 'Jorge Luis', 'Avila', 'Sanchez', '52 Abadan Crescent NE', 'T2A6N9', 'Calgary', '2005-12-15', 'admin', 'jorgeluis.a94@gmail.com', '587-586-7855', '2015-01-30', 3);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `equipment`
 --
--- Creation: Nov 14, 2019 at 05:38 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `equipment`;
-CREATE TABLE IF NOT EXISTS `equipment` (
+CREATE TABLE `equipment` (
   `Id` smallint(6) NOT NULL,
   `description` text NOT NULL,
   `name` varchar(35) NOT NULL,
   `status` varchar(15) NOT NULL,
-  `D_num` tinyint(4) NOT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `equ_dep_fk` (`D_num`)
+  `D_num` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -272,54 +242,41 @@ CREATE TABLE IF NOT EXISTS `equipment` (
 --       `department` -> `number`
 --
 
---
--- Truncate table before insert `equipment`
---
-
-TRUNCATE TABLE `equipment`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `estimate`
 --
--- Creation: Nov 14, 2019 at 05:09 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `estimate`;
-CREATE TABLE IF NOT EXISTS `estimate` (
+CREATE TABLE `estimate` (
   `number` smallint(6) NOT NULL,
   `status` varchar(10) NOT NULL DEFAULT 'Undefined',
   `hours` tinyint(4) NOT NULL,
   `cost` decimal(6,4) NOT NULL,
   `service_type` varchar(15) NOT NULL,
-  `D_num` tinyint(4) NOT NULL,
-  PRIMARY KEY (`number`)
+  `D_num` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- RELATIONSHIPS FOR TABLE `estimate`:
 --
 
---
--- Truncate table before insert `estimate`
---
-
-TRUNCATE TABLE `estimate`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `has_reservation`
 --
--- Creation: Nov 16, 2019 at 02:02 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `has_reservation`;
-CREATE TABLE IF NOT EXISTS `has_reservation` (
+CREATE TABLE `has_reservation` (
   `CL_SIN` varchar(11) NOT NULL,
   `SR_num` smallint(6) NOT NULL,
-  `hours` tinyint(4) NOT NULL,
-  KEY `has_res_cl_fk` (`CL_SIN`),
-  KEY `has_res_sr_fk` (`SR_num`)
+  `hours` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -330,24 +287,18 @@ CREATE TABLE IF NOT EXISTS `has_reservation` (
 --       `special_res` -> `number`
 --
 
---
--- Truncate table before insert `has_reservation`
---
-
-TRUNCATE TABLE `has_reservation`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `it`
 --
--- Creation: Nov 14, 2019 at 04:27 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `it`;
-CREATE TABLE IF NOT EXISTS `it` (
+CREATE TABLE `it` (
   `SIN` varchar(9) NOT NULL,
-  `salary` decimal(8,4) NOT NULL,
-  UNIQUE KEY `SIN` (`SIN`)
+  `salary` decimal(8,4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -356,24 +307,18 @@ CREATE TABLE IF NOT EXISTS `it` (
 --       `employee` -> `SIN`
 --
 
---
--- Truncate table before insert `it`
---
-
-TRUNCATE TABLE `it`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `maintenance`
 --
--- Creation: Nov 16, 2019 at 02:00 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `maintenance`;
-CREATE TABLE IF NOT EXISTS `maintenance` (
+CREATE TABLE `maintenance` (
   `SIN` varchar(11) NOT NULL,
-  `Salary` double(8,4) NOT NULL,
-  UNIQUE KEY `SIN` (`SIN`)
+  `Salary` double(8,4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -382,24 +327,18 @@ CREATE TABLE IF NOT EXISTS `maintenance` (
 --       `employee` -> `SIN`
 --
 
---
--- Truncate table before insert `maintenance`
---
-
-TRUNCATE TABLE `maintenance`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `offered_locations`
 --
--- Creation: Nov 14, 2019 at 05:44 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `offered_locations`;
-CREATE TABLE IF NOT EXISTS `offered_locations` (
+CREATE TABLE `offered_locations` (
   `S_ID` smallint(4) NOT NULL,
-  `locations` varchar(30) NOT NULL,
-  KEY `off_loc_serv_fk` (`S_ID`)
+  `locations` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -408,28 +347,22 @@ CREATE TABLE IF NOT EXISTS `offered_locations` (
 --       `services` -> `Id`
 --
 
---
--- Truncate table before insert `offered_locations`
---
-
-TRUNCATE TABLE `offered_locations`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `requested_building`
 --
--- Creation: Nov 14, 2019 at 05:24 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `requested_building`;
-CREATE TABLE IF NOT EXISTS `requested_building` (
+CREATE TABLE `requested_building` (
   `C_ID` smallint(6) NOT NULL,
   `type` varchar(15) NOT NULL,
   `city` varchar(20) NOT NULL,
   `street` varchar(20) NOT NULL,
   `province` varchar(20) NOT NULL,
-  `postal_code` varchar(20) NOT NULL,
-  KEY `req_bd_cust_fk` (`C_ID`)
+  `postal_code` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -438,26 +371,20 @@ CREATE TABLE IF NOT EXISTS `requested_building` (
 --       `customers` -> `ID`
 --
 
---
--- Truncate table before insert `requested_building`
---
-
-TRUNCATE TABLE `requested_building`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `residential`
 --
--- Creation: Nov 14, 2019 at 05:27 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `residential`;
-CREATE TABLE IF NOT EXISTS `residential` (
+CREATE TABLE `residential` (
   `C_ID` smallint(6) NOT NULL,
   `f_name` varchar(15) NOT NULL,
   `l_name` varchar(30) NOT NULL,
-  `gender` varchar(10) NOT NULL DEFAULT 'other',
-  UNIQUE KEY `C_ID` (`C_ID`)
+  `gender` varchar(10) NOT NULL DEFAULT 'other'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -466,25 +393,19 @@ CREATE TABLE IF NOT EXISTS `residential` (
 --       `customers` -> `ID`
 --
 
---
--- Truncate table before insert `residential`
---
-
-TRUNCATE TABLE `residential`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `sales associate`
 --
--- Creation: Nov 16, 2019 at 02:00 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `sales associate`;
-CREATE TABLE IF NOT EXISTS `sales associate` (
+CREATE TABLE `sales associate` (
   `SIN` varchar(11) NOT NULL,
   `salary` double(8,4) NOT NULL,
-  `num_sales` int(3) NOT NULL,
-  UNIQUE KEY `SIN` (`SIN`)
+  `num_sales` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -493,28 +414,21 @@ CREATE TABLE IF NOT EXISTS `sales associate` (
 --       `employee` -> `SIN`
 --
 
---
--- Truncate table before insert `sales associate`
---
-
-TRUNCATE TABLE `sales associate`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `services`
 --
--- Creation: Nov 14, 2019 at 05:44 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `services`;
-CREATE TABLE IF NOT EXISTS `services` (
+CREATE TABLE `services` (
   `Id` smallint(6) NOT NULL,
   `type` varchar(25) NOT NULL,
   `name` varchar(30) NOT NULL,
   `status` varchar(15) NOT NULL,
-  `D_num` tinyint(4) NOT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `ser_dep_fk` (`D_num`)
+  `D_num` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -523,29 +437,22 @@ CREATE TABLE IF NOT EXISTS `services` (
 --       `department` -> `number`
 --
 
---
--- Truncate table before insert `services`
---
-
-TRUNCATE TABLE `services`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `special_res`
 --
--- Creation: Nov 14, 2019 at 04:51 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `special_res`;
-CREATE TABLE IF NOT EXISTS `special_res` (
+CREATE TABLE `special_res` (
   `number` smallint(6) NOT NULL,
   `status` varchar(10) NOT NULL DEFAULT 'Undefined',
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `comments` text DEFAULT NULL,
-  `C_id` smallint(4) NOT NULL,
-  PRIMARY KEY (`number`),
-  KEY `sr_cust_fk` (`C_id`)
+  `C_id` smallint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -554,54 +461,41 @@ CREATE TABLE IF NOT EXISTS `special_res` (
 --       `customers` -> `ID`
 --
 
---
--- Truncate table before insert `special_res`
---
-
-TRUNCATE TABLE `special_res`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `supplies`
 --
--- Creation: Nov 14, 2019 at 05:37 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `supplies`;
-CREATE TABLE IF NOT EXISTS `supplies` (
+CREATE TABLE `supplies` (
   `Id` smallint(6) NOT NULL,
   `name` varchar(25) NOT NULL,
   `qty` smallint(6) NOT NULL,
   `in_stock` tinyint(1) NOT NULL,
   `ordered_date` date NOT NULL,
-  `D_num` tinyint(4) NOT NULL,
-  PRIMARY KEY (`Id`)
+  `D_num` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- RELATIONSHIPS FOR TABLE `supplies`:
 --
 
---
--- Truncate table before insert `supplies`
---
-
-TRUNCATE TABLE `supplies`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `works_on`
 --
--- Creation: Nov 16, 2019 at 02:01 AM
+-- Creation: Nov 18, 2019 at 09:49 PM
 --
 
 DROP TABLE IF EXISTS `works_on`;
-CREATE TABLE IF NOT EXISTS `works_on` (
+CREATE TABLE `works_on` (
   `CL_SIN` varchar(11) NOT NULL,
   `Contr_num` smallint(4) NOT NULL,
-  `hours` tinyint(4) NOT NULL,
-  KEY `workson_cl_fk` (`CL_SIN`),
-  KEY `workson_contr_fk` (`Contr_num`)
+  `hours` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -613,10 +507,153 @@ CREATE TABLE IF NOT EXISTS `works_on` (
 --
 
 --
--- Truncate table before insert `works_on`
+-- Indexes for dumped tables
 --
 
-TRUNCATE TABLE `works_on`;
+--
+-- Indexes for table `cleaners`
+--
+ALTER TABLE `cleaners`
+  ADD UNIQUE KEY `SIN` (`SIN`);
+
+--
+-- Indexes for table `company`
+--
+ALTER TABLE `company`
+  ADD UNIQUE KEY `C_ID` (`C_ID`);
+
+--
+-- Indexes for table `contract`
+--
+ALTER TABLE `contract`
+  ADD PRIMARY KEY (`number`),
+  ADD KEY `contract_est_fk` (`Est_num`),
+  ADD KEY `contract_cust_fk` (`C_id`);
+
+--
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `pwd` (`pwd`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`number`);
+
+--
+-- Indexes for table `dept_locations`
+--
+ALTER TABLE `dept_locations`
+  ADD KEY `dept_deptloc_fk` (`Dnum`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`SIN`),
+  ADD UNIQUE KEY `Id` (`Id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `emp_dep_fk` (`Dnum`);
+
+--
+-- Indexes for table `equipment`
+--
+ALTER TABLE `equipment`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `equ_dep_fk` (`D_num`);
+
+--
+-- Indexes for table `estimate`
+--
+ALTER TABLE `estimate`
+  ADD PRIMARY KEY (`number`);
+
+--
+-- Indexes for table `has_reservation`
+--
+ALTER TABLE `has_reservation`
+  ADD KEY `has_res_cl_fk` (`CL_SIN`),
+  ADD KEY `has_res_sr_fk` (`SR_num`);
+
+--
+-- Indexes for table `it`
+--
+ALTER TABLE `it`
+  ADD UNIQUE KEY `SIN` (`SIN`);
+
+--
+-- Indexes for table `maintenance`
+--
+ALTER TABLE `maintenance`
+  ADD UNIQUE KEY `SIN` (`SIN`);
+
+--
+-- Indexes for table `offered_locations`
+--
+ALTER TABLE `offered_locations`
+  ADD KEY `off_loc_serv_fk` (`S_ID`);
+
+--
+-- Indexes for table `requested_building`
+--
+ALTER TABLE `requested_building`
+  ADD KEY `req_bd_cust_fk` (`C_ID`);
+
+--
+-- Indexes for table `residential`
+--
+ALTER TABLE `residential`
+  ADD UNIQUE KEY `C_ID` (`C_ID`);
+
+--
+-- Indexes for table `sales associate`
+--
+ALTER TABLE `sales associate`
+  ADD UNIQUE KEY `SIN` (`SIN`);
+
+--
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `ser_dep_fk` (`D_num`);
+
+--
+-- Indexes for table `special_res`
+--
+ALTER TABLE `special_res`
+  ADD PRIMARY KEY (`number`),
+  ADD KEY `sr_cust_fk` (`C_id`);
+
+--
+-- Indexes for table `supplies`
+--
+ALTER TABLE `supplies`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `works_on`
+--
+ALTER TABLE `works_on`
+  ADD KEY `workson_cl_fk` (`CL_SIN`),
+  ADD KEY `workson_contr_fk` (`Contr_num`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `department`
+--
+ALTER TABLE `department`
+  MODIFY `number` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- Constraints for dumped tables
 --
@@ -873,7 +910,6 @@ USE `phpmyadmin`;
 -- Error reading data for table phpmyadmin.pma__relation: #1100 - Table 'pma__relation' was not locked with LOCK TABLES
 -- Error reading data for table phpmyadmin.pma__savedsearches: #1100 - Table 'pma__savedsearches' was not locked with LOCK TABLES
 -- Error reading data for table phpmyadmin.pma__central_columns: #1100 - Table 'pma__central_columns' was not locked with LOCK TABLES
-SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
