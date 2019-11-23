@@ -12,7 +12,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css"> -->
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
@@ -33,7 +33,7 @@
                 <div class="  wrap-input100 form-group ">
 
                     <label for="cust-type">Employee User Type</label>
-                    <select required class=" form-control input200" name="emp_user_type" oninvalid="this.setCustomValidity('Please Select an Employee Type')" oninput="this.setCustomValidity('')" autofocus>
+                    <select required class=" form-control input200" id="emp_user_type" name="emp_user_type" oninvalid="this.setCustomValidity('Please Select an Employee Type')" oninput="this.setCustomValidity('')" autofocus>
                         <option value="">Select User type</option>
                         <option value="employee">Employee</option>
                         <option value="admin">Admin</option>
@@ -49,13 +49,13 @@
                 <div class="  wrap-input100 form-group ">
 
                     <label for="cust-type">JobType</label>
-                    <select required class=" form-control input200" name="emp_job_type" required oninvalid="this.setCustomValidity('Please Select a Jobtype')" oninput="this.setCustomValidity('')">
+                    <select required class=" form-control input200" id="emp_job_type"  name="emp_job_type" required oninvalid="this.setCustomValidity('Please Select a Jobtype')" oninput="this.setCustomValidity('')">
                         <option value="">Select Job type</option>
-                        <option value="employee">Employee</option>
-                        <option value="admin">Admin/IT</option>
-                        <option value="cleaner">Cleaner</option>
-                        <option value="sales">Sales Associate</option>
-                        <option value="maintenance">Maintenance</option>
+                        <option class="job" value="employee">Employee</option>
+                        <option id="emp_job_adm" value="admin">Admin/IT</option>
+                        <option class="job" value="cleaner">Cleaner</option>
+                        <option class="job" value="sales">Sales Associate</option>
+                        <option class="job" value="maintenance">Maintenance</option>
 
                     </select>
 
@@ -248,9 +248,25 @@
     <script src="vendor/tilt/tilt.jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-    <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script> -->
     <script>
       
+      $('#emp_user_type').on('change', function() {
+            if ($(this).val() === 'admin') {
+                 $('#emp_job_adm').attr('selected','true');
+            
+                 $('.job').attr("disabled","disabled");
+               
+            }
+            else{
+                $('#emp_job_adm').removeAttr('selected');
+                $('.job').removeAttr("disabled","disabled");
+            }
+      });
+
+
+
+
         $("#emp_submit").click(function () {
             var pwd = $("#emp_pwd").val();
             var confirm_pwd = $("#emp_confirm_pwd").val();
