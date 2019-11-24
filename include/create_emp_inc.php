@@ -103,7 +103,7 @@ if (isset($_POST['create_emp_submit'])) {
         $sql =  "SELECT * FROM employee WHERE SIN=? OR email=? OR username=?;";
         $stmt = mysqli_stmt_init($connect);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../create_employee.html?error=sqlSelectError");
+            header("Location: ../create_employee.php?error=sqlSelectError");
             exit();
         } else {
             mysqli_stmt_bind_param($stmt, "sss", $emp_sin,$emp_email,$emp_username);
@@ -113,20 +113,20 @@ if (isset($_POST['create_emp_submit'])) {
             // $resultCheck = mysqli_stmt_num_rows($stmt);
             if ($row = mysqli_fetch_assoc($response)) {
                 if($row['SIN']== $emp_sin){
-                    header("Location: ../create_employee.html?error=employeeAlreadyExists");
+                    header("Location: ../create_employee.php?error=employeeAlreadyExists");
                     exit();
                 }
                 elseif($row['email']== $emp_email && $row['username']== $emp_username){
-                    header("Location: ../create_employee.html?error=emailAndusernameAlreadyExists");
+                    header("Location: ../create_employee.php?error=emailAndusernameAlreadyExists");
                     exit();
                 }
                 elseif($row['email']== $emp_email){
-                    header("Location: ../create_employee.html?error=emailAlreadyExists");
+                    header("Location: ../create_employee.php?error=emailAlreadyExists");
                    
                     exit();
                 }
                 elseif($row['username']== $emp_username){
-                    header("Location: ../create_employee.html?error=usernameAlreadyExists");
+                    header("Location: ../create_employee.php?error=usernameAlreadyExists");
                     exit();
                 }
                
@@ -135,13 +135,13 @@ if (isset($_POST['create_emp_submit'])) {
                 $sql =  "INSERT INTO employee (SIN, Id, username, pwd, user_type, gender, f_name, m_name, l_name, street, postal_code, city, birth_date, job_type, email, phone_num, start_date, Dnum) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
                 $stmt = mysqli_stmt_init($connect); 
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    header("Location: ../create_employee.html?error=sqleInsertError");
+                    header("Location: ../create_employee.php?error=sqleInsertError");
                     exit();
                 } else {
                     $hashpwd = password_hash($emp_pwd, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt, "sssssssssssssssssi", $emp_sin,$emp_id,$emp_username,$hashpwd,$emp_user_type,$emp_gender,$emp_f_name,$emp_middle_name,$emp_l_name,$emp_address,$emp_postal_code,$emp_city,$emp_birthDate,$emp_job_type,$emp_email,$emp_phone_num,$emp_start_date,$emp_dept_no);
                     mysqli_stmt_execute($stmt);
-                    header("Location: ../admin.html?signup=success");
+                    header("Location: ../admin.php?signup=success");
                     exit();
                 }
             }
@@ -151,6 +151,6 @@ if (isset($_POST['create_emp_submit'])) {
     mysqli_stmt_close($stmt);
     mysqli_close($connect);
 } else {
-    header("Location: ../admin.html");
+    header("Location: ../admin.php");
     exit();
 }

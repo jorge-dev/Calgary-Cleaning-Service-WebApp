@@ -215,7 +215,7 @@
                 Create Employee
             </button>
             <div class=" mt-4 text-center p-t-136">
-                <a class="txt2" href="index.html">
+                <a class="txt2" href="index.php">
                     Go Back
                 </a>
             </div>
