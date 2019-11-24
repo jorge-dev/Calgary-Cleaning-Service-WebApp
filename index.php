@@ -1,3 +1,7 @@
+<?php
+    session_start();
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +35,24 @@
                 <img src="images/logo.png" alt="IMG">
             </div>
             <h3 class=" text-uppercase">Welcome!</h3>
+            <?php
+               
+                if (@$_GET['custSignup'] == 'success'){
+                    header_remove();
+                     echo '<p class=" mt-2 text-success">Your account was created succesfully</p>';
+                    
+                    }
+                if (isset($_SESSION['admin_uId'])) {
+                        echo '<p>You logged in</p>';
+                        
+                }
+                else {
+                    echo '<p>You loged out</p>';
+                }
+                
+            ?>
             <p class=" mt-2 fill_text">Please login</p>
+           
 
             <div class="wrap-input100  ">
                 <label for="cust-type">User</label>
@@ -54,8 +75,8 @@
 
             </div> 
             <div class=" mt-2 wrap-input100 validate-input">
-                <label for="cust-type">Email / Username</label>
-                <input class="input100 form-control" type="email" name="email_uid" placeholder="Email/Username"
+                <label for="cust-type">Email </label>
+                <input class="input100 form-control" type="email" name="email_uid" placeholder="Email"
                     id="cust_type" oninvalid="this.setCustomValidity('Valid email is required: ex@abc.com')"
                     oninput="this.setCustomValidity('')" required>
                 <span class="focus-input100"></span>

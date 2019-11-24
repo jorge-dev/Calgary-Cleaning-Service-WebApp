@@ -258,6 +258,12 @@
                  $('.job').attr("disabled","disabled");
                
             }
+            else if ($(this).val() === 'employee') {
+                 $('#emp_job_adm').attr('disabled','disabled');
+            
+                 $('.job').removeAttr("disabled");
+               
+            }
             else{
                 $('#emp_job_adm').removeAttr('selected');
                 $('.job').removeAttr("disabled","disabled");

@@ -107,7 +107,7 @@ if (isset($_POST['signUp_button'])) {
                     } else {
                         mysqli_stmt_bind_param($stmt, "iss", $cust_id,$company_name,$comp_Rep_num);
                         mysqli_stmt_execute($stmt);
-                        header("Location: ../customer.php?signupComp=success");
+                        header("Location: ../index.php?custSignup=success");
                         exit();
                     }
                 }
@@ -120,12 +120,12 @@ if (isset($_POST['signUp_button'])) {
                     } else {
                         mysqli_stmt_bind_param($stmt, "isss",$cust_id,$f_name,$l_name,$gender);
                         mysqli_stmt_execute($stmt);
-                        header("Location: ../customer.php?signupRes=success");
+                        header("Location: ../index.php?custSignup=success");
                         exit();
                     }
                 }
                 else {
-                    header("Location: ../customer.php?error=sonethingWeirdHappen");
+                    header("Location: ../signUp?error=sonethingWeirdHappen");
                         exit();
                 }
             }
