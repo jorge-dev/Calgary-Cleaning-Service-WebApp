@@ -91,7 +91,7 @@ if (isset($_POST['signUp_button'])) {
                     header("Location: ../signUp.php?error=sqlInsertError");
                     exit();
                 } else {
-                    $hashpwd = password_hash($emp_pwd, PASSWORD_DEFAULT);
+                    $hashpwd = password_hash($pwd, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt, "issssssssss", $cust_id, $username, $hashpwd, $user_type, $phone_num, $cust_type, $address, $postal_code, $city, $province, $email);
                     mysqli_stmt_execute($stmt);
                     // header("Location: ../customer.php?signup=success");

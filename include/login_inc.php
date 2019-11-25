@@ -48,14 +48,14 @@ if (isset($_POST['login_submit'])) {
         }
     }
     else if ($usr_type == "customer"){
-        $sql="SELECT * From customer Where userId=? OR email =?;";
+        $sql="SELECT * From customers Where email=?;";
         $stmt= mysqli_stmt_init($connect);
         if (!mysqli_stmt_prepare($stmt,$sql)) {
             header("Location: ../index.php?error=sqlerrorCustSELECT");
             exit();
         }
         else {
-            mysqli_stmt_bind_param($stmt,"ss",$emailuid,$emailuid);
+            mysqli_stmt_bind_param($stmt,"s",$emailuid);
             mysqli_stmt_execute($stmt);
             
             $response = mysqli_stmt_get_result($stmt);
@@ -108,7 +108,7 @@ if (isset($_POST['login_submit'])) {
                     $_SESSION['emp_uId']  =$row['username'];
                     
                     if($row['job_type'] == 'employee'){
-                        header("Location: ../employee.php?loginEmp=success");
+                        header("Location: ../otherEmployee.php?loginEmp=success");
                         exit();
                     }
                     elseif($row['job_type'] == 'sales'){
