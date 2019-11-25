@@ -1,3 +1,7 @@
+<?php
+    session_start();
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +11,8 @@
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
@@ -25,37 +30,39 @@
 
 
         <form action="include/login_inc.php" method="POST" class="validate-form login-form text-center">
+
             <div class=" js-tilt" data-tilt>
                 <img src="images/logo.png" alt="IMG">
             </div>
             <h3 class=" text-uppercase">Welcome!</h3>
+            <?php
+               
+                if (@$_GET['custSignup'] == 'success'){
+                    header_remove();
+                     echo '<p class=" mt-2 text-success">Your account was created succesfully</p>';
+                    
+                    }
+                if (isset($_SESSION['admin_uId'])) {
+                        echo '<p>You logged in</p>';
+                        
+                }
+                else {
+                    echo '<p>You loged out</p>';
+                }
+                
+            ?>
             <p class=" mt-2 fill_text">Please login</p>
+           
 
-            <div class=" mt-2 wrap-input100 validate-input">
-                <label for="cust-type">Email / Username</label>
-                <input class="input100 form-control" type="email" name="email_uid" placeholder="Email/Username" id="cust_type" oninvalid="this.setCustomValidity('Valid email is required: ex@abc.com')" oninput="this.setCustomValidity('')" required>
-                <span class="focus-input100"></span>
-                <span class="symbol-input100">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                </span>
-            </div>
-
-            <div class="wrap-input100 validate-input" >
-                <label for="cust-type">Password</label>
-                <input required class="input100 form-control" type="password" name="pwd_login" placeholder="*********" id="cust_type" oninvalid="this.setCustomValidity('Password is required')" oninput="this.setCustomValidity('')">
-                <span class="focus-input100"></span>
-                <span class="symbol-input100">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                </span>
-            </div>
             <div class="wrap-input100  ">
                 <label for="cust-type">User</label>
-                <select required class=" form-control input100" name="user_type" id="selector" id="cust_type" oninvalid="this.setCustomValidity('Please Select a User')" oninput="this.setCustomValidity('')">
+                <select required class=" form-control input100" name="user_type" id="usr_type"
+                    oninvalid="this.setCustomValidity('Please Select a User')" oninput="this.setCustomValidity('')">
                     <option value="">&nbsp;Select User
                     </option>
-                    <option value="Admin">&nbsp;Admin</option>
-                    <option value="Customer">&nbsp;Customer</option>
-                    <option value="Employee">&nbsp;Employee</option>
+                    <option value="admin">&nbsp;Admin</option>
+                    <option value="customer">&nbsp;Customer</option>
+                    <option value="employee">&nbsp;Employee</option>
 
                 </select>
 
@@ -66,16 +73,39 @@
 
 
 
+            </div> 
+            <div class=" mt-2 wrap-input100 validate-input">
+                <label for="cust-type">Email </label>
+                <input class="input100 form-control" type="email" name="email_uid" placeholder="Email"
+                    id="cust_type" oninvalid="this.setCustomValidity('Valid email is required: ex@abc.com')"
+                    oninput="this.setCustomValidity('')" required>
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </span>
+            </div>
+
+            <div class="wrap-input100 validate-input">
+                <label for="cust-type">Password</label>
+                <input required class="input100 form-control" type="password" name="pwd_login" placeholder="*********"
+                    id="cust_type" oninvalid="this.setCustomValidity('Password is required')"
+                    oninput="this.setCustomValidity('')">
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                </span>
             </div>
 
 
-            <button type="submit" name="login_submit" id="login_button" class="btn mt-4  text-center btn-lg btn-custom btn-block text-uppercase">
+
+            <button type="submit" name="login_submit" id="login_button"
+                class="btn mt-4  text-center btn-lg btn-custom btn-block text-uppercase">
                 Log in
             </button>
-            <p class=" fill_text mt-3 font-weight-normal">
+            <p class=" fill_text mt-3 font-weight-normal create_account" style="display: none;">
                 Don't have an account?
-                <div class="text-center p-t-136">
-                    <a class="txt2" href="signUp.html">
+                <div class="text-center p-t-136 create_account" style="display: none;">
+                    <a class="txt2" href="signUp.php">
                         Create your Account
                         <i class="fa fa-chevron-circle-right " aria-hidden="true"></i>
                     </a>
@@ -101,6 +131,16 @@
         $('.js-tilt').tilt({
             scale: 1.1
         })
+
+        $('#usr_type').on('change', function () {
+            if ($(this).val() !== 'customer') {
+                $('.create_account').hide();
+            } else {
+
+                $('.create_account').show();
+            }
+
+        });
     </script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>

@@ -26,7 +26,7 @@
     <div class="d-flex justify-content-center align-items-center  ">
 
 
-        <form class="validate-form signup_form text-center">
+        <form class="validate-form signup_form text-center" action="include/signup_inc.php" method="POST">
 
             <h3 class=" text-uppercase">Sign Up</h3>
             <div class=" mt-3 form-row ">
@@ -34,7 +34,7 @@
                 <div class="  wrap-input100 form-group ">
 
                     <label for="cust-type">Customer Type</label>
-                    <select required class=" form-control input200" id="cust_type" oninvalid="this.setCustomValidity('Please Select a Type')" oninput="this.setCustomValidity('')" autofocus>
+                    <select required class=" form-control input200" id="cust_type" name="cust_type" oninvalid="this.setCustomValidity('Please Select a Type')" oninput="this.setCustomValidity('')" autofocus>
                         <option value="">&nbsp;&nbsp;Select Customer type</option>
                         <option value="Residential">&nbsp;&nbsp;Residential</option>
                         <option value="Company">&nbsp;&nbsp;Commercial</option>
@@ -64,7 +64,7 @@
 
                 <div class="wrap-input100 form-group form-group col-md-4">
                     <label for="" class="mt-2">Gender</label>
-                    <select required class=" form-control input200" id="gender" id="cust_type" oninvalid="this.setCustomValidity('Please Select a Gender')" oninput="this.setCustomValidity('')">
+                    <select required class=" form-control input200" id="gender" name="gender" oninvalid="this.setCustomValidity('Please Select a Gender')" oninput="this.setCustomValidity('')">
                         <option value="" hidden>&nbsp;Select Gender</option>
                         <option value="Male">&nbsp;Male</option>
                         <option value="Female">&nbsp;Female</option>
@@ -85,13 +85,13 @@
             <div class="form-row cust_company" style="display:none;">
                 <div class=" wrap-input100  validate-input form-group col-md-6">
                     <label for="cust-type">Company Name</label>
-                    <input class="input300 form-control comp" required type="text" name="Company_name" placeholder="Company Name" oninvalid="this.setCustomValidity('Company Name is Required')" oninput="this.setCustomValidity('')">
+                    <input class="input300 form-control comp" required type="text" name="company_name" placeholder="Company Name" oninvalid="this.setCustomValidity('Company Name is Required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100  validate-input col-md-6">
                     <label for="cust-type">Company Representative</label>
-                    <input class=" input300 form-control comp" required type="text" name="Comp_Rep_num" placeholder="Company Representative #" oninvalid="this.setCustomValidity('Company Rep# is required')" oninput="this.setCustomValidity('')">
+                    <input class=" input300 form-control comp" required type="text" name="comp_Rep_num" maxlength="14" pattern="\d*" placeholder="Company Representative #" oninvalid="this.setCustomValidity('Company Rep# is required! Integers Only')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
 
                 </div>
@@ -101,8 +101,8 @@
 
             <div class="form-row ">
                 <div class="wrap-input100 validate-input form-group ">
-                    <label for="cust-type">Username <span class="span_format">&nbsp;&nbsp;(Format: only letters, numbers and/or symbol "_" are allowed!)</span></label>
-                    <input class="input200 form-control" required type="text" name="user_name" placeholder="Username" pattern="[a-zA-Z][a-zA-Z0-9-_]{1,20}" oninvalid="this.setCustomValidity('Valid Username is Required: User1_E')" oninput="this.setCustomValidity('')">
+                    <label for="cust-type">Username <span class="span_format">&nbsp;&nbsp;(Format: only letters, numbers and/or symbols "_ and ." are allowed!)</span></label>
+                    <input class="input200 form-control" required type="text" name="username" placeholder="Username" pattern="[a-zA-Z][a-zA-Z0-9-_.]{1,20}" oninvalid="this.setCustomValidity('Valid Username is Required: User1_E')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-user-check" aria-hidden="true"></i>
@@ -119,15 +119,15 @@
 
                 <div class="wrap-input100 validate-input form-group ">
                     <label for="cust-type">Password</label>
-                    <input class="input200 form-control" required type="password" id ="pwd"name="pwd" placeholder="*********" oninvalid="this.setCustomValidity('Password is required')" oninput="this.setCustomValidity('')">
+                    <input class="input200 form-control" required type="password" id ="pwd" name="pwd" placeholder="*********" oninvalid="this.setCustomValidity('Password is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
                 </div>
-                <div class="wrap-input100 validate-input form-group">
-                    <label for="cust-type">Confirm password</label>
-                    <input class="input200 form-control" required type="password" id="confirm_pwd" name="pwd_Repeat" placeholder="*********" oninvalid="this.setCustomValidity('Confirm Password is required')" oninput="this.setCustomValidity('')"/><span id='message'></span>
+                <div class="wrap-input100 validate-input form-group ">
+                    <label for="cust-type">Confirm Password</label>
+                    <input class="input200 form-control" required type="password" id ="confirm_pwd" name="pwd_Repeat" placeholder="*********" oninvalid="this.setCustomValidity('Confirm Password is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -148,11 +148,11 @@
                     <input class="input300 form-control " type="text" name="address" placeholder="1234 Main St" required oninvalid="this.setCustomValidity('Address is required')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
-                <div class=" wrap-input100 form-group ">
+                <!-- <div class=" wrap-input100 form-group ">
                     <label for="cust-type">Secondary/Business Address</label>
                     <input class="input300 form-control " type="text" name="Building_address" placeholder="4321 Maple Blvd">
                     <span class="focus-input100"></span>
-                </div>
+                </div> -->
             </div>
             <hr class="cust_type_input" />
 
@@ -170,7 +170,7 @@
                 </div>
                 <div class="wrap-input100 form-group col-md-4">
                     <label for="cust-type">Province</label>
-                    <select required class=" form-control input200" id="province" pattern="[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]" oninvalid="this.setCustomValidity('Please Select a Province/Territory')" oninput="this.setCustomValidity('')">
+                    <select required class=" form-control input200" id="province" name="province" pattern="[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]" oninvalid="this.setCustomValidity('Please Select a Province/Territory')" oninput="this.setCustomValidity('')">
                         <option hidden value="">&nbsp;&nbsp;Province</option>
                         <option value="AB">&nbsp;&nbsp;Alberta</option>
                         <option value="BC">&nbsp;&nbsp;British Columbia</option>
@@ -204,7 +204,7 @@
                 Sign Up
             </button>
             <div class=" mt-4 text-center p-t-136">
-                <a class="txt2" href="index.html">
+                <a class="txt2" href="index.php">
                     Go Back
                 </a>
             </div>
@@ -242,9 +242,7 @@
         $('.js-tilt').tilt({
             scale: 1.1
         })
-
        
-
         // show the company or residential inputs depending on slected customer type
         $('#cust_type').on('change', function() {
             if ($(this).val() === 'Company') {
@@ -253,17 +251,11 @@
                 // $("#gender").removeAttr("required");
                 // if ($(".comp").hasAttribute("disabled")) 
                 $(".comp").removeAttr("disabled");
-
-
                 $("#gender").attr("disabled", "disabled");
                 $(".resi").attr("disabled", "disabled");
                 $(".resi").removeAttr("required");
                 $("#gender").removeAttr("required");
                 // $(".comp").attr("required", "required");
-
-
-
-
             } else if ($(this).val() === 'Residential') {
                 $('.cust_residential').show();
                 $('.cust_company').hide();
@@ -271,32 +263,29 @@
                 // $("#gender").attr("required", "required");
                 // if ($(".resi").hasAttribute("disabled")) 
                 $(".resi").removeAttr("disabled");
-
-
                 $("#gender").removeAttr("disabled");
                 $(".comp").attr("disabled", "disabled");
                 $(".comp").removeAttr("required");
                 // $(".resi").attr("required", "required");
-
-
+            }else {
+                $('.cust_company').hide();
+                $('.cust_residential').hide();
             }
-
     //          // check for password mismatch
     //     // $('#pwd, #confirm_pwd').on('keyup', function () {
     //         function validatePassword(){
     //     if ($('#pwd').value == $('#confirm_pwd').value) {
-    //         // $('#message').html('Password Match').css('color', 'green');
+    //         // $('#message').php('Password Match').css('color', 'green');
     //         $('#confirm_pwd').setCustomValidity("Passwords Don't Match");
     // }    else {
     //         $('#confirm_pwd').setCustomValidity("");
-    //         // $('#message').html('Password Doesnt Match').css('color', 'red');
+    //         // $('#message').php('Password Doesnt Match').css('color', 'red');
     //         // $('#submit').attr("disabled","disabled");
     //     }
     //     pwd.onchange = validatePassword;
     //     confirm_pwd.onkeyup = validatePassword;
     // }
     // });
-
         });
         // $(function () {
         $("#submit").click(function () {
