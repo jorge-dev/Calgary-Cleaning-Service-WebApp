@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 22, 2019 at 07:32 AM
+-- Generation Time: Nov 30, 2019 at 08:53 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -29,7 +29,7 @@ USE `471db_project`;
 --
 -- Table structure for table `cleaners`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `cleaners`;
@@ -49,12 +49,12 @@ CREATE TABLE `cleaners` (
 --
 -- Table structure for table `company`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
-  `C_ID` mediumint NOT NULL,
+  `C_ID` mediumint(9) NOT NULL,
   `name` varchar(50) NOT NULL,
   `rep_num` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -65,12 +65,19 @@ CREATE TABLE `company` (
 --       `customers` -> `ID`
 --
 
+--
+-- Dumping data for table `company`
+--
+
+INSERT DELAYED IGNORE INTO `company` (`C_ID`, `name`, `rep_num`) VALUES
+(6078135, 'foo', 1234);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `contract`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `contract`;
@@ -83,7 +90,7 @@ CREATE TABLE `contract` (
   `num_hours` tinyint(4) NOT NULL,
   `status` varchar(10) NOT NULL,
   `Est_num` smallint(6) NOT NULL,
-  `C_id` mediumint NOT NULL
+  `C_id` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -99,14 +106,14 @@ CREATE TABLE `contract` (
 --
 -- Table structure for table `customers`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:54 PM
 --
 
 DROP TABLE IF EXISTS `customers`;
 CREATE TABLE `customers` (
-  `ID` mediumint NOT NULL,
+  `ID` mediumint(9) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `pwd` varchar(30) NOT NULL,
+  `pwd` longtext NOT NULL,
   `user_type` varchar(15) NOT NULL,
   `phone_num` varchar(15) DEFAULT NULL,
   `type` varchar(15) NOT NULL,
@@ -121,13 +128,20 @@ CREATE TABLE `customers` (
 -- RELATIONSHIPS FOR TABLE `customers`:
 --
 
+--
+-- Dumping data for table `customers`
+--
+
+INSERT DELAYED IGNORE INTO `customers` (`ID`, `username`, `pwd`, `user_type`, `phone_num`, `type`, `street`, `postal_code`, `city`, `province`, `email`) VALUES
+(176953, 'jdev', '$2y$10$H9tLMf7cJVmnEn2Rf0fwAObhjJ6gg.P6/3kF1DfU1SnH2LKWRbEBS', 'customer', '587-586-7855', 'Residential', '52 Abadan Cr NE', 'T2A6N9', 'Calgary', 'AB', 'jo.luisa94@gmail.com'),
+(6078135, 'red', '$2y$10$84iM4y80emTfW0McIkm5Uu4CuXZ.Syz6feZAJLVShi7EG//ZOY1uu', 'customer', '333-444-5555', 'Company', 'sfvks.mfvd', 't4t4t4', 'wfwef', 'AB', 'r@me.com');
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `department`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
--- Last update: Nov 21, 2019 at 09:40 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `department`;
@@ -144,7 +158,7 @@ CREATE TABLE `department` (
 -- Dumping data for table `department`
 --
 
-INSERT INTO `department` (`number`, `name`) VALUES
+INSERT DELAYED IGNORE INTO `department` (`number`, `name`) VALUES
 (1, 'Cleaner Operations'),
 (2, 'Sales'),
 (3, 'IT'),
@@ -158,7 +172,7 @@ INSERT INTO `department` (`number`, `name`) VALUES
 --
 -- Table structure for table `dept_locations`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `dept_locations`;
@@ -178,8 +192,7 @@ CREATE TABLE `dept_locations` (
 --
 -- Table structure for table `employee`
 --
--- Creation: Nov 22, 2019 at 06:15 AM
--- Last update: Nov 22, 2019 at 06:30 AM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `employee`;
@@ -214,17 +227,16 @@ CREATE TABLE `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`SIN`, `Id`, `username`, `pwd`, `user_type`, `gender`, `f_name`, `m_name`, `l_name`, `street`, `postal_code`, `city`, `birth_date`, `job_type`, `email`, `phone_num`, `start_date`, `Dnum`) VALUES
-('876-789-765', '6892430', 'jhjhjh', '$2y$10$SnC/4jc9YxuZkBfuLt.hD.T.PpmyafhgF.quRMq1muQdNuHcCdY72', 'employee', 'Other', 'John', NULL, 'Smith', 'fdjgvh jhblikln', 'T2A6N9', 'Calgary', '1987-08-07', 'maintenance', 'sdfdf@gmail.com', '678-876-8788', '2018-09-23', 4),
-('987-888-654', '9706548', 'libl', '$2y$10$W36LLLPJz5OAqTdS3Ja2a.qCXrZcE1lXjYwWIq9DOSaxvEy/RlhLG', 'employee', 'Male', 'jjuu', NULL, 'iuytr', 'dfghdfgh', 't2a6n9', 'Clagary', '1987-08-07', 'employee', 'asas@gmail.com', '888-888-8888', '2015-01-30', NULL),
-('999-999-999', '1672504', 'jdev', '$2y$10$qKK6w.t6/5izE13wJc1D2.54ZOY3ejxcYxPjLSqqjAaVr8NK2c3Yi', 'admin', 'Female', 'Jorge Luis', 'Avila', 'Sanchez', '52 Abadan Crescent NE', 'T2A6N9', 'Calgary', '2005-12-15', 'admin', 'jorgeluis.a94@gmail.com', '587-586-7855', '2015-01-30', 3);
+INSERT DELAYED IGNORE INTO `employee` (`SIN`, `Id`, `username`, `pwd`, `user_type`, `gender`, `f_name`, `m_name`, `l_name`, `street`, `postal_code`, `city`, `birth_date`, `job_type`, `email`, `phone_num`, `start_date`, `Dnum`) VALUES
+('897-876-354', '0491368', 'smith', '$2y$10$tQzoTI2WeKe0YUOtQBsvCOqOKhnkY0qo1oFHfbxVYERqx52ymGCbK', 'employee', 'Female', 'john', NULL, 'smith', 'jkfw', 'r6r6r6', 'wehwuerf', '2014-06-12', 'maintenance', 'jsmith@gmail.com', '333-444-5555', '2006-06-06', 4),
+('987-888-654', '4769315', 'Toots', '$2y$10$thJ2K/SxWVwLCDevuzWdseYP/E6pcCvBp9OYIEAaCUhaQzoH6azgy', 'employee', 'Female', 'as', NULL, 'as', '52 Abadan Crescent NE', 'T2A6N9', 'Calgary', '2005-12-15', 'employee', 'jorgeluis.a94@gmail.com', '587-777-7878', '2015-01-30', NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `equipment`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `equipment`;
@@ -247,7 +259,7 @@ CREATE TABLE `equipment` (
 --
 -- Table structure for table `estimate`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `estimate`;
@@ -269,7 +281,7 @@ CREATE TABLE `estimate` (
 --
 -- Table structure for table `has_reservation`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `has_reservation`;
@@ -292,7 +304,7 @@ CREATE TABLE `has_reservation` (
 --
 -- Table structure for table `it`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `it`;
@@ -312,7 +324,7 @@ CREATE TABLE `it` (
 --
 -- Table structure for table `maintenance`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `maintenance`;
@@ -332,7 +344,7 @@ CREATE TABLE `maintenance` (
 --
 -- Table structure for table `offered_locations`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `offered_locations`;
@@ -352,12 +364,12 @@ CREATE TABLE `offered_locations` (
 --
 -- Table structure for table `requested_building`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `requested_building`;
 CREATE TABLE `requested_building` (
-  `C_ID` mediumint NOT NULL,
+  `C_ID` mediumint(9) NOT NULL,
   `type` varchar(15) NOT NULL,
   `city` varchar(20) NOT NULL,
   `street` varchar(20) NOT NULL,
@@ -376,12 +388,12 @@ CREATE TABLE `requested_building` (
 --
 -- Table structure for table `residential`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `residential`;
 CREATE TABLE `residential` (
-  `C_ID` mediumint NOT NULL,
+  `C_ID` mediumint(9) NOT NULL,
   `f_name` varchar(15) NOT NULL,
   `l_name` varchar(30) NOT NULL,
   `gender` varchar(10) NOT NULL DEFAULT 'other'
@@ -393,12 +405,19 @@ CREATE TABLE `residential` (
 --       `customers` -> `ID`
 --
 
+--
+-- Dumping data for table `residential`
+--
+
+INSERT DELAYED IGNORE INTO `residential` (`C_ID`, `f_name`, `l_name`, `gender`) VALUES
+(176953, 'Jorge', 'Avila', 'Other');
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `sales associate`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `sales associate`;
@@ -419,7 +438,7 @@ CREATE TABLE `sales associate` (
 --
 -- Table structure for table `services`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `services`;
@@ -442,7 +461,7 @@ CREATE TABLE `services` (
 --
 -- Table structure for table `special_res`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `special_res`;
@@ -452,7 +471,7 @@ CREATE TABLE `special_res` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `comments` text DEFAULT NULL,
-  `C_id` mediumint NOT NULL
+  `C_id` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -466,7 +485,7 @@ CREATE TABLE `special_res` (
 --
 -- Table structure for table `supplies`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `supplies`;
@@ -488,7 +507,7 @@ CREATE TABLE `supplies` (
 --
 -- Table structure for table `works_on`
 --
--- Creation: Nov 18, 2019 at 09:49 PM
+-- Creation: Nov 25, 2019 at 09:42 PM
 --
 
 DROP TABLE IF EXISTS `works_on`;
@@ -536,8 +555,8 @@ ALTER TABLE `contract`
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `username` (`username`),
-  ADD UNIQUE KEY `pwd` (`pwd`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `pwd` (`pwd`) USING HASH;
 
 --
 -- Indexes for table `department`
@@ -668,7 +687,7 @@ ALTER TABLE `cleaners`
 -- Constraints for table `company`
 --
 ALTER TABLE `company`
-  ADD CONSTRAINT `inheritance_cust` FOREIGN KEY (`C_ID`) REFERENCES `customers` (`ID`) ON DELETE NO ACTION;
+  ADD CONSTRAINT `inheritance_cust` FOREIGN KEY (`C_ID`) REFERENCES `customers` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `contract`
@@ -730,7 +749,7 @@ ALTER TABLE `requested_building`
 -- Constraints for table `residential`
 --
 ALTER TABLE `residential`
-  ADD CONSTRAINT `inheritance_cust2` FOREIGN KEY (`C_ID`) REFERENCES `customers` (`ID`);
+  ADD CONSTRAINT `inheritance_cust2` FOREIGN KEY (`C_ID`) REFERENCES `customers` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `sales associate`
@@ -766,150 +785,93 @@ USE `phpmyadmin`;
 --
 -- Metadata for table cleaners
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table company
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table contract
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table customers
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table department
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table dept_locations
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table employee
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
+
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT DELAYED IGNORE INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', '471db_project', 'employee', '{\"CREATE_TIME\":\"2019-11-21 23:15:47\"}', '2019-11-25 21:41:32');
 
 --
 -- Metadata for table equipment
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table estimate
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table has_reservation
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table it
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table maintenance
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table offered_locations
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table requested_building
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table residential
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table sales associate
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table services
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table special_res
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table supplies
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for table works_on
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
 -- Metadata for database 471db_project
 --
--- Error reading data for table phpmyadmin.pma__bookmark: #1100 - Table 'pma__bookmark' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__relation: #1100 - Table 'pma__relation' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__savedsearches: #1100 - Table 'pma__savedsearches' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__central_columns: #1100 - Table 'pma__central_columns' was not locked with LOCK TABLES
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
