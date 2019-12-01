@@ -103,45 +103,54 @@ if (isset($_POST['login_submit'])) {
                     exit();
                 }
                 elseif ($pwdCheck == true) {
-                    session_start();
-                    $_SESSION['emp_id']  =$row['id'];
-                    $_SESSION['emp_uId']  =$row['username'];
                     
                     if($row['job_type'] == 'employee'){
+                        session_start();
+                        $_SESSION['other_emp_id']  =$row['id'];
+                        $_SESSION['other_emp_uId']  =$row['username'];
                         header("Location: ../otherEmployee.php?loginEmp=success");
                         exit();
                     }
                     elseif($row['job_type'] == 'sales'){
+                        session_start();
+                        $_SESSION['sales_emp_id']  =$row['id'];
+                        $_SESSION['sales_emp_uId']  =$row['username'];
                         header("Location: ../sales_asoc.php?loginSales=success");
                         exit();
                     }
                     elseif($row['job_type'] == 'cleaner'){
+                        session_start();
+                        $_SESSION['cleaner_emp_id']  =$row['id'];
+                        $_SESSION['cleaner_emp_uId']  =$row['username'];
                         header("Location: ../cleaner.php?loginCleane=success");
                         exit();
                     }
                     elseif($row['job_type'] == 'maintenance'){
+                        session_start();
+                        $_SESSION['maint_emp_id']  =$row['id'];
+                        $_SESSION['maint_emp_uId']  =$row['username'];
                         header("Location: ../maintenance.php?loginMaint=success");
                         exit();
                     }
                     else{
-                        header("Location: ../index.php?error=UnkwonFailure");
+                        header("Location: ../index.php?error=ErrorFetchingData");
                         exit();
                     }
                    
                 }
                 else {
-                    header("Location: ../index.php?error=unknownError");
+                    header("Location: ../index.php?error=UnknownError");
                     exit();
                 }
             }
             else {
                 header("Location: ../index.php?error=noUser");
-            exit();
+                exit();
             }
         }
     }
     else {
-        header("Location: ../index.php?error=noUserFound");
+        header("Location: ../index.php?error=noUser");
         exit();
     }
     mysqli_stmt_close($stmt);
@@ -149,6 +158,6 @@ if (isset($_POST['login_submit'])) {
 }
 
 else {
-    header("Location: ../index.php");
+    header("Location: ../index.php?error=NeedtoLogin");
     exit();
 }

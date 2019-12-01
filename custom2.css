@@ -48,8 +48,7 @@ body {
   margin-top: 35px;
   width: 560px;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.925);
-  background: rgba(36, 1, 46, 0.925);
-
+  background: rgba(23, 1, 29, 0.925);
   border-radius: 1rem;
 
   padding: 15px;
@@ -69,9 +68,9 @@ body {
 
 .login-form {
   margin: auto;
-  width: 400px;
+  width: 450px;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.959);
-  background: rgba(36, 1, 46, 0.925);
+  background: rgba(23, 1, 29, 0.925);
 
   border-radius: 1rem;
 
@@ -84,8 +83,7 @@ body {
   margin-top: 35px;
   width: 560px;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.925);
-  background: rgba(36, 1, 46, 0.925);
-
+  background:rgba(23, 1, 29, 0.925);
   border-radius: 1rem;
 
   padding: 15px;

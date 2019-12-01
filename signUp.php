@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="wrap-input100  validate-input col-md-6">
-                    <label for="cust-type">Company Representative</label>
+                    <label for="cust-type">Company Representative #</label>
                     <input class=" input300 form-control comp" required type="text" name="comp_Rep_num" maxlength="14" pattern="\d*" placeholder="Company Representative #" oninvalid="this.setCustomValidity('Company Rep# is required! Integers Only')" oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
 
