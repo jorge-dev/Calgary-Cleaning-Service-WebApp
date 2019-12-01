@@ -150,7 +150,7 @@ if (isset($_POST['login_submit'])) {
         }
     }
     else {
-        header("Location: ../index.php?error=noUserFound");
+        header("Location: ../index.php?error=noUser");
         exit();
     }
     mysqli_stmt_close($stmt);

@@ -50,8 +50,8 @@ session_start();
             }
             if (@$_GET['error'] == 'NeedtoLoginToseeAdminPage') {
                 
-                echo'<div class="  alert bg-danger mx-auto alert-dismissible fade show" role="alert"  ">
-                    <p class=" font-weight-bold text-center alert-heading text-left" style ="width:340px;">Admin Log in is required!</p>
+                echo'<div class=" ml-0 alert bg-danger mx-auto alert-dismissible fade show" role="alert"  ">
+                    <p class="  font-weight-bold text-center alert-heading" style ="width:400px;">Admin Log in is required!</p>
                     <button type="button"  class=" pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -59,8 +59,8 @@ session_start();
             }
             else if (@$_GET['error'] == 'NeedtoLoginToseeCustomerPage') {
                 
-                echo'<div class="  alert bg-danger mx-auto alert-dismissible fade show" role="alert"  ">
-                    <p class=" font-weight-bold text-center alert-heading text-left" style ="width:340px;">Customer Log in is required!</p>
+                echo'<div class=" ml-0 alert bg-danger mx-auto alert-dismissible fade show" role="alert"  ">
+                    <p class="  font-weight-bold text-center alert-heading text-left" style ="width:400px;">Customer Log in is required!</p>
                     <button type="button"  class=" pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -68,8 +68,26 @@ session_start();
             }
             else if (@$_GET['error'] == 'NeedtoLoginToseeEmployeePage') {
                 
-                echo'<div class="  alert bg-danger mx-auto alert-dismissible fade show" role="alert"  ">
-                    <p class=" font-weight-bold text-center alert-heading text-left" style ="width:340px;">Employee Log in is required!</p>
+                echo'<div class=" ml-0 alert bg-danger mx-auto alert-dismissible fade show" role="alert"  ">
+                    <p class="  font-weight-bold text-center alert-heading text-left" style ="width:400px;">Employee Log in is required!</p>
+                    <button type="button"  class=" pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+            }
+            else if (@$_GET['error'] == 'wrongpwd') {
+                
+                echo'<div class=" ml-0 alert bg-danger mx-auto alert-dismissible fade show" role="alert"  ">
+                    <p class="  font-weight-bold text-center alert-heading " style ="width:400px;"><i class="fas fa-exclamation-triangle"></i> &nbsp;Wrong Password</p>
+                    <button type="button"  class=" pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+            }
+            else if (@$_GET['error'] == 'noUser') {
+                
+                echo'<div class=" ml-0 alert bg-danger mx-auto alert-dismissible fade show" role="alert"  ">
+                    <p class="  font-weight-bold text-center alert-heading " style ="width:400px;"><i class="fas fa-exclamation-triangle"></i> &nbsp;No user was found</p>
                     <button type="button"  class=" pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
