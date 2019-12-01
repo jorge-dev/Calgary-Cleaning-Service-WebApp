@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 01, 2019 at 05:32 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.1.32
+-- Host: 127.0.0.1
+-- Generation Time: Dec 01, 2019 at 10:59 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,17 +29,36 @@ USE `471db_project`;
 --
 -- Table structure for table `cleaners`
 --
+-- Creation: Dec 01, 2019 at 04:35 AM
+-- Last update: Dec 01, 2019 at 09:39 AM
+--
 
 DROP TABLE IF EXISTS `cleaners`;
 CREATE TABLE `cleaners` (
   `SIN` varchar(11) NOT NULL,
-  `hourly_rate` decimal(6,4) NOT NULL
+  `hourly_rate` decimal(7,4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONSHIPS FOR TABLE `cleaners`:
+--   `SIN`
+--       `employee` -> `SIN`
+--
+
+--
+-- Dumping data for table `cleaners`
+--
+
+INSERT INTO `cleaners` (`SIN`, `hourly_rate`) VALUES
+('258-753-951', '25.2540');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `company`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
+-- Last update: Dec 01, 2019 at 04:36 AM
 --
 
 DROP TABLE IF EXISTS `company`;
@@ -50,16 +69,17 @@ CREATE TABLE `company` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `company`
+-- RELATIONSHIPS FOR TABLE `company`:
+--   `C_ID`
+--       `customers` -> `ID`
 --
-
-INSERT INTO `company` (`C_ID`, `name`, `rep_num`) VALUES
-(6078135, 'foo', 1234);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `contract`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
 --
 
 DROP TABLE IF EXISTS `contract`;
@@ -75,10 +95,21 @@ CREATE TABLE `contract` (
   `C_id` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELATIONSHIPS FOR TABLE `contract`:
+--   `C_id`
+--       `customers` -> `ID`
+--   `Est_num`
+--       `estimate` -> `number`
+--
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `customers`
+--
+-- Creation: Dec 01, 2019 at 04:34 AM
+-- Last update: Dec 01, 2019 at 04:36 AM
 --
 
 DROP TABLE IF EXISTS `customers`;
@@ -97,17 +128,15 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `customers`
+-- RELATIONSHIPS FOR TABLE `customers`:
 --
-
-INSERT INTO `customers` (`ID`, `username`, `pwd`, `user_type`, `phone_num`, `type`, `street`, `postal_code`, `city`, `province`, `email`) VALUES
-(176953, 'jdev', '$2y$10$H9tLMf7cJVmnEn2Rf0fwAObhjJ6gg.P6/3kF1DfU1SnH2LKWRbEBS', 'customer', '587-586-7855', 'Residential', '52 Abadan Cr NE', 'T2A6N9', 'Calgary', 'AB', 'jo.luisa94@gmail.com'),
-(6078135, 'red', '$2y$10$84iM4y80emTfW0McIkm5Uu4CuXZ.Syz6feZAJLVShi7EG//ZOY1uu', 'customer', '333-444-5555', 'Company', 'sfvks.mfvd', 't4t4t4', 'wfwef', 'AB', 'r@me.com');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `department`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
 --
 
 DROP TABLE IF EXISTS `department`;
@@ -115,6 +144,10 @@ CREATE TABLE `department` (
   `number` tinyint(4) NOT NULL,
   `name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONSHIPS FOR TABLE `department`:
+--
 
 --
 -- Dumping data for table `department`
@@ -134,6 +167,8 @@ INSERT INTO `department` (`number`, `name`) VALUES
 --
 -- Table structure for table `dept_locations`
 --
+-- Creation: Dec 01, 2019 at 04:35 AM
+--
 
 DROP TABLE IF EXISTS `dept_locations`;
 CREATE TABLE `dept_locations` (
@@ -141,10 +176,19 @@ CREATE TABLE `dept_locations` (
   `location` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELATIONSHIPS FOR TABLE `dept_locations`:
+--   `Dnum`
+--       `department` -> `number`
+--
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `employee`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
+-- Last update: Dec 01, 2019 at 09:58 AM
 --
 
 DROP TABLE IF EXISTS `employee`;
@@ -170,17 +214,28 @@ CREATE TABLE `employee` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- RELATIONSHIPS FOR TABLE `employee`:
+--   `Dnum`
+--       `department` -> `number`
+--
+
+--
 -- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` (`SIN`, `Id`, `username`, `pwd`, `user_type`, `gender`, `f_name`, `m_name`, `l_name`, `street`, `postal_code`, `city`, `birth_date`, `job_type`, `email`, `phone_num`, `start_date`, `Dnum`) VALUES
-('897-876-354', '0491368', 'smith', '$2y$10$tQzoTI2WeKe0YUOtQBsvCOqOKhnkY0qo1oFHfbxVYERqx52ymGCbK', 'employee', 'Female', 'john', NULL, 'smith', 'jkfw', 'r6r6r6', 'wehwuerf', '2014-06-12', 'maintenance', 'jsmith@gmail.com', '333-444-5555', '2006-06-06', 4),
-('987-888-654', '4769315', 'Toots', '$2y$10$thJ2K/SxWVwLCDevuzWdseYP/E6pcCvBp9OYIEAaCUhaQzoH6azgy', 'employee', 'Female', 'as', NULL, 'as', '52 Abadan Crescent NE', 'T2A6N9', 'Calgary', '2005-12-15', 'employee', 'jorgeluis.a94@gmail.com', '587-777-7878', '2015-01-30', NULL);
+('159-741-852', '0879451', 'mario', '$2y$10$v9i6E6B7ZGmf3FczZWnYWeegOKTGbUe.aSPiY..tFd8T4gi8Hf6i2', 'employee', 'Male', 'sd', NULL, 'sd', 'dfghdfgh', 't2a6n9', 'Clagary', '1987-08-07', 'employee', 'lo@me.com', '888-888-8888', '2018-09-23', NULL),
+('258-745-658', '6817340', 'deew', '$2y$10$PXW9E892dUbHWGVlIGj4beJ7Ol1pj6gSJXz4MBDaBEd8GdBkFNaBG', 'employee', 'Male', 'ddd', NULL, 'ddd', '7894', 's4s4s4', 'asdadc', '1987-08-07', 'maintenance', 's@m.com', '123-456-8883', '2018-09-23', 4),
+('258-753-951', '1069742', 'lala', '$2y$10$FDN4PzfsjC39FLMgkKFW7O/PA62QPf4rzE7czz1VVFx6LjE5v7Ile', 'employee', 'Female', 'la', NULL, 'la', 'zdcsdc', 'e7e7e7', 'sdcsdc', '1987-08-07', 'cleaner', 'la@la.com', '159-789-7887', '2018-09-23', 1),
+('333-555-888', '1457396', 'aaaa', '$2y$10$EcQZhJnuPZPvHhvJ8FA0yu3kKNmzQQLqOcQMNND4rfZpXduIL79nm', 'employee', 'Male', 'aaa', NULL, 'aaa', 'asdca', 's4s4s4', 'asdcas', '1987-08-07', 'sales', 'aa@m.com', '123-456-7894', '2018-09-23', 2),
+('987-589-256', '8319540', 'asas', '$2y$10$dzmlnp7VmBCxTkD2sa4G9u8sR8mM2wkmjHAU.LHxDcqumcuplm6zS', 'admin', 'Other', 'asd', NULL, 'as', 'dfghdfgh', 't2a6n9', 'Clagary', '1987-08-07', 'admin', 'jo.luisa94@gmail.com', '888-888-8888', '2018-09-23', 3);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `equipment`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
 --
 
 DROP TABLE IF EXISTS `equipment`;
@@ -192,10 +247,18 @@ CREATE TABLE `equipment` (
   `D_num` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELATIONSHIPS FOR TABLE `equipment`:
+--   `D_num`
+--       `department` -> `number`
+--
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `estimate`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
 --
 
 DROP TABLE IF EXISTS `estimate`;
@@ -208,10 +271,16 @@ CREATE TABLE `estimate` (
   `D_num` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELATIONSHIPS FOR TABLE `estimate`:
+--
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `has_reservation`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
 --
 
 DROP TABLE IF EXISTS `has_reservation`;
@@ -221,34 +290,76 @@ CREATE TABLE `has_reservation` (
   `hours` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELATIONSHIPS FOR TABLE `has_reservation`:
+--   `CL_SIN`
+--       `cleaners` -> `SIN`
+--   `SR_num`
+--       `special_res` -> `number`
+--
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `it`
 --
+-- Creation: Dec 01, 2019 at 09:12 AM
+-- Last update: Dec 01, 2019 at 09:56 AM
+--
 
 DROP TABLE IF EXISTS `it`;
 CREATE TABLE `it` (
-  `SIN` varchar(9) NOT NULL,
-  `salary` decimal(8,4) NOT NULL
+  `SIN` varchar(11) NOT NULL,
+  `salary` decimal(10,4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONSHIPS FOR TABLE `it`:
+--   `SIN`
+--       `employee` -> `SIN`
+--
+
+--
+-- Dumping data for table `it`
+--
+
+INSERT INTO `it` (`SIN`, `salary`) VALUES
+('987-589-256', '15247.2547');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `maintenance`
 --
+-- Creation: Dec 01, 2019 at 05:20 AM
+-- Last update: Dec 01, 2019 at 09:58 AM
+--
 
 DROP TABLE IF EXISTS `maintenance`;
 CREATE TABLE `maintenance` (
   `SIN` varchar(11) NOT NULL,
-  `Salary` double(8,4) NOT NULL
+  `Salary` double(10,4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONSHIPS FOR TABLE `maintenance`:
+--   `SIN`
+--       `employee` -> `SIN`
+--
+
+--
+-- Dumping data for table `maintenance`
+--
+
+INSERT INTO `maintenance` (`SIN`, `Salary`) VALUES
+('258-745-658', 1254.2500);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `offered_locations`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
 --
 
 DROP TABLE IF EXISTS `offered_locations`;
@@ -257,10 +368,46 @@ CREATE TABLE `offered_locations` (
   `locations` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELATIONSHIPS FOR TABLE `offered_locations`:
+--   `S_ID`
+--       `services` -> `Id`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `other_employee`
+--
+-- Creation: Dec 01, 2019 at 09:26 AM
+-- Last update: Dec 01, 2019 at 09:38 AM
+--
+
+DROP TABLE IF EXISTS `other_employee`;
+CREATE TABLE `other_employee` (
+  `SIN` varchar(11) NOT NULL,
+  `salary` decimal(10,4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONSHIPS FOR TABLE `other_employee`:
+--   `SIN`
+--       `employee` -> `SIN`
+--
+
+--
+-- Dumping data for table `other_employee`
+--
+
+INSERT INTO `other_employee` (`SIN`, `salary`) VALUES
+('159-741-852', '2155.0200');
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `requested_building`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
 --
 
 DROP TABLE IF EXISTS `requested_building`;
@@ -273,10 +420,19 @@ CREATE TABLE `requested_building` (
   `postal_code` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELATIONSHIPS FOR TABLE `requested_building`:
+--   `C_ID`
+--       `customers` -> `ID`
+--
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `residential`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
+-- Last update: Dec 01, 2019 at 04:36 AM
 --
 
 DROP TABLE IF EXISTS `residential`;
@@ -288,29 +444,46 @@ CREATE TABLE `residential` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `residential`
+-- RELATIONSHIPS FOR TABLE `residential`:
+--   `C_ID`
+--       `customers` -> `ID`
 --
-
-INSERT INTO `residential` (`C_ID`, `f_name`, `l_name`, `gender`) VALUES
-(176953, 'Jorge', 'Avila', 'Other');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `sales associate`
 --
+-- Creation: Dec 01, 2019 at 05:21 AM
+-- Last update: Dec 01, 2019 at 09:52 AM
+--
 
 DROP TABLE IF EXISTS `sales associate`;
 CREATE TABLE `sales associate` (
   `SIN` varchar(11) NOT NULL,
-  `salary` double(8,4) NOT NULL,
-  `num_sales` int(3) NOT NULL
+  `salary` double(10,4) NOT NULL,
+  `num_sales` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONSHIPS FOR TABLE `sales associate`:
+--   `SIN`
+--       `employee` -> `SIN`
+--
+
+--
+-- Dumping data for table `sales associate`
+--
+
+INSERT INTO `sales associate` (`SIN`, `salary`, `num_sales`) VALUES
+('333-555-888', 15.2500, NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `services`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
 --
 
 DROP TABLE IF EXISTS `services`;
@@ -322,10 +495,18 @@ CREATE TABLE `services` (
   `D_num` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELATIONSHIPS FOR TABLE `services`:
+--   `D_num`
+--       `department` -> `number`
+--
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `special_res`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
 --
 
 DROP TABLE IF EXISTS `special_res`;
@@ -338,10 +519,18 @@ CREATE TABLE `special_res` (
   `C_id` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELATIONSHIPS FOR TABLE `special_res`:
+--   `C_id`
+--       `customers` -> `ID`
+--
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `supplies`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
 --
 
 DROP TABLE IF EXISTS `supplies`;
@@ -354,10 +543,16 @@ CREATE TABLE `supplies` (
   `D_num` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELATIONSHIPS FOR TABLE `supplies`:
+--
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `works_on`
+--
+-- Creation: Dec 01, 2019 at 04:35 AM
 --
 
 DROP TABLE IF EXISTS `works_on`;
@@ -366,6 +561,14 @@ CREATE TABLE `works_on` (
   `Contr_num` smallint(4) NOT NULL,
   `hours` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONSHIPS FOR TABLE `works_on`:
+--   `CL_SIN`
+--       `cleaners` -> `SIN`
+--   `Contr_num`
+--       `contract` -> `number`
+--
 
 --
 -- Indexes for dumped tables
@@ -459,6 +662,12 @@ ALTER TABLE `maintenance`
 --
 ALTER TABLE `offered_locations`
   ADD KEY `off_loc_serv_fk` (`S_ID`);
+
+--
+-- Indexes for table `other_employee`
+--
+ALTER TABLE `other_employee`
+  ADD PRIMARY KEY (`SIN`);
 
 --
 -- Indexes for table `requested_building`
@@ -567,7 +776,7 @@ ALTER TABLE `has_reservation`
 -- Constraints for table `it`
 --
 ALTER TABLE `it`
-  ADD CONSTRAINT `inheritance3` FOREIGN KEY (`SIN`) REFERENCES `employee` (`SIN`) ON DELETE CASCADE;
+  ADD CONSTRAINT `inheritance3` FOREIGN KEY (`SIN`) REFERENCES `employee` (`SIN`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `maintenance`
@@ -580,6 +789,12 @@ ALTER TABLE `maintenance`
 --
 ALTER TABLE `offered_locations`
   ADD CONSTRAINT `off_loc_serv_fk` FOREIGN KEY (`S_ID`) REFERENCES `services` (`Id`);
+
+--
+-- Constraints for table `other_employee`
+--
+ALTER TABLE `other_employee`
+  ADD CONSTRAINT `inheritance_otherEmp` FOREIGN KEY (`SIN`) REFERENCES `employee` (`SIN`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `requested_building`
@@ -645,6 +860,13 @@ USE `phpmyadmin`;
 --
 
 --
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', '471db_project', 'department', '{\"sorted_col\":\"`department`.`number` ASC\"}', '2019-11-21 10:34:58');
+
+--
 -- Metadata for table dept_locations
 --
 
@@ -681,6 +903,10 @@ INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, 
 
 --
 -- Metadata for table offered_locations
+--
+
+--
+-- Metadata for table other_employee
 --
 
 --

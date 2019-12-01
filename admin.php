@@ -1,11 +1,11 @@
 <?php
-   session_start();
-   if(!isset($_SESSION['admin_uId'])) {
-    header('location: index.php?error=NeedtoLoginToseePage');
-    include_once("admin.php");
+//    session_start();
+//    if(!isset($_SESSION['admin_uId'])) {
+//     header('location: index.php?error=NeedtoLoginToseePage');
+//     include_once("admin.php");
    
-    exit;
-   }
+//     exit;
+//    }
  
 ?>
 <!DOCTYPE html>
