@@ -1,12 +1,12 @@
 <?php
-//    session_start();
-//    if(!isset($_SESSION['admin_uId'])) {
-//     header('location: index.php?error=NeedtoLoginToseePage');
-//     include_once("admin.php");
-   
-//     exit;
-//    }
- 
+   session_start();
+   if(!isset($_SESSION['admin_uId'])) {
+    header('location: index.php?error=NeedtoLoginToseeAdminPage');
+    include_once("admin.php");
+
+    exit;
+   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,16 +25,16 @@
         <button type="submit" class="btn btn-success">Logout</button>
     </form>
     <?php
-               
-             
+
+
                if (isset($_SESSION['admin_uId'])) {
                        echo '<p>You logged in</p>';
-                       
+
                }
                else {
                    echo '<p>You loged out</p>';
                }
-               
+
            ?>
 </body>
 
