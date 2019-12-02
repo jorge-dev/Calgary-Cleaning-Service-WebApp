@@ -5,11 +5,7 @@ if (isset($_POST['login_submit'])) {
     $emailuid= mysqli_real_escape_string($connect ,$_POST['email_uid']);
     $password= mysqli_real_escape_string($connect ,$_POST['pwd_login']);
     $usr_type= mysqli_real_escape_string($connect ,$_POST['user_type']);
-
-    // if (empty($emailuid) || empty($password)) {
-    //     header("Location: ../index.php?error=emptyfields");
-    //     exit();
-    // }
+ 
     if ($usr_type == "admin"){
         $sql="SELECT * From employee Where user_type=? AND  (username=? OR email =?);";
         $stmt= mysqli_stmt_init($connect);
