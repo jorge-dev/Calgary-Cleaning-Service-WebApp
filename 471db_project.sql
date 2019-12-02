@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2019 at 08:52 PM
+-- Generation Time: Dec 02, 2019 at 10:32 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -30,7 +30,6 @@ USE `471db_project`;
 -- Table structure for table `cleaners`
 --
 -- Creation: Dec 01, 2019 at 04:35 AM
--- Last update: Dec 02, 2019 at 02:09 AM
 --
 
 DROP TABLE IF EXISTS `cleaners`;
@@ -46,10 +45,15 @@ CREATE TABLE `cleaners` (
 --
 
 --
+-- Truncate table before insert `cleaners`
+--
+
+TRUNCATE TABLE `cleaners`;
+--
 -- Dumping data for table `cleaners`
 --
 
-INSERT DELAYED IGNORE INTO `cleaners` (`SIN`, `hourly_rate`) VALUES
+INSERT INTO `cleaners` (`SIN`, `hourly_rate`) VALUES
 ('333-333-333', '100.2500'),
 ('354-852-487', '458.3000');
 
@@ -59,7 +63,6 @@ INSERT DELAYED IGNORE INTO `cleaners` (`SIN`, `hourly_rate`) VALUES
 -- Table structure for table `company`
 --
 -- Creation: Dec 01, 2019 at 04:35 AM
--- Last update: Dec 01, 2019 at 08:36 PM
 --
 
 DROP TABLE IF EXISTS `company`;
@@ -76,10 +79,15 @@ CREATE TABLE `company` (
 --
 
 --
+-- Truncate table before insert `company`
+--
+
+TRUNCATE TABLE `company`;
+--
 -- Dumping data for table `company`
 --
 
-INSERT DELAYED IGNORE INTO `company` (`C_ID`, `name`, `rep_num`) VALUES
+INSERT INTO `company` (`C_ID`, `name`, `rep_num`) VALUES
 (943827, 'Cement Co.', 15547);
 
 -- --------------------------------------------------------
@@ -111,13 +119,17 @@ CREATE TABLE `contract` (
 --       `estimate` -> `number`
 --
 
+--
+-- Truncate table before insert `contract`
+--
+
+TRUNCATE TABLE `contract`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `customers`
 --
 -- Creation: Dec 01, 2019 at 04:34 AM
--- Last update: Dec 01, 2019 at 08:36 PM
 --
 
 DROP TABLE IF EXISTS `customers`;
@@ -140,10 +152,15 @@ CREATE TABLE `customers` (
 --
 
 --
+-- Truncate table before insert `customers`
+--
+
+TRUNCATE TABLE `customers`;
+--
 -- Dumping data for table `customers`
 --
 
-INSERT DELAYED IGNORE INTO `customers` (`ID`, `username`, `pwd`, `user_type`, `phone_num`, `type`, `street`, `postal_code`, `city`, `province`, `email`) VALUES
+INSERT INTO `customers` (`ID`, `username`, `pwd`, `user_type`, `phone_num`, `type`, `street`, `postal_code`, `city`, `province`, `email`) VALUES
 (943827, 'cement78', '$2y$10$AI.afhhddTE2nXQGihyDyO8jJo0HF7AR5GQcHM618TW8PepaHL5Q.', 'customer', '145-789-9999', 'Company', 'Los Pinos Blvd', 'T2A6N9', 'Calgary', 'AB', 'cement@m.com'),
 (6541839, 'mick94', '$2y$10$oWWoJZqHmREW/N2eYNygrefXfCpzAZkCtJ1hFizFUm6aN8LjhKAgu', 'customer', '159-789-6985', 'Residential', '76 Barlow Tr', 't3k4y7', 'Calgary', 'AB', 'mick@gmail.com');
 
@@ -166,10 +183,15 @@ CREATE TABLE `department` (
 --
 
 --
+-- Truncate table before insert `department`
+--
+
+TRUNCATE TABLE `department`;
+--
 -- Dumping data for table `department`
 --
 
-INSERT DELAYED IGNORE INTO `department` (`number`, `name`) VALUES
+INSERT INTO `department` (`number`, `name`) VALUES
 (1, 'Cleaner Operations'),
 (2, 'Sales'),
 (3, 'IT'),
@@ -198,13 +220,17 @@ CREATE TABLE `dept_locations` (
 --       `department` -> `number`
 --
 
+--
+-- Truncate table before insert `dept_locations`
+--
+
+TRUNCATE TABLE `dept_locations`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `employee`
 --
 -- Creation: Dec 01, 2019 at 04:35 AM
--- Last update: Dec 02, 2019 at 02:09 AM
 --
 
 DROP TABLE IF EXISTS `employee`;
@@ -236,10 +262,15 @@ CREATE TABLE `employee` (
 --
 
 --
+-- Truncate table before insert `employee`
+--
+
+TRUNCATE TABLE `employee`;
+--
 -- Dumping data for table `employee`
 --
 
-INSERT DELAYED IGNORE INTO `employee` (`SIN`, `Id`, `username`, `pwd`, `user_type`, `gender`, `f_name`, `m_name`, `l_name`, `street`, `postal_code`, `city`, `birth_date`, `job_type`, `email`, `phone_num`, `start_date`, `Dnum`) VALUES
+INSERT INTO `employee` (`SIN`, `Id`, `username`, `pwd`, `user_type`, `gender`, `f_name`, `m_name`, `l_name`, `street`, `postal_code`, `city`, `birth_date`, `job_type`, `email`, `phone_num`, `start_date`, `Dnum`) VALUES
 ('111-111-111', '7538902', 'dougCos', '$2y$10$vkXqWrOOrZ6WOKaiDqBnDuOy8tyt/A3UcUCFdcJpOhG6SdC4NSlCq', 'employee', 'Male', 'Douglas', NULL, 'Costa', '54 PineWood Tr', 't4e7d8', 'Calgary', '1987-08-07', 'employee', 'dougcos@gmail.com', '159-888-7411', '2018-09-23', NULL),
 ('222-222-222', '3516928', 'micMac', '$2y$10$SEhOFJuSg6Hy/cbCl5UcteQwSkONWa1QvEzfdgg5/G/xL/HmkP.lK', 'admin', 'Male', 'Michael', NULL, 'McAdams', '56 Laguna Way', 't4h7f5', 'Calgary', '1987-08-07', 'admin', 'micmc@me.com', '159-852-7896', '2018-09-23', 3),
 ('333-333-333', '9520748', 'dav85', '$2y$10$1jYLqC7Sh48hQyKT9JGKWOw8FYf0m88BZ8NAH7ikj/oWtLtxwAenK', 'employee', 'Male', 'David', NULL, 'Pope', '231 University Dr', 't7r4e8', 'Calgary', '1987-08-07', 'cleaner', 'davidpope@me.com', '412-985-9999', '2018-09-23', 1),
@@ -270,6 +301,11 @@ CREATE TABLE `equipment` (
 --       `department` -> `number`
 --
 
+--
+-- Truncate table before insert `equipment`
+--
+
+TRUNCATE TABLE `equipment`;
 -- --------------------------------------------------------
 
 --
@@ -292,6 +328,11 @@ CREATE TABLE `estimate` (
 -- RELATIONSHIPS FOR TABLE `estimate`:
 --
 
+--
+-- Truncate table before insert `estimate`
+--
+
+TRUNCATE TABLE `estimate`;
 -- --------------------------------------------------------
 
 --
@@ -315,13 +356,17 @@ CREATE TABLE `has_reservation` (
 --       `special_res` -> `number`
 --
 
+--
+-- Truncate table before insert `has_reservation`
+--
+
+TRUNCATE TABLE `has_reservation`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `it`
 --
 -- Creation: Dec 01, 2019 at 09:12 AM
--- Last update: Dec 01, 2019 at 08:41 PM
 --
 
 DROP TABLE IF EXISTS `it`;
@@ -337,10 +382,15 @@ CREATE TABLE `it` (
 --
 
 --
+-- Truncate table before insert `it`
+--
+
+TRUNCATE TABLE `it`;
+--
 -- Dumping data for table `it`
 --
 
-INSERT DELAYED IGNORE INTO `it` (`SIN`, `salary`) VALUES
+INSERT INTO `it` (`SIN`, `salary`) VALUES
 ('222-222-222', '1547.2350');
 
 -- --------------------------------------------------------
@@ -349,7 +399,6 @@ INSERT DELAYED IGNORE INTO `it` (`SIN`, `salary`) VALUES
 -- Table structure for table `maintenance`
 --
 -- Creation: Dec 01, 2019 at 05:20 AM
--- Last update: Dec 01, 2019 at 08:47 PM
 --
 
 DROP TABLE IF EXISTS `maintenance`;
@@ -365,10 +414,15 @@ CREATE TABLE `maintenance` (
 --
 
 --
+-- Truncate table before insert `maintenance`
+--
+
+TRUNCATE TABLE `maintenance`;
+--
 -- Dumping data for table `maintenance`
 --
 
-INSERT DELAYED IGNORE INTO `maintenance` (`SIN`, `Salary`) VALUES
+INSERT INTO `maintenance` (`SIN`, `Salary`) VALUES
 ('555-555-555', 5478.3650);
 
 -- --------------------------------------------------------
@@ -391,13 +445,17 @@ CREATE TABLE `offered_locations` (
 --       `services` -> `Id`
 --
 
+--
+-- Truncate table before insert `offered_locations`
+--
+
+TRUNCATE TABLE `offered_locations`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `other_employee`
 --
 -- Creation: Dec 01, 2019 at 09:26 AM
--- Last update: Dec 01, 2019 at 08:39 PM
 --
 
 DROP TABLE IF EXISTS `other_employee`;
@@ -413,10 +471,15 @@ CREATE TABLE `other_employee` (
 --
 
 --
+-- Truncate table before insert `other_employee`
+--
+
+TRUNCATE TABLE `other_employee`;
+--
 -- Dumping data for table `other_employee`
 --
 
-INSERT DELAYED IGNORE INTO `other_employee` (`SIN`, `salary`) VALUES
+INSERT INTO `other_employee` (`SIN`, `salary`) VALUES
 ('111-111-111', '15954.1250');
 
 -- --------------------------------------------------------
@@ -443,13 +506,17 @@ CREATE TABLE `requested_building` (
 --       `customers` -> `ID`
 --
 
+--
+-- Truncate table before insert `requested_building`
+--
+
+TRUNCATE TABLE `requested_building`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `residential`
 --
 -- Creation: Dec 01, 2019 at 04:35 AM
--- Last update: Dec 01, 2019 at 08:34 PM
 --
 
 DROP TABLE IF EXISTS `residential`;
@@ -467,10 +534,15 @@ CREATE TABLE `residential` (
 --
 
 --
+-- Truncate table before insert `residential`
+--
+
+TRUNCATE TABLE `residential`;
+--
 -- Dumping data for table `residential`
 --
 
-INSERT DELAYED IGNORE INTO `residential` (`C_ID`, `f_name`, `l_name`, `gender`) VALUES
+INSERT INTO `residential` (`C_ID`, `f_name`, `l_name`, `gender`) VALUES
 (6541839, 'Michael', 'Medina', 'Other');
 
 -- --------------------------------------------------------
@@ -479,7 +551,6 @@ INSERT DELAYED IGNORE INTO `residential` (`C_ID`, `f_name`, `l_name`, `gender`) 
 -- Table structure for table `sales associate`
 --
 -- Creation: Dec 01, 2019 at 05:21 AM
--- Last update: Dec 01, 2019 at 08:45 PM
 --
 
 DROP TABLE IF EXISTS `sales associate`;
@@ -496,10 +567,15 @@ CREATE TABLE `sales associate` (
 --
 
 --
+-- Truncate table before insert `sales associate`
+--
+
+TRUNCATE TABLE `sales associate`;
+--
 -- Dumping data for table `sales associate`
 --
 
-INSERT DELAYED IGNORE INTO `sales associate` (`SIN`, `salary`, `num_sales`) VALUES
+INSERT INTO `sales associate` (`SIN`, `salary`, `num_sales`) VALUES
 ('444-444-444', 6587.2540, NULL);
 
 -- --------------------------------------------------------
@@ -525,6 +601,11 @@ CREATE TABLE `services` (
 --       `department` -> `number`
 --
 
+--
+-- Truncate table before insert `services`
+--
+
+TRUNCATE TABLE `services`;
 -- --------------------------------------------------------
 
 --
@@ -549,6 +630,11 @@ CREATE TABLE `special_res` (
 --       `customers` -> `ID`
 --
 
+--
+-- Truncate table before insert `special_res`
+--
+
+TRUNCATE TABLE `special_res`;
 -- --------------------------------------------------------
 
 --
@@ -571,6 +657,11 @@ CREATE TABLE `supplies` (
 -- RELATIONSHIPS FOR TABLE `supplies`:
 --
 
+--
+-- Truncate table before insert `supplies`
+--
+
+TRUNCATE TABLE `supplies`;
 -- --------------------------------------------------------
 
 --
@@ -594,6 +685,11 @@ CREATE TABLE `works_on` (
 --       `contract` -> `number`
 --
 
+--
+-- Truncate table before insert `works_on`
+--
+
+TRUNCATE TABLE `works_on`;
 --
 -- Indexes for dumped tables
 --
@@ -856,114 +952,6 @@ ALTER TABLE `special_res`
 ALTER TABLE `works_on`
   ADD CONSTRAINT `workson_cl_fk` FOREIGN KEY (`CL_SIN`) REFERENCES `cleaners` (`SIN`),
   ADD CONSTRAINT `workson_contr_fk` FOREIGN KEY (`Contr_num`) REFERENCES `contract` (`number`);
-
-
---
--- Metadata
---
-USE `phpmyadmin`;
-
---
--- Metadata for table cleaners
---
-
---
--- Metadata for table company
---
-
---
--- Metadata for table contract
---
-
---
--- Metadata for table customers
---
-
---
--- Metadata for table department
---
-
---
--- Dumping data for table `pma__table_uiprefs`
---
-
-INSERT DELAYED IGNORE INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
-('root', '471db_project', 'department', '{\"sorted_col\":\"`department`.`number` ASC\"}', '2019-11-21 10:34:58');
-
---
--- Metadata for table dept_locations
---
-
---
--- Metadata for table employee
---
-
---
--- Dumping data for table `pma__table_uiprefs`
---
-
-INSERT DELAYED IGNORE INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
-('root', '471db_project', 'employee', '{\"CREATE_TIME\":\"2019-11-21 23:15:47\"}', '2019-11-25 21:41:32');
-
---
--- Metadata for table equipment
---
-
---
--- Metadata for table estimate
---
-
---
--- Metadata for table has_reservation
---
-
---
--- Metadata for table it
---
-
---
--- Metadata for table maintenance
---
-
---
--- Metadata for table offered_locations
---
-
---
--- Metadata for table other_employee
---
-
---
--- Metadata for table requested_building
---
-
---
--- Metadata for table residential
---
-
---
--- Metadata for table sales associate
---
-
---
--- Metadata for table services
---
-
---
--- Metadata for table special_res
---
-
---
--- Metadata for table supplies
---
-
---
--- Metadata for table works_on
---
-
---
--- Metadata for database 471db_project
---
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
