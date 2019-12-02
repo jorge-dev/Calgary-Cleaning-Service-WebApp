@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2019 at 10:59 AM
+-- Generation Time: Dec 02, 2019 at 08:52 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -30,7 +30,7 @@ USE `471db_project`;
 -- Table structure for table `cleaners`
 --
 -- Creation: Dec 01, 2019 at 04:35 AM
--- Last update: Dec 01, 2019 at 09:39 AM
+-- Last update: Dec 02, 2019 at 02:09 AM
 --
 
 DROP TABLE IF EXISTS `cleaners`;
@@ -49,8 +49,9 @@ CREATE TABLE `cleaners` (
 -- Dumping data for table `cleaners`
 --
 
-INSERT INTO `cleaners` (`SIN`, `hourly_rate`) VALUES
-('258-753-951', '25.2540');
+INSERT DELAYED IGNORE INTO `cleaners` (`SIN`, `hourly_rate`) VALUES
+('333-333-333', '100.2500'),
+('354-852-487', '458.3000');
 
 -- --------------------------------------------------------
 
@@ -58,7 +59,7 @@ INSERT INTO `cleaners` (`SIN`, `hourly_rate`) VALUES
 -- Table structure for table `company`
 --
 -- Creation: Dec 01, 2019 at 04:35 AM
--- Last update: Dec 01, 2019 at 04:36 AM
+-- Last update: Dec 01, 2019 at 08:36 PM
 --
 
 DROP TABLE IF EXISTS `company`;
@@ -73,6 +74,13 @@ CREATE TABLE `company` (
 --   `C_ID`
 --       `customers` -> `ID`
 --
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT DELAYED IGNORE INTO `company` (`C_ID`, `name`, `rep_num`) VALUES
+(943827, 'Cement Co.', 15547);
 
 -- --------------------------------------------------------
 
@@ -109,7 +117,7 @@ CREATE TABLE `contract` (
 -- Table structure for table `customers`
 --
 -- Creation: Dec 01, 2019 at 04:34 AM
--- Last update: Dec 01, 2019 at 04:36 AM
+-- Last update: Dec 01, 2019 at 08:36 PM
 --
 
 DROP TABLE IF EXISTS `customers`;
@@ -130,6 +138,14 @@ CREATE TABLE `customers` (
 --
 -- RELATIONSHIPS FOR TABLE `customers`:
 --
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT DELAYED IGNORE INTO `customers` (`ID`, `username`, `pwd`, `user_type`, `phone_num`, `type`, `street`, `postal_code`, `city`, `province`, `email`) VALUES
+(943827, 'cement78', '$2y$10$AI.afhhddTE2nXQGihyDyO8jJo0HF7AR5GQcHM618TW8PepaHL5Q.', 'customer', '145-789-9999', 'Company', 'Los Pinos Blvd', 'T2A6N9', 'Calgary', 'AB', 'cement@m.com'),
+(6541839, 'mick94', '$2y$10$oWWoJZqHmREW/N2eYNygrefXfCpzAZkCtJ1hFizFUm6aN8LjhKAgu', 'customer', '159-789-6985', 'Residential', '76 Barlow Tr', 't3k4y7', 'Calgary', 'AB', 'mick@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -153,7 +169,7 @@ CREATE TABLE `department` (
 -- Dumping data for table `department`
 --
 
-INSERT INTO `department` (`number`, `name`) VALUES
+INSERT DELAYED IGNORE INTO `department` (`number`, `name`) VALUES
 (1, 'Cleaner Operations'),
 (2, 'Sales'),
 (3, 'IT'),
@@ -188,7 +204,7 @@ CREATE TABLE `dept_locations` (
 -- Table structure for table `employee`
 --
 -- Creation: Dec 01, 2019 at 04:35 AM
--- Last update: Dec 01, 2019 at 09:58 AM
+-- Last update: Dec 02, 2019 at 02:09 AM
 --
 
 DROP TABLE IF EXISTS `employee`;
@@ -223,12 +239,13 @@ CREATE TABLE `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`SIN`, `Id`, `username`, `pwd`, `user_type`, `gender`, `f_name`, `m_name`, `l_name`, `street`, `postal_code`, `city`, `birth_date`, `job_type`, `email`, `phone_num`, `start_date`, `Dnum`) VALUES
-('159-741-852', '0879451', 'mario', '$2y$10$v9i6E6B7ZGmf3FczZWnYWeegOKTGbUe.aSPiY..tFd8T4gi8Hf6i2', 'employee', 'Male', 'sd', NULL, 'sd', 'dfghdfgh', 't2a6n9', 'Clagary', '1987-08-07', 'employee', 'lo@me.com', '888-888-8888', '2018-09-23', NULL),
-('258-745-658', '6817340', 'deew', '$2y$10$PXW9E892dUbHWGVlIGj4beJ7Ol1pj6gSJXz4MBDaBEd8GdBkFNaBG', 'employee', 'Male', 'ddd', NULL, 'ddd', '7894', 's4s4s4', 'asdadc', '1987-08-07', 'maintenance', 's@m.com', '123-456-8883', '2018-09-23', 4),
-('258-753-951', '1069742', 'lala', '$2y$10$FDN4PzfsjC39FLMgkKFW7O/PA62QPf4rzE7czz1VVFx6LjE5v7Ile', 'employee', 'Female', 'la', NULL, 'la', 'zdcsdc', 'e7e7e7', 'sdcsdc', '1987-08-07', 'cleaner', 'la@la.com', '159-789-7887', '2018-09-23', 1),
-('333-555-888', '1457396', 'aaaa', '$2y$10$EcQZhJnuPZPvHhvJ8FA0yu3kKNmzQQLqOcQMNND4rfZpXduIL79nm', 'employee', 'Male', 'aaa', NULL, 'aaa', 'asdca', 's4s4s4', 'asdcas', '1987-08-07', 'sales', 'aa@m.com', '123-456-7894', '2018-09-23', 2),
-('987-589-256', '8319540', 'asas', '$2y$10$dzmlnp7VmBCxTkD2sa4G9u8sR8mM2wkmjHAU.LHxDcqumcuplm6zS', 'admin', 'Other', 'asd', NULL, 'as', 'dfghdfgh', 't2a6n9', 'Clagary', '1987-08-07', 'admin', 'jo.luisa94@gmail.com', '888-888-8888', '2018-09-23', 3);
+INSERT DELAYED IGNORE INTO `employee` (`SIN`, `Id`, `username`, `pwd`, `user_type`, `gender`, `f_name`, `m_name`, `l_name`, `street`, `postal_code`, `city`, `birth_date`, `job_type`, `email`, `phone_num`, `start_date`, `Dnum`) VALUES
+('111-111-111', '7538902', 'dougCos', '$2y$10$vkXqWrOOrZ6WOKaiDqBnDuOy8tyt/A3UcUCFdcJpOhG6SdC4NSlCq', 'employee', 'Male', 'Douglas', NULL, 'Costa', '54 PineWood Tr', 't4e7d8', 'Calgary', '1987-08-07', 'employee', 'dougcos@gmail.com', '159-888-7411', '2018-09-23', NULL),
+('222-222-222', '3516928', 'micMac', '$2y$10$SEhOFJuSg6Hy/cbCl5UcteQwSkONWa1QvEzfdgg5/G/xL/HmkP.lK', 'admin', 'Male', 'Michael', NULL, 'McAdams', '56 Laguna Way', 't4h7f5', 'Calgary', '1987-08-07', 'admin', 'micmc@me.com', '159-852-7896', '2018-09-23', 3),
+('333-333-333', '9520748', 'dav85', '$2y$10$1jYLqC7Sh48hQyKT9JGKWOw8FYf0m88BZ8NAH7ikj/oWtLtxwAenK', 'employee', 'Male', 'David', NULL, 'Pope', '231 University Dr', 't7r4e8', 'Calgary', '1987-08-07', 'cleaner', 'davidpope@me.com', '412-985-9999', '2018-09-23', 1),
+('354-852-487', '5410298', 'as', '$2y$10$xwlwx04pVFTIW2Bso0pbxO7dtje2hntVokQju.F5m9tzAznRhSk6W', 'employee', 'Male', 'alfred', NULL, 'Diaz', 'sd sdsd', 'T2A6N9', 'Calgary', '2005-12-15', 'cleaner', 'as@mer.com', '159-877-5211', '2018-09-23', 1),
+('444-444-444', '1476958', 'merlin67', '$2y$10$qrWuRKhUvINm78cFfuCdOuIqapVx1v45UKoT9DEVSZNpZLVQxOx92', 'employee', 'Other', 'Merlin', NULL, 'Binge', '1234 1st Street', 't4f8d5', 'Calgary', '1987-08-07', 'sales', 'merlin@me.com', '145-874-8588', '2015-01-30', 2),
+('555-555-555', '9261045', 'karl32', '$2y$10$TooK0TrPwsO9fCGPzvDeS.Qz0UwE3tPpucLkMiYv4HR4CbrVLPZlq', 'employee', 'Male', 'karl', NULL, 'marx', '1234 Main St', 't4f7e5', 'Calgary', '1987-08-07', 'maintenance', 'karlmarx@me.com', '154-852-9854', '2015-09-09', 4);
 
 -- --------------------------------------------------------
 
@@ -304,7 +321,7 @@ CREATE TABLE `has_reservation` (
 -- Table structure for table `it`
 --
 -- Creation: Dec 01, 2019 at 09:12 AM
--- Last update: Dec 01, 2019 at 09:56 AM
+-- Last update: Dec 01, 2019 at 08:41 PM
 --
 
 DROP TABLE IF EXISTS `it`;
@@ -323,8 +340,8 @@ CREATE TABLE `it` (
 -- Dumping data for table `it`
 --
 
-INSERT INTO `it` (`SIN`, `salary`) VALUES
-('987-589-256', '15247.2547');
+INSERT DELAYED IGNORE INTO `it` (`SIN`, `salary`) VALUES
+('222-222-222', '1547.2350');
 
 -- --------------------------------------------------------
 
@@ -332,7 +349,7 @@ INSERT INTO `it` (`SIN`, `salary`) VALUES
 -- Table structure for table `maintenance`
 --
 -- Creation: Dec 01, 2019 at 05:20 AM
--- Last update: Dec 01, 2019 at 09:58 AM
+-- Last update: Dec 01, 2019 at 08:47 PM
 --
 
 DROP TABLE IF EXISTS `maintenance`;
@@ -351,8 +368,8 @@ CREATE TABLE `maintenance` (
 -- Dumping data for table `maintenance`
 --
 
-INSERT INTO `maintenance` (`SIN`, `Salary`) VALUES
-('258-745-658', 1254.2500);
+INSERT DELAYED IGNORE INTO `maintenance` (`SIN`, `Salary`) VALUES
+('555-555-555', 5478.3650);
 
 -- --------------------------------------------------------
 
@@ -380,7 +397,7 @@ CREATE TABLE `offered_locations` (
 -- Table structure for table `other_employee`
 --
 -- Creation: Dec 01, 2019 at 09:26 AM
--- Last update: Dec 01, 2019 at 09:38 AM
+-- Last update: Dec 01, 2019 at 08:39 PM
 --
 
 DROP TABLE IF EXISTS `other_employee`;
@@ -399,8 +416,8 @@ CREATE TABLE `other_employee` (
 -- Dumping data for table `other_employee`
 --
 
-INSERT INTO `other_employee` (`SIN`, `salary`) VALUES
-('159-741-852', '2155.0200');
+INSERT DELAYED IGNORE INTO `other_employee` (`SIN`, `salary`) VALUES
+('111-111-111', '15954.1250');
 
 -- --------------------------------------------------------
 
@@ -432,7 +449,7 @@ CREATE TABLE `requested_building` (
 -- Table structure for table `residential`
 --
 -- Creation: Dec 01, 2019 at 04:35 AM
--- Last update: Dec 01, 2019 at 04:36 AM
+-- Last update: Dec 01, 2019 at 08:34 PM
 --
 
 DROP TABLE IF EXISTS `residential`;
@@ -449,13 +466,20 @@ CREATE TABLE `residential` (
 --       `customers` -> `ID`
 --
 
+--
+-- Dumping data for table `residential`
+--
+
+INSERT DELAYED IGNORE INTO `residential` (`C_ID`, `f_name`, `l_name`, `gender`) VALUES
+(6541839, 'Michael', 'Medina', 'Other');
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `sales associate`
 --
 -- Creation: Dec 01, 2019 at 05:21 AM
--- Last update: Dec 01, 2019 at 09:52 AM
+-- Last update: Dec 01, 2019 at 08:45 PM
 --
 
 DROP TABLE IF EXISTS `sales associate`;
@@ -475,8 +499,8 @@ CREATE TABLE `sales associate` (
 -- Dumping data for table `sales associate`
 --
 
-INSERT INTO `sales associate` (`SIN`, `salary`, `num_sales`) VALUES
-('333-555-888', 15.2500, NULL);
+INSERT DELAYED IGNORE INTO `sales associate` (`SIN`, `salary`, `num_sales`) VALUES
+('444-444-444', 6587.2540, NULL);
 
 -- --------------------------------------------------------
 
@@ -863,7 +887,7 @@ USE `phpmyadmin`;
 -- Dumping data for table `pma__table_uiprefs`
 --
 
-INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+INSERT DELAYED IGNORE INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
 ('root', '471db_project', 'department', '{\"sorted_col\":\"`department`.`number` ASC\"}', '2019-11-21 10:34:58');
 
 --
@@ -878,7 +902,7 @@ INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, 
 -- Dumping data for table `pma__table_uiprefs`
 --
 
-INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+INSERT DELAYED IGNORE INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
 ('root', '471db_project', 'employee', '{\"CREATE_TIME\":\"2019-11-21 23:15:47\"}', '2019-11-25 21:41:32');
 
 --
