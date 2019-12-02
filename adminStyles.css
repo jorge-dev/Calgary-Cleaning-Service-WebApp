@@ -1,23 +1,42 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
-
-
 body {
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  background-image: url("images/bg2.jpg");
-  height: 100%;
+  
+  background-image: url("images/server2.jpg");
+  height: 110%;
   width: 100%;
 
   background-repeat: no-repeat;
   /*we want to have one single image not a repeated one*/
   background-size: auto;
 
- 
+
   /*this sets the image to fullscreen covering the whole screen*/
   /*css hack for ie*/
 
   color: rgb(250, 246, 246);
 }
+
+.jumbotron {
+  background-color: rgba(7, 6, 6, 0.911);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height:300px;
+  text-align: center;
+  margin: 20% 0;
+  min-height: 200px;
+  align-items: center;
+}
+
+.navbar{
+  background-color: rgba(15, 15, 15, 0.993);
+  font-size: 1em;
+  padding: 15px;
+}
+
+/* ========================================================================== */
+
 
 .span_format{
   font-size: .87em;
@@ -28,7 +47,7 @@ body {
 
 
 .createEmp{
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
   font-size: 16px;
   background-image: url("images/server2.jpg");
   height: 100%;
@@ -202,7 +221,7 @@ hr {
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
-
+/* 
 * {
   margin: 0px;
   padding: 0px;
@@ -213,11 +232,11 @@ body,
 html {
   height: 100%;
   font-family: Poppins-Regular, sans-serif;
-}
+} */
 
 /*---------------------------------------------*/
 a {
-  font-family: Poppins-Regular;
+  /* font-family: Poppins-Regular; */
   font-size: 14px;
   line-height: 1.7;
   color: #666666;
@@ -238,7 +257,7 @@ a:hover {
 }
 
 /*---------------------------------------------*/
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -259,7 +278,7 @@ ul,
 li {
   margin: 0px;
   list-style-type: none;
-}
+} */
 
 /*---------------------------------------------*/
 input {
@@ -267,10 +286,10 @@ input {
   border: none;
 }
 
-textarea {
+/* textarea {
   outline: none;
   border: none;
-}
+} */
 
 textarea:focus,
 input:focus {
@@ -292,7 +311,7 @@ input:focus::-moz-placeholder {
 input:focus:-ms-input-placeholder {
   color: transparent;
 }
-
+/* 
 textarea:focus::-webkit-input-placeholder {
   color: transparent;
 }
@@ -307,7 +326,7 @@ textarea:focus::-moz-placeholder {
 
 textarea:focus:-ms-input-placeholder {
   color: transparent;
-}
+} */
 
 input::-webkit-input-placeholder {
   color: #999999;
@@ -324,7 +343,7 @@ input::-moz-placeholder {
 input:-ms-input-placeholder {
   color: #999999;
 }
-
+/* 
 textarea::-webkit-input-placeholder {
   color: #999999;
 }
@@ -339,7 +358,7 @@ textarea::-moz-placeholder {
 
 textarea:-ms-input-placeholder {
   color: #999999;
-}
+} */
 
 /*---------------------------------------------*/
 button {
@@ -352,18 +371,18 @@ button:hover {
   cursor: pointer;
 }
 
-iframe {
+/* iframe {
   border: none !important;
-}
+} */
 
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
-.txt1 {
+/* .txt1 {
   font-family: Poppins-Regular;
   font-size: 13px;
   line-height: 1.5;
   color: #999999;
-}
+} */
 
 .txt2 {
   font-family: Poppins-Regular;
@@ -376,11 +395,11 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
 
-.limiter {
+/* .limiter {
   width: 100%;
   margin: 0 auto;
-}
-
+} */
+/* 
 .container-login100 {
   width: 100%;
   min-height: 100vh;
@@ -398,9 +417,9 @@ iframe {
   background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
   background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
   background: linear-gradient(-135deg, #c850c0, #4158d0);
-}
+} */
 
-.wrap-login100 {
+/* .wrap-login100 {
   width: 960px;
   background: #fff;
   border-radius: 10px;
@@ -414,24 +433,24 @@ iframe {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 177px 130px 33px 95px;
-}
+} */
 
 /*------------------------------------------------------------------
 [  ]*/
-.login100-pic {
+/* .login100-pic {
   width: 316px;
 }
 
 .login100-pic img {
   max-width: 100%;
-}
+} */
 
 /*------------------------------------------------------------------
 [  ]*/
-.login100-form {
+/* .login100-form {
   width: 290px;
-}
-
+} */
+/* 
 .login100-form-title {
   font-family: Poppins-Bold;
   font-size: 24px;
@@ -442,7 +461,7 @@ iframe {
   width: 100%;
   display: block;
   padding-bottom: 54px;
-}
+} */
 
 /*---------------------------------------------*/
 .wrap-input100 {
@@ -581,7 +600,7 @@ iframe {
 
 /*------------------------------------------------------------------
 [ Button ]*/
-.container-login100-form-btn {
+/* .container-login100-form-btn {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -591,7 +610,7 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   padding-top: 20px;
-}
+} */
 
 .login100-form-btn {
   font-family: Montserrat-Bold;
@@ -660,80 +679,7 @@ iframe {
   }
 }
 
-/*------------------------------------------------------------------
-[ Alert validate ]*/
 
-.validate-input {
-  position: relative;
-}
 
-.alert-validate::before {
-  content: attr(data-validate);
-  position: absolute;
-  max-width: 70%;
-  background-color: white;
-  border: 1px solid #c80000;
-  border-radius: 13px;
-  padding: 4px 25px 4px 10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 8px;
-  pointer-events: none;
 
-  font-family: Poppins-Medium;
-  color: #c80000;
-  font-size: 13px;
-  line-height: 1.4;
-  text-align: left;
 
-  visibility: hidden;
-  opacity: 0;
-
-  -webkit-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  transition: opacity 0.4s;
-}
-
-.alert-validate::after {
-  content: "\f06a";
-  font-family: FontAwesome;
-  display: block;
-  position: absolute;
-  color: #c80000;
-  font-size: 15px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 13px;
-}
-
-.alert-validate:hover:before {
-  visibility: visible;
-  opacity: 1;
-}
-
-@media (max-width: 992px) {
-  .alert-validate::before {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-.js-tilt {
-  height: 150px;
-  width: 100%;
-  margin-bottom: 5%;
-}
-
-.js-tilt img {
-  height: 150px;
-  width: 250px;
-}
