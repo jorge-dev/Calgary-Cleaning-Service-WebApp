@@ -41,20 +41,34 @@
     <link rel="stylesheet" type="text/css" href="custom3.css" />
 
     <!---- =============================================================================== -->
-    <!-- Code Beings Here -->
+    <!-- Code Begins Here -->
     <title>Create Employee</title>
   </head>
   <body class="createEmp">
     <div class="wrapper">
       <h1>Welcome Cleaner</h>
-      <br>
-      <!-- <div class="btn-group">
-        <button>
-          View Jobs
-        </button>
-        <button href="">Logout</button>  
+      <br><br>
+      <div class="btn-group">
+        <a href="./cleanerJobs.html"><button>View Jobs</button></a>
         <button>Logout</button>  
-      </div> -->
+      </div>
     </div>
+      <br>
+      <br>
+    <form method="POST">
+        <table id="cleanerTable">
+            <tr>
+                <th colspan="7">Jobs</th>
+            </tr>
+            <th>Name</th>
+            <th>Street</th>
+            <th>Contract Start Date</th>
+            <th>Contract End Date</th>
+            <th>Hours</th>
+            <th>Postal Code</th>
+            <th>email</th>
+        </table>
+    </form>
+    
   </body>
 </html>

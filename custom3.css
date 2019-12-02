@@ -356,7 +356,7 @@ button {
   top: 50%;
 }
 */
-
+/* Chris' Edit */
 /* Button Group */
 .a {
   width: 100%;
@@ -385,6 +385,47 @@ button {
 /* Add a background color on hover */
 .btn-group button:hover {
   background-color: #3e8e41;
+}
+/* 
+page {
+  width: 500px;
+  height: 500px;
+} */
+
+table#cleanerTable,
+th,
+td {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 15px;
+  width: 25%;
+}
+
+table#cleanerTable tr:nth-child(even) {
+  background-color: rgb(120, 120, 120);
+}
+
+table#cleanerTable tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+/* Change color of the first row */
+table#cleanerTable tr:nth-child(1) {
+  color: rgb(240, 240, 240);
+  background-color: #007c41;
+  align-items: center;
+}
+
+/* Change color of the second row */
+table#cleanerTable tr:nth-child(2) {
+  background-color: #555;
+  color: white;
 }
 
 iframe {
