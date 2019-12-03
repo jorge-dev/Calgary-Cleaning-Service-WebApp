@@ -34,13 +34,20 @@
     <link rel="stylesheet" type="text/css" href="custom3.css" />
     <title>Create Employee</title>
 </head>
-<body>
-    <?php
-    // fetch cleaner name
-    $name = "SELECT "
-    ?>
-    <h1>Welcome Cleaner</h1>
-    <button type="button" onClick="alert('Hey, you pressed me!')">View Jobs</button>
-    <button type="button" onClick="alert('Hey, you pressed me!')">Eat Cake</button>  
-</body>
+<body class="createEmp">
+    <div class="wrapper">
+      <h1>Welcome Cleaner</h>
+      <br><br>
+      <div class="btn-group">
+        <a href="./cleanerJobs.php"><button>View Jobs</button></a>
+        
+        <form action="include/logout_inc.php">
+        <button type="submit" name="login_submit" id="login_button" class="btn mt-4 mb-2  ">
+                Log out
+            </button>
+    </form>
+       
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,3 +1,16 @@
+<?php
+   session_start();
+   if(!isset($_SESSION['cleaner_emp_uId'])) {
+    header('location: index.php?error=NeedtoLoginToseeEmployeePage');
+    include_once("cleanerJobs.php");
+
+    exit;
+   }
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,30 +58,64 @@
     <title>Create Employee</title>
   </head>
   <body class="createEmp">
-    <div class="wrapper">
+    <!-- <div class="wrapper">
       <h1>Welcome Cleaner</h>
       <br><br>
       <div class="btn-group">
         <a href="./cleanerJobs.html"><button>View Jobs</button></a>
         <button>Logout</button>  
       </div>
-    </div>
+    </div> -->
       <br>
       <br>
-    <form method="POST">
-        <table id="cleanerTable">
-            <tr>
-                <th colspan="7">Jobs</th>
-            </tr>
-            <th>Name</th>
-            <th>Street</th>
-            <th>Contract Start Date</th>
-            <th>Contract End Date</th>
-            <th>Hours</th>
-            <th>Postal Code</th>
-            <th>email</th>
-        </table>
+      <div class="btn-group">
+      <form action="include/logout_inc.php">
+        <button type="submit" name="login_submit" id="login_button" class="btn mt-4 mb-2  ">
+                Log out
+            </button>
     </form>
+    </div>
+
+ <?php
+  require "include/db_connection_inc.php";
+  // Retrieve Database info for current cleaner
+  $cleanerID = $_SESSION['cleaner_emp_uId'];
+  echo $cleanerID;
+
+  
+  $sql="Select * from employee where email=?";
+  $stmt= mysqli_stmt_init($connect);
+  if (!mysqli_stmt_prepare($stmt,$sql)) {
+      header("Location: ../cleanerJobs.php?error=sqlerrorEmpSELECT");
+      exit();
+  }
+  else {
+      mysqli_stmt_bind_param($stmt,"s",$cleanerID);
+      mysqli_stmt_execute($stmt);
+      
+      $response = mysqli_stmt_get_result($stmt);
+      $i=0;
+      while($row = mysqli_fetch_assoc($response)){
+        
+        echo "svmskdvmsdkl <br/>";
+        $a= $row['l_name'];
+        $b= $row['f_name'];
+        $c= $row['m_name'];
+        $d= $row['email'];
+        $e= $row['SIN'];
+       echo '<table class="table table-striped table-dark">
+          <tr> <td>'.$a.'</td> </tr>
+          <tr> <td>'.$b.'</td> </tr>
+          <tr> <td>'.$c.'</td></tr>
+          <tr> <td>'.$d.'</td></tr>
+          <tr> <td>'.$e.'</td></tr> </table>
+     ';
+      }
+    }
+?> 
+    
+
+    
     
   </body>
 </html>
