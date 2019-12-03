@@ -36,7 +36,7 @@ if (!isset($_SESSION['admin_uId'])) {
                     <a class="nav-link" href="create_employee.php">Create Employee <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="admin_search_employee.php">Search Employee</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -58,44 +58,18 @@ if (!isset($_SESSION['admin_uId'])) {
 
     <main role="main">
 
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <div class="container">
-                <h1 class="display-3 font-weight-bold">Welcome Back</h1>
-                <p>To make changes to any account, use navbar on the top</p>
+        <div class="container bg-light">
 
-            </div>
+
         </div>
 
-        <!-- <div class="container">
-    
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-            </div>
 
-            <hr>
-
-        </div> /container -->
 
     </main>
 
-    <!-- <footer class="container">
-        <p>&copy; Company 2017-2018</p>
-    </footer> -->
+    <!-- <footer class=" container">
+            <p>&copy; Company 2017-2018</p>
+            </footer> -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
