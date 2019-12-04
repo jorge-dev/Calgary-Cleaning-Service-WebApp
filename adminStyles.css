@@ -1,5 +1,4 @@
 body {
-  
   background-image: url("images/server2.jpg");
   height: 110%;
   width: 100%;
@@ -7,7 +6,6 @@ body {
   background-repeat: no-repeat;
   /*we want to have one single image not a repeated one*/
   background-size: auto;
-
 
   /*this sets the image to fullscreen covering the whole screen*/
   /*css hack for ie*/
@@ -22,31 +20,34 @@ body {
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  height:300px;
+  height: 300px;
   text-align: center;
   margin: 20% 0;
   min-height: 200px;
   align-items: center;
 }
 
-.navbar{
+.navbar {
   background-color: rgba(15, 15, 15, 0.993);
   font-size: 1em;
   padding: 15px;
 }
 
-/* ========================================================================== */
-
-
-.span_format{
-  font-size: .87em;
-  color:rgb(197, 196, 196);
+.search_div {
+  margin-top: 7em;
+  background-color: #34044be0;
+  height: 150px;
   
 }
 
+/* ========================================================================== */
 
+.span_format {
+  font-size: 0.87em;
+  color: rgb(197, 196, 196);
+}
 
-.createEmp{
+.createEmp {
   /* font-family: "Poppins", sans-serif; */
   font-size: 16px;
   background-image: url("images/server2.jpg");
@@ -57,14 +58,13 @@ body {
   /*we want to have one single image not a repeated one*/
   background-size: 150% 205%;
 
- 
   /*this sets the image to fullscreen covering the whole screen*/
   /*css hack for ie*/
 
   color: rgb(250, 246, 246);
 }
 
-.create_emp_form{
+.create_emp_form {
   margin-bottom: 35px;
   margin-top: 7rem;
   width: 560px;
@@ -75,7 +75,7 @@ body {
   padding: 15px;
   max-width: 100%;
 }
-.navbar{
+.navbar {
   background-color: rgba(15, 15, 15, 0.89);
   font-size: 1em;
   padding: 15px;
@@ -109,7 +109,7 @@ body {
   margin-top: 35px;
   width: 560px;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.925);
-  background:rgba(23, 1, 29, 0.925);
+  background: rgba(23, 1, 29, 0.925);
   border-radius: 1rem;
 
   padding: 15px;
@@ -678,8 +678,3 @@ button:hover {
     padding: 100px 15px 33px 15px;
   }
 }
-
-
-
-
-

@@ -56,16 +56,42 @@ if (!isset($_SESSION['admin_uId'])) {
         </div>
     </nav>
 
-    <main role="main">
-
-        <div class="container bg-light">
 
 
+    <div class="container  text-center search_div">
+        <h2>Select a search option</h2>
+        <div class="row mt-4">
+            <div class="col-lg-4  ">
+                <form method="post">
+                    <button type="submit" name="login_submit" id="login_button"
+                        class="btn text-center btn-lg btn-custom btn-block text-uppercase">
+                        Search all employee
+                    </button>
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <form method="post">
+                    <button type="submit" name="login_submit" id="login_button"
+                        class="btn  text-center btn-lg btn-custom btn-block text-uppercase">
+                        Log in
+                    </button>
+                </form>
+
+            </div>
+            <div class="col-lg-4">
+                <form method="post">
+                    <button type="submit" name="login_submit" id="login_button"
+                        class="btn  text-center btn-lg btn-custom btn-block text-uppercase">
+                        Log in
+                    </button>
+            </div>
         </div>
 
+    </div>
 
 
-    </main>
+
+
 
     <!-- <footer class=" container">
             <p>&copy; Company 2017-2018</p>
