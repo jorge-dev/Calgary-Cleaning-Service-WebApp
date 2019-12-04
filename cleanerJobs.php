@@ -58,14 +58,7 @@
     <title>Create Employee</title>
   </head>
   <body class="createEmp">
-    <!-- <div class="wrapper">
-      <h1>Welcome Cleaner</h>
-      <br><br>
-      <div class="btn-group">
-        <a href="./cleanerJobs.html"><button>View Jobs</button></a>
-        <button>Logout</button>  
-      </div>
-    </div> -->
+    <div class="wrapper">
       <br>
       <br>
       <div class="btn-group">
@@ -73,17 +66,23 @@
         <button type="submit" name="login_submit" id="login_button" class="btn mt-4 mb-2  ">
                 Log out
             </button>
-    </form>
+      </form>
+      </div>
     </div>
-
+<div class="wrapper">
  <?php
   require "include/db_connection_inc.php";
   // Retrieve Database info for current cleaner
-  echo $_SESSION['cleaner_emp_id'];
+  // echo $_SESSION['cleaner_emp_id'];
   
+  // SELECT cu.email FROM customers as cu WHERE cu.ID IN (SELECT c.C_id FROM contract as c WHERE c.number IN (SELECT w.Contr_num FROM works_on as w WHERE w.CL_SIN IN (SELECT SIN FROM cleaners as cl where cl.SIN = '354-852-487')))
+
+
+
+  // SELECT c.number FROM contract as c WHERE c.number IN (SELECT w.Contr_num FROM works_on as w WHERE w.CL_SIN IN (SELECT SIN FROM cleaners as cl where cl.SIN = '354-852-487'))
   //$sql = "SELECT w.hours from works_on where ($_SESSION[cleaner_emp_id] = w.CL_SIN)";
-  $sql = "SELECT c.number, cu.street FROM contract as c, works_on as w, cleaners as cl, customers as cu WHERE ('{$_SESSION['cleaner_emp_id']}' = w.CL_SIN) AND w.Contr_num = c.number AND c.C_id  = cu.ID";
-  //$sql = "SELECT DISTINCT c.number FROM contract as c, works_on as w, cleaners as cl WHERE ($_SESSION[cleaner_emp_id] = w.CL_SIN) AND w.Contr_num = c.number";
+  $sql = "SELECT DISTINCT c.number, c.start_date, c.end_date, cu.street, cu.email FROM contract as c, works_on as w, cleaners as cl, customers as cu WHERE ('{$_SESSION['cleaner_emp_id']}' = w.CL_SIN) AND w.Contr_num = c.number AND c.C_id  = cu.ID";
+  // $sql = "SELECT c.number FROM contract as c, works_on as w, cleaners as cl WHERE('{$_SESSION['cleaner_emp_id']}' = w.CL_SIN) AND w.Contr_num = c.number";
   //$sql="Select * from employee where f_name = '$_SESSION[\"cleaner_emp_id\"]";
   // $sql="Select * from employee where f_name IS NOT NULL";
   $stmt= mysqli_stmt_init($connect);
@@ -96,38 +95,38 @@
     // mysqli_stmt_bind_param($stmt,"s",$cleanerSIN);
       mysqli_stmt_execute($stmt);
       
-      $response = mysqli_stmt_get_result($stmt);?>
-      <?php if ($row = mysqli_fetch_assoc($response)){?>    
+      $response = mysqli_stmt_get_result($stmt); ?> 
+      <?php if ($response !=NULL){?>    
           <div class="container">  
             <table class="table table-hover table-striped table-dark">
                 <tr>
                   <th colspan="5">Your Customers</th>
                 </tr> 
                 <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>SIN</th>
-                  <th>email</th>
-                  <th>user_type</th>
+                  <th>Contract Number</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Customer Street</th>
+                  <th>Email</th>
                 </tr> 
               <?php while($row = mysqli_fetch_assoc($response)){
               
                 echo '<tr> 
                 <td>'. $row['number'] .'</td> 
-                <td>'. $row['street'] .'</td> 
-                <td>'. $row['SIN'] .'</td>
+                <td>'. $row['start_date'] .'</td> 
+                <td>'. $row['end_date'] .'</td>
+                <td>'. $row['street'] .'</td>
                 <td>'. $row['email'] .'</td>
-                <td>'. $row['user_type'] .'</td>
                 </tr>';
               } ?> 
             </table> </div> <?php 
-            }
-              else  echo "No Available Jobs!"; ?> <?php 
-    }
-     
+            } 
+              else echo "\nNo Available Jobs!"; ?> <?php 
+    }         
   
 ?> 
-    
+
+</div> 
     
     
   </body>

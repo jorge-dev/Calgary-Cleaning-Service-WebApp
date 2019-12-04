@@ -36,17 +36,33 @@
 </head>
 <body class="createEmp">
     <div class="wrapper">
-      <h1>Welcome Cleaner</h>
+    <?php 
+        require "include/db_connection_inc.php";
+         $sql = "SELECT e.f_name from employee as e, cleaners as c WHERE e.SIN = '{$_SESSION['cleaner_emp_id']}';";
+         $stmt= mysqli_stmt_init($connect);
+          if (!mysqli_stmt_prepare($stmt,$sql)) {
+               header("Location: ../cleanerJobs.php?error=sqlerrorEmpSELECT");
+               exit();
+           }
+           else {
+             
+             // mysqli_stmt_bind_param($stmt,"s",$cleanerSIN);
+               mysqli_stmt_execute($stmt);
+               
+               $response = mysqli_stmt_get_result($stmt);
+               $row = mysqli_fetch_assoc($response);
+        }      
+        ?>
+      <?php echo '<h1>Welcome back '.$row['f_name'].' !</h>' ?> 
       <br><br>
       <div class="btn-group">
         <a href="./cleanerJobs.php"><button>View Jobs</button></a>
         
         <form action="include/logout_inc.php">
-        <button type="submit" name="login_submit" id="login_button" class="btn mt-4 mb-2  ">
-                Log out
+            <button type="submit" name="login_submit" id="login_button">
+                Log Out
             </button>
-    </form>
-       
+        </form>
       </div>
     </div>
   </body>
