@@ -79,42 +79,55 @@
  <?php
   require "include/db_connection_inc.php";
   // Retrieve Database info for current cleaner
-  $cleanerID = $_SESSION['cleaner_emp_uId'];
-  echo $cleanerID;
-
+  echo $_SESSION['cleaner_emp_id'];
   
-  $sql="Select * from employee where email=?";
+  //$sql = "SELECT w.hours from works_on where ($_SESSION[cleaner_emp_id] = w.CL_SIN)";
+  $sql = "SELECT c.number, cu.street FROM contract as c, works_on as w, cleaners as cl, customers as cu WHERE ('{$_SESSION['cleaner_emp_id']}' = w.CL_SIN) AND w.Contr_num = c.number AND c.C_id  = cu.ID";
+  //$sql = "SELECT DISTINCT c.number FROM contract as c, works_on as w, cleaners as cl WHERE ($_SESSION[cleaner_emp_id] = w.CL_SIN) AND w.Contr_num = c.number";
+  //$sql="Select * from employee where f_name = '$_SESSION[\"cleaner_emp_id\"]";
+  // $sql="Select * from employee where f_name IS NOT NULL";
   $stmt= mysqli_stmt_init($connect);
   if (!mysqli_stmt_prepare($stmt,$sql)) {
       header("Location: ../cleanerJobs.php?error=sqlerrorEmpSELECT");
       exit();
   }
   else {
-      mysqli_stmt_bind_param($stmt,"s",$cleanerID);
+    
+    // mysqli_stmt_bind_param($stmt,"s",$cleanerSIN);
       mysqli_stmt_execute($stmt);
       
-      $response = mysqli_stmt_get_result($stmt);
-      $i=0;
-      while($row = mysqli_fetch_assoc($response)){
-        
-        echo "svmskdvmsdkl <br/>";
-        $a= $row['l_name'];
-        $b= $row['f_name'];
-        $c= $row['m_name'];
-        $d= $row['email'];
-        $e= $row['SIN'];
-       echo '<table class="table table-striped table-dark">
-          <tr> <td>'.$a.'</td> </tr>
-          <tr> <td>'.$b.'</td> </tr>
-          <tr> <td>'.$c.'</td></tr>
-          <tr> <td>'.$d.'</td></tr>
-          <tr> <td>'.$e.'</td></tr> </table>
-     ';
-      }
+      $response = mysqli_stmt_get_result($stmt);?>
+      <?php if ($row = mysqli_fetch_assoc($response)){?>    
+          <div class="container">  
+            <table class="table table-hover table-striped table-dark">
+                <tr>
+                  <th colspan="5">Your Customers</th>
+                </tr> 
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>SIN</th>
+                  <th>email</th>
+                  <th>user_type</th>
+                </tr> 
+              <?php while($row = mysqli_fetch_assoc($response)){
+              
+                echo '<tr> 
+                <td>'. $row['number'] .'</td> 
+                <td>'. $row['street'] .'</td> 
+                <td>'. $row['SIN'] .'</td>
+                <td>'. $row['email'] .'</td>
+                <td>'. $row['user_type'] .'</td>
+                </tr>';
+              } ?> 
+            </table> </div> <?php 
+            }
+              else  echo "No Available Jobs!"; ?> <?php 
     }
+     
+  
 ?> 
     
-
     
     
   </body>
