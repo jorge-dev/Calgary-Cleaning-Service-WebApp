@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin_uId'])) {
+    header('location: index.php?error=NeedtoLoginToseeAdminPage');
+    include_once("create_employee.php");
+
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,19 +33,10 @@
 </head>
 
 <body class="createEmp">
-    <?php
-session_start();
-if (!isset($_SESSION['admin_uId'])) {
-    header('location: index.php?error=NeedtoLoginToseeAdminPage');
-    include_once("admin.php");
-
-    exit;
-}
-
-?>
+    
 
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <a class="navbar-brand font-weight-bold" href="admin.php">Admin </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,14 +49,26 @@ if (!isset($_SESSION['admin_uId'])) {
                     <a class="nav-link" href="create_employee.php">Create Employee <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin_search_employee.php">Search Employee</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">View Employees</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="admin_view_cleaners.php">Cleaner</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="admin_view_maintains.php">Maintenance</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="admin_view_admins.php">Admin</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="admin_view_sales.php">Sales</a>
+
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">Modify Employee</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Modify Employee</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="admin_update_employee.php">Update</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="admin_delete_employee.php">Delete</a>
 
                     </div>

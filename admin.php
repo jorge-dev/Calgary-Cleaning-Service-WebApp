@@ -36,8 +36,19 @@ if (!isset($_SESSION['admin_uId'])) {
                     <a class="nav-link" href="create_employee.php">Create Employee <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin_search_employee.php">Search Employee</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">View Employees</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="admin_view_cleaners.php">Cleaner</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="admin_view_maintains.php">Maintenance</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="admin_view_admins.php">Admin</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="admin_view_sales.php">Sales</a>
+
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
@@ -61,7 +72,33 @@ if (!isset($_SESSION['admin_uId'])) {
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <div class="container">
-                <h1 class="display-3 font-weight-bold">Welcome Back</h1>
+                <?php 
+                require 'include/db_connection_inc.php';
+                $sql = "SELECT f_name from employee where username =? " ;
+                $uname= $_SESSION['admin_uId'];
+                
+                $stmt= mysqli_stmt_init($connect);
+                if (!mysqli_stmt_prepare($stmt,$sql)) {
+                    header("Location: ../admin.php?error=sqlErrorSelectEmp");
+                    exit();
+                }
+                else {
+                    mysqli_stmt_bind_param($stmt,"s",$uname);
+                    mysqli_stmt_execute($stmt);
+                
+                    $response = mysqli_stmt_get_result($stmt);
+                    if ($row = mysqli_fetch_assoc($response)){
+                        $first= $row['f_name'];
+                    
+                        echo ' <h1 class="display-3 font-weight-bold">Welcome Back '.$first.'</h1>';
+                    }
+                    else {
+                        header("Location: ../index.php?error=Something_odd");
+                    exit();
+                    }
+                }
+            ?>
+               
                 <p>To make changes to any account, use navbar on the top</p>
 
             </div>
