@@ -33,10 +33,10 @@ body {
   padding: 15px;
 }
 
-.search_div {
+
+.admin_tables .admin_form{
   margin-top: 7em;
-  background-color: #34044be0;
-  height: 150px;
+ 
   
 }
 
@@ -72,6 +72,18 @@ body {
   /*css hack for ie*/
 
   color: rgb(250, 246, 246);
+}
+
+.delete_emp_form {
+  margin-bottom: 35px;
+  margin-top: 7em;
+  width: 400px;
+  box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.925);
+  background: rgba(23, 1, 29, 0.925);
+  border-radius: 1rem;
+
+  padding: 15px;
+  max-width: 100%;
 }
 
 .create_emp_form {
@@ -186,6 +198,40 @@ a {
 .btn-custom:focus {
   box-shadow: 2px 2px 2px 2px rgba(96, 231, 96, 0.5);
 }
+
+
+.btn-delete {
+  background: #d41212;
+  /* border-color:#51A343; */
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 48px;
+  border: none;
+  border-radius: 15px;
+  width:150px;
+  padding-top:12px;
+  /* box-shadow: 0px 8px 15px rgba(23, 26, 23, 0.5); */
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-delete:focus,
+.btn-delete:hover,
+.btn-delete:active,
+.btn-delete:active:focus {
+  background-color: rgb(247, 37, 37);
+  box-shadow: 0px 15px 20px rgba(240, 98, 98, 0.4);
+  color: #fff;
+  border-radius: 25px;
+  transform: translateY(-7px);
+}
+
+.btn-delete:focus {
+  box-shadow: 2px 2px 2px 2px rgba(240, 76, 70, 0.5);
+}
+
 
 label {
   padding-bottom: 3px;

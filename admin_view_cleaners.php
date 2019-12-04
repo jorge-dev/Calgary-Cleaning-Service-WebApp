@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['admin_uId'])) {
     header('location: index.php?error=NeedtoLoginToseeAdminPage');
-    include_once("admin_view_sales.php");
+    include_once("admin_view_cleaners.php");
 
     exit;
 }
@@ -22,7 +22,7 @@ if (!isset($_SESSION['admin_uId'])) {
 
 <body>
 
-    
+   
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <a class="navbar-brand font-weight-bold" href="admin.php">Admin </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -72,7 +72,7 @@ if (!isset($_SESSION['admin_uId'])) {
         
         <?php
         require 'include/db_connection_inc.php';
-        $jtype = "sales";
+        $jtype = "cleaner";
         $sql = "SELECT * from employee where job_type=? ";
 
         $stmt = mysqli_stmt_init($connect);
@@ -90,7 +90,7 @@ if (!isset($_SESSION['admin_uId'])) {
                echo' <div class=" text-center  container-fluid admin_tables">
                     <table class="table table-lg table-hover table-striped table-bordered table-dark ">
                     <tr class="bg-success">
-                        <th colspan="11" style="font-size:1.8em;font-weight:bold;">Sales Employees</th>
+                        <th colspan="11" style="font-size:1.8em;font-weight:bold;">Cleaner Employees</th>
                     </tr>
                     <tr>
                         <th scope="col">SIN</th>
@@ -172,3 +172,8 @@ if (!isset($_SESSION['admin_uId'])) {
 </body>
 
 </html>
+
+
+
+
+   

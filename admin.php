@@ -99,7 +99,7 @@ if (!isset($_SESSION['admin_uId'])) {
                 }
             ?>
                
-                <p>To make changes to any account, use navbar on the top</p>
+                <p>To make changes to any account or view a list of current employees, use navbar on the top</p>
 
             </div>
         </div>
