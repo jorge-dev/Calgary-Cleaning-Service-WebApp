@@ -67,11 +67,23 @@ if (!isset($_SESSION['admin_uId'])) {
 
         <div class="d-flex justify-content-center align-items-center ">
 
-
-            <form name="myform"  class="validate-form delete_emp_form text-center" method="POST">
+            <form name="myform" class="validate-form delete_emp_form text-center" method="POST">
                 <h1 class="d-flex justify-content-center ">Delete Employee </h1>
 
+                <?php
 
+                if (@$_GET['deletion'] == 'success') {
+                    // header_remove();
+                    echo ' 
+            <br/>
+            <div class="alert bg-success mx-auto alert-dismissible fade show" role="alert">
+                <p class="text-center alert-heading" style ="width:340px;"><strong class="alert-heading">Success!</strong>  <br/> Employee was succesfully deleted.</p>
+                <button type="button" class="pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+           </div>';
+                }
+                ?>
                 <div class="form-row ">
                     <div class=" wrap-input100   form-group">
                         <label class=" font-weight-bold justify-content-center mt-2">Enter Employees SIN </label>
@@ -136,11 +148,11 @@ if (!isset($_SESSION['admin_uId'])) {
                     $response = mysqli_stmt_get_result($stmt);
 
                     while ($row = mysqli_fetch_assoc($response)) {
-                        $sin=$row['SIN'];
+                        $sin = $row['SIN'];
                         echo '
                       
                         <tr>
-                        <td>  <a  href="include/delete_emp_inc.php?delete='.$sin.'" class="btn mt-1 mb-1  btn-md btn-delete btn-block text-uppercase">
+                        <td>  <a  href="include/delete_emp_inc.php?delete=' . $sin . '" class="btn mt-1 mb-1  btn-md btn-delete btn-block text-uppercase">
                         Delete
                     </a></td>
                             <td name=>' . $sin . '</td>
@@ -160,11 +172,11 @@ if (!isset($_SESSION['admin_uId'])) {
 
 
                     echo '</table>   </div>';
-                     
-                
-        
-                   
-                    
+
+
+
+
+
                     exit();
                 } else {
 
@@ -182,7 +194,7 @@ if (!isset($_SESSION['admin_uId'])) {
         }
         ?>
 
-        
+
 
 
 
@@ -207,6 +219,8 @@ if (!isset($_SESSION['admin_uId'])) {
     <!--===============================================================================================-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
+
+    <script>  window.history.replaceState({}, document.title, "/" + "471-Project/admin_delete_employee.php");</script>
 
 
 </body>

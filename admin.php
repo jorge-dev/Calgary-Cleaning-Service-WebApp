@@ -91,9 +91,54 @@ if (!isset($_SESSION['admin_uId'])) {
                         $first= $row['f_name'];
                     
                         echo ' <h1 class="display-3 font-weight-bold">Welcome Back '.$first.'</h1>';
+
+                        if (@$_GET['signupCleaner'] == 'success') {
+                            // header_remove();
+                            echo ' 
+                            <br/>
+                            <div class="alert d-flex justify-content-center bg-success mx-auto alert-dismissible fade show" role="alert">
+                                <p class="text-center alert-heading" style ="width:340px;"><strong class="alert-heading">Success!</strong>  <br/> Cleaner account created succesfully.</p>
+                                <button type="button" class="pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                           </div>';
+                        }
+                        if (@$_GET['signupAdmin'] == 'success') {
+                            // header_remove();
+                            echo ' 
+                            <br/>
+                            <div class="alert d-flex justify-content-center bg-success mx-auto alert-dismissible fade show" role="alert">
+                                <p class="text-center alert-heading" style ="width:340px;"><strong class="alert-heading">Success!</strong>  <br/> Admin account created succesfully.</p>
+                                <button type="button" class="pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                           </div>';
+                        }
+                        if (@$_GET['signupMaint'] == 'success') {
+                            // header_remove();
+                            echo ' 
+                            <br/>
+                            <div class="alert d-flex justify-content-center bg-success mx-auto alert-dismissible fade show" role="alert">
+                                <p class="text-center alert-heading" style ="width:340px;"><strong class="alert-heading">Success!</strong>  <br/> Maintenance account created succesfully.</p>
+                                <button type="button" class="pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                           </div>';
+                        }
+                        if (@$_GET['signupSales'] == 'success') {
+                            // header_remove();
+                            echo ' 
+                            <br/>
+                            <div class="alert d-flex justify-content-center bg-success mx-auto alert-dismissible fade show" role="alert">
+                                <p class="text-center alert-heading" style ="width:340px;"><strong class="alert-heading">Success!</strong>  <br/> Sales account created succesfully.</p>
+                                <button type="button" class="pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                           </div>';
+                        }
                     }
                     else {
-                        header("Location: ../index.php?error=Something_odd");
+                        header("Location: ../index.php?error=adminWasDeleted");
                     exit();
                     }
                 }
@@ -146,6 +191,8 @@ if (!isset($_SESSION['admin_uId'])) {
     <!--===============================================================================================-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
+
+    <script>  window.history.replaceState({}, document.title, "/" + "471-Project/admin.php");</script>
 </body>
 
 </html>

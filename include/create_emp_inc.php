@@ -149,7 +149,7 @@ if (isset($_POST['create_emp_submit'])) {
                     } else {
                         mysqli_stmt_bind_param($stmt, "sd", $emp_sin, $emp_hourly_Rate);
                         mysqli_stmt_execute($stmt);
-                        header("Location: ../admin.php?signupCust=success");
+                        header("Location: ../admin.php?signupCleaner=success");
                         exit();
                     }
                 }
@@ -178,7 +178,7 @@ if (isset($_POST['create_emp_submit'])) {
                     } else {
                         mysqli_stmt_bind_param($stmt, "sd", $emp_sin, $emp_salary);
                         mysqli_stmt_execute($stmt);
-                        header("Location: ../admin.php?signupMaintain=success");
+                        header("Location: ../admin.php?signupMaint=success");
                         echo($emp_salary);
                         exit();
                     }
