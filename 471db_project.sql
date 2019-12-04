@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 04, 2019 at 04:58 AM
+-- Generation Time: Dec 03, 2019 at 11:06 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -85,7 +85,7 @@ INSERT INTO `company` (`C_ID`, `name`, `rep_num`) VALUES
 --
 -- Table structure for table `contract`
 --
--- Creation: Dec 04, 2019 at 03:56 AM
+-- Creation: Dec 02, 2019 at 09:35 PM
 --
 
 DROP TABLE IF EXISTS `contract`;
@@ -105,6 +105,8 @@ CREATE TABLE `contract` (
 -- RELATIONSHIPS FOR TABLE `contract`:
 --   `C_id`
 --       `customers` -> `ID`
+--   `Est_num`
+--       `estimate` -> `number`
 --
 
 -- --------------------------------------------------------
@@ -262,6 +264,28 @@ CREATE TABLE `equipment` (
 -- RELATIONSHIPS FOR TABLE `equipment`:
 --   `D_num`
 --       `department` -> `number`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `estimate`
+--
+-- Creation: Dec 02, 2019 at 09:35 PM
+--
+
+DROP TABLE IF EXISTS `estimate`;
+CREATE TABLE `estimate` (
+  `number` smallint(6) NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'Undefined',
+  `hours` tinyint(4) NOT NULL,
+  `cost` decimal(6,4) NOT NULL,
+  `service_type` varchar(15) NOT NULL,
+  `D_num` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONSHIPS FOR TABLE `estimate`:
 --
 
 -- --------------------------------------------------------
@@ -623,6 +647,12 @@ ALTER TABLE `equipment`
   ADD KEY `equ_dep_fk` (`D_num`);
 
 --
+-- Indexes for table `estimate`
+--
+ALTER TABLE `estimate`
+  ADD PRIMARY KEY (`number`);
+
+--
 -- Indexes for table `has_reservation`
 --
 ALTER TABLE `has_reservation`
@@ -728,7 +758,8 @@ ALTER TABLE `company`
 -- Constraints for table `contract`
 --
 ALTER TABLE `contract`
-  ADD CONSTRAINT `contract_cust_fk` FOREIGN KEY (`C_id`) REFERENCES `customers` (`ID`);
+  ADD CONSTRAINT `contract_cust_fk` FOREIGN KEY (`C_id`) REFERENCES `customers` (`ID`),
+  ADD CONSTRAINT `contract_est_fk` FOREIGN KEY (`Est_num`) REFERENCES `estimate` (`number`);
 
 --
 -- Constraints for table `dept_locations`
@@ -815,110 +846,6 @@ ALTER TABLE `special_res`
 ALTER TABLE `works_on`
   ADD CONSTRAINT `workson_cl_fk` FOREIGN KEY (`CL_SIN`) REFERENCES `cleaners` (`SIN`),
   ADD CONSTRAINT `workson_contr_fk` FOREIGN KEY (`Contr_num`) REFERENCES `contract` (`number`);
-
-
---
--- Metadata
---
-USE `phpmyadmin`;
-
---
--- Metadata for table cleaners
---
-
---
--- Metadata for table company
---
-
---
--- Metadata for table contract
---
-
---
--- Metadata for table customers
---
-
---
--- Metadata for table department
---
-
---
--- Dumping data for table `pma__table_uiprefs`
---
-
-INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
-('root', '471db_project', 'department', '{\"sorted_col\":\"`department`.`number` ASC\"}', '2019-11-21 10:34:58');
-
---
--- Metadata for table dept_locations
---
-
---
--- Metadata for table employee
---
-
---
--- Dumping data for table `pma__table_uiprefs`
---
-
-INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
-('root', '471db_project', 'employee', '{\"CREATE_TIME\":\"2019-11-21 23:15:47\"}', '2019-11-25 21:41:32');
-
---
--- Metadata for table equipment
---
-
---
--- Metadata for table has_reservation
---
-
---
--- Metadata for table it
---
-
---
--- Metadata for table maintenance
---
-
---
--- Metadata for table offered_locations
---
-
---
--- Metadata for table other_employee
---
-
---
--- Metadata for table requested_building
---
-
---
--- Metadata for table residential
---
-
---
--- Metadata for table sales associate
---
-
---
--- Metadata for table services
---
-
---
--- Metadata for table special_res
---
-
---
--- Metadata for table supplies
---
-
---
--- Metadata for table works_on
---
-
---
--- Metadata for database 471db_project
---
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
