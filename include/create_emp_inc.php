@@ -21,7 +21,7 @@ if (isset($_POST['create_emp_submit'])) {
     $emp_phone_num = mysqli_real_escape_string($connect, $_POST['emp_phone_num']);
     $emp_address = mysqli_real_escape_string($connect, $_POST['emp_address']);
     $emp_city = mysqli_real_escape_string($connect, $_POST['emp_city']);
-    $emp_postal_code = mysqli_real_escape_string($connect, $_POST['emp_postal_code']);
+    $emp_postal_code = strtoupper(mysqli_real_escape_string($connect, $_POST['emp_postal_code']));
     $emp_num_sales =NULL;
     $emp_salary = floatval($salary);
     $emp_hourly_Rate = floatval($hourly_Rate);

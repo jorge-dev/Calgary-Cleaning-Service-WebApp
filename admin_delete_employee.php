@@ -37,7 +37,7 @@ if (!isset($_SESSION['admin_uId'])) {
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">View Employees</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="admin_view_cleaners.php">Cleaner</a>
@@ -51,7 +51,7 @@ if (!isset($_SESSION['admin_uId'])) {
                     </div>
                 </li>
                 <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Modify Employee</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="admin_update_employee.php">Update</a>
@@ -67,13 +67,13 @@ if (!isset($_SESSION['admin_uId'])) {
         </div>
     </nav>
 
-    <main>
+    <!-- <main> -->
 
 
         <div class="d-flex justify-content-center align-items-center ">
 
             <form name="myform" class="validate-form delete_emp_form text-center" method="POST">
-                <h1 class="d-flex justify-content-center ">Delete Employee </h1>
+                <h1 class="d-flex justify-content-center ">Search Employee </h1>
 
                 <?php
 
@@ -161,7 +161,7 @@ if (!isset($_SESSION['admin_uId'])) {
                         echo '
                       
                         <tr>
-                        <td>  <a  href="include/delete_emp_inc.php?delete=' . $sin . '" class="btn mt-1 mb-1  btn-md btn-delete btn-block text-uppercase">
+                        <td class ="d-flex justify-content-center">  <a  href="include/delete_emp_inc.php?delete=' . $sin . '" class="btn mt-1 mb-1   btn-md btn-delete btn-block text-uppercase">
                         Delete
                     </a></td>
                             <td name=>' . $sin . '</td>
@@ -210,7 +210,7 @@ if (!isset($_SESSION['admin_uId'])) {
 
 
 
-    </main>
+    <!-- </main> -->
 
     <!-- <footer class="container">
         <p>&copy; Company 2017-2018</p>

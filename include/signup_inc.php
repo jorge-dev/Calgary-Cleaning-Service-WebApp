@@ -17,7 +17,7 @@ if (isset($_POST['signUp_button'])) {
     $phone_num = mysqli_real_escape_string($connect, $_POST['phone_num']);
     $address = mysqli_real_escape_string($connect, $_POST['address']);
     $city = mysqli_real_escape_string($connect, $_POST['city']);
-    $postal_code = mysqli_real_escape_string($connect, $_POST['postal_code']);
+    $postal_code = strtoupper(mysqli_real_escape_string($connect, $_POST['postal_code']));// if something breaks take this out
     $province = mysqli_real_escape_string($connect, $_POST['province']);
     $cust_id = 0;
 

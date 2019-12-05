@@ -82,7 +82,7 @@ if (!isset($_SESSION['admin_uId'])) {
            
            
                 if ($m = mysqli_fetch_assoc($response) ) { 
-               echo' <div class=" text-center  container-fluid admin_tables">
+               echo' <div class=" text-center  container-fluid ">
                     <table class="table table-lg table-hover table-striped table-bordered table-dark ">
                     <tr class="bg-success">
                         <th colspan="11" style="font-size:1.8em;font-weight:bold;">Admin Employees</th>
@@ -130,7 +130,7 @@ if (!isset($_SESSION['admin_uId'])) {
                 
                 echo '<div class=" text-center  container-fluid admin_tables"> <table class="table table-hover table-striped table-bordered table-dark ">
                           <tr class="bg-danger">
-                              <th colspan="11">There are no Admins in database</th>
+                              <th colspan="11">There are no Admin Employees in database</th>
                           </tr>
                   </table></div>';
                     

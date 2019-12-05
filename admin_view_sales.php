@@ -135,7 +135,7 @@ if (!isset($_SESSION['admin_uId'])) {
                 
                 echo '<div class=" text-center  container-fluid admin_tables"> <table class="table table-hover table-striped table-bordered table-dark ">
                           <tr class="bg-danger">
-                              <th colspan="11">There are no Admins in database</th>
+                              <th colspan="11">There are no Sales Employees in database</th>
                           </tr>
                   </table></div>';
                     
