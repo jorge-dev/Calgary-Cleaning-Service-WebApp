@@ -117,9 +117,9 @@ if (isset($_POST['login_submit'])) {
                     }
                     elseif($row['job_type'] == 'cleaner'){
                         session_start();
-                        $_SESSION['cleaner_emp_id']  =$row['id'];
+                        $_SESSION['cleaner_emp_id']  =$row['SIN'];
                         $_SESSION['cleaner_emp_uId']  =$row['username'];
-                        header("Location: ../cleaner.php?loginCleane=success");
+                        header("Location: ../cleaner/cleaner.php?loginCleane=success");
                         exit();
                     }
                     elseif($row['job_type'] == 'maintenance'){

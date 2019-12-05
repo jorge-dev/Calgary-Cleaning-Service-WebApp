@@ -50,7 +50,7 @@ if (!isset($_SESSION['cust_id'])) {
 
                     </div>
                 </li>
-               
+
             </ul>
             <form action="../include/logout_inc.php" method="post">
                 <button type="submit" class="btn btn-success">Logout</button>
@@ -59,52 +59,19 @@ if (!isset($_SESSION['cust_id'])) {
     </nav>
 
     <main role="main">
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron">
-            <div class="container">
-                <?php 
-                require '../include/db_connection_inc.php';
-                $sql = "SELECT DISTINCT name, f_name from company as c, residential as r where (c.C_ID =? or r.C_ID!=?) and (c.C_ID !=? or r.C_ID=?);" ;
-                $id= $_SESSION['cust_id'];
-                $type =$_SESSION['cust_type'];
-                
-                $stmt= mysqli_stmt_init($connect);
-                if (!mysqli_stmt_prepare($stmt,$sql)) {
-                    header("Location: customer?error=sqlErrorSelectEmp");
-                    exit();
-                }
-                else {
-                    mysqli_stmt_bind_param($stmt,"ii",$id,$id);
-                    mysqli_stmt_execute($stmt);
-                
-                    $response = mysqli_stmt_get_result($stmt);
-                    if ($row = mysqli_fetch_assoc($response)){
-                        $first= $row['f_name'];
-                        $name= $row['name'];
-                        if($type = "Company")
-                            echo ' <h1 class="display-3 font-weight-bold">Welcome Back '.$name.'</h1>';
-                        else
-                            echo ' <h1 class="display-3 font-weight-bold">Welcome Back '.$first.'</h1>';
-                    }
-                    else {
-                        header("Location: customer.php?error=adminWasDeleted");
-                    exit();
-                    }
-                }
-            ?>
-               
-                <p>To make changes to any account or view a list of current employees, use navbar on the top</p>
+        <!-- Main jumbotron for a primary marketing message or call to action -->
 
-            </div>
+        <div class="container">
+
         </div>
 
-        
 
-        
+
+
 
     </main>
 
- 
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -119,7 +86,9 @@ if (!isset($_SESSION['cust_id'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
 
-    <script>  window.history.replaceState({}, document.title, "/" + "471-Project/customer/customer.php");</script>
+    <script>
+    window.history.replaceState({}, document.title, "/" + "471-Project/customer/customer.php");
+    </script>
 </body>
 
 </html>
