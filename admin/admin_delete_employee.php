@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['admin_uId'])) {
     header('location: index.php?error=NeedtoLoginToseeAdminPage');
-    include_once("admin_delete_employee.php");
+    include_once(" admin/admin_delete_employee.php");
 
     exit;
 }
@@ -61,7 +61,7 @@ if (!isset($_SESSION['admin_uId'])) {
                     </div>
                 </li>
             </ul>
-            <form action="include/logout_inc.php" method="post">
+            <form action="../include/logout_inc.php" method="post">
                 <button type="submit" class="btn btn-success">Logout</button>
             </form>
         </div>
@@ -114,13 +114,13 @@ if (!isset($_SESSION['admin_uId'])) {
 
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            require 'include/db_connection_inc.php';
+            require '../include/db_connection_inc.php';
             $del_SIN = mysqli_real_escape_string($connect, $_POST['del_sin']);
             $sql = "SELECT * from employee where SIN=? ";
 
             $stmt = mysqli_stmt_init($connect);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
-                header("Location: ../admin.php?error=sqlErrorSelectEmp");
+                header("Location: admin.php?error=sqlErrorSelectEmp");
                 exit();
             } else {
                 mysqli_stmt_bind_param($stmt, "s", $del_SIN);
@@ -161,7 +161,7 @@ if (!isset($_SESSION['admin_uId'])) {
                         echo '
                       
                         <tr>
-                        <td class ="d-flex justify-content-center">  <a  href="include/delete_emp_inc.php?delete=' . $sin . '" class="btn mt-1 mb-1   btn-md btn-delete btn-block text-uppercase">
+                        <td class ="d-flex justify-content-center">  <a  href="../include/delete_emp_inc.php?delete=' . $sin . '" class="btn mt-1 mb-1   btn-md btn-delete btn-block text-uppercase">
                         Delete
                     </a></td>
                             <td name=>' . $sin . '</td>
@@ -219,18 +219,18 @@ if (!isset($_SESSION['admin_uId'])) {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/popper.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
+    <script src="../vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
 
     <script>
-    window.history.replaceState({}, document.title, "/" + "471-Project/admin_delete_employee.php");
+    window.history.replaceState({}, document.title, "/" + "471-Project/admin/admin_delete_employee.php");
     </script>
 
 

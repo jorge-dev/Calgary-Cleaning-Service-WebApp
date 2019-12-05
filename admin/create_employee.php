@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['admin_uId'])) {
     header('location: index.php?error=NeedtoLoginToseeAdminPage');
-    include_once("create_employee.php");
+    include_once("admin/create_employee.php");
 
     exit;
 }
@@ -22,11 +22,11 @@ if (!isset($_SESSION['admin_uId'])) {
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--===============================================================================================-->
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
     <!--===============================================================================================-->
     <!-- <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css"> -->
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <link rel="stylesheet" type="text/css" href="adminStyles.css" />
     <title>Create Employee</title>
@@ -50,7 +50,7 @@ if (!isset($_SESSION['admin_uId'])) {
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">View Employees</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="admin_view_cleaners.php">Cleaner</a>
@@ -64,7 +64,7 @@ if (!isset($_SESSION['admin_uId'])) {
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Modify Employee</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="admin_update_employee.php">Update</a>
@@ -74,7 +74,7 @@ if (!isset($_SESSION['admin_uId'])) {
                     </div>
                 </li>
             </ul>
-            <form action="include/logout_inc.php" method="post">
+            <form action="../include/logout_inc.php" method="post">
                 <button type="submit" class="btn btn-success">Logout</button>
             </form>
         </div>
@@ -83,7 +83,7 @@ if (!isset($_SESSION['admin_uId'])) {
     <div class="d-flex justify-content-center align-items-center ">
 
 
-        <form class="validate-form create_emp_form text-center" action="include/create_emp_inc.php" method="POST">
+        <form class="validate-form create_emp_form text-center" action="../include/create_emp_inc.php" method="POST">
 
             <h3 class=" text-uppercase">Create Employee</h3>
             <div class=" mt-3 form-row ">
@@ -359,14 +359,14 @@ if (!isset($_SESSION['admin_uId'])) {
     </div>
 
     <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/popper.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
+    <script src="../vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/tilt/tilt.jquery.min.js"></script>
+    <script src="../vendor/tilt/tilt.jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <!-- <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script> -->
@@ -450,6 +450,7 @@ if (!isset($_SESSION['admin_uId'])) {
         }
         return true;
     });
+    window.history.replaceState({}, document.title, "/" + "471-Project/admin/create_employee.php");
     </script>
 
 

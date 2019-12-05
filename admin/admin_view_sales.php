@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['admin_uId'])) {
     header('location: index.php?error=NeedtoLoginToseeAdminPage');
-    include_once("admin_view_maintains.php");
+    include_once("admin/admin_view_sales.php");
 
     exit;
 }
@@ -22,7 +22,7 @@ if (!isset($_SESSION['admin_uId'])) {
 
 <body>
 
-   
+    
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <a class="navbar-brand font-weight-bold" href="admin.php">Admin </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -37,7 +37,7 @@ if (!isset($_SESSION['admin_uId'])) {
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">View Employees</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="admin_view_cleaners.php">Cleaner</a>
@@ -51,7 +51,7 @@ if (!isset($_SESSION['admin_uId'])) {
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Modify Employee</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="admin_update_employee.php">Update</a>
@@ -61,22 +61,23 @@ if (!isset($_SESSION['admin_uId'])) {
                     </div>
                 </li>
             </ul>
-            <form action="include/logout_inc.php" method="post">
+            <form action="../include/logout_inc.php" method="post">
                 <button type="submit" class="btn btn-success">Logout</button>
             </form>
         </div>
     </nav>
 
+
     <main>
         
         <?php
-        require 'include/db_connection_inc.php';
-        $jtype = "maintenance";
+        require '../include/db_connection_inc.php';
+        $jtype = "sales";
         $sql = "SELECT * from employee where job_type=? ";
 
         $stmt = mysqli_stmt_init($connect);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../admin.php?error=sqlErrorSelectEmp");
+            header("Location: admin.php?error=sqlErrorSelectEmp");
             exit();
         } else {
             mysqli_stmt_bind_param($stmt, "s", $jtype);
@@ -89,7 +90,7 @@ if (!isset($_SESSION['admin_uId'])) {
                echo' <div class=" text-center  container-fluid admin_tables">
                     <table class="table table-lg table-hover table-striped table-bordered table-dark ">
                     <tr class="bg-success">
-                        <th colspan="11" style="font-size:1.8em;font-weight:bold;">Maintenance Employees</th>
+                        <th colspan="11" style="font-size:1.8em;font-weight:bold;">Sales Employees</th>
                     </tr>
                     <tr>
                         <th scope="col">SIN</th>
@@ -134,7 +135,7 @@ if (!isset($_SESSION['admin_uId'])) {
                 
                 echo '<div class=" text-center  container-fluid admin_tables"> <table class="table table-hover table-striped table-bordered table-dark ">
                           <tr class="bg-danger">
-                              <th colspan="11">There are no Maintenance Employees in database</th>
+                              <th colspan="11">There are no Sales Employees in database</th>
                           </tr>
                   </table></div>';
                     
@@ -159,15 +160,16 @@ if (!isset($_SESSION['admin_uId'])) {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/popper.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
+    <script src="../vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
+    <script>  window.history.replaceState({}, document.title, "/" + "471-Project/admin/admin_view_sales.php");</script>
 </body>
 
 </html>

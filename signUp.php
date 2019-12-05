@@ -171,20 +171,20 @@
                 <div class="wrap-input100 form-group col-md-4">
                     <label for="cust-type">Province</label>
                     <select required class=" form-control input200" id="province" name="province" pattern="[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]" oninvalid="this.setCustomValidity('Please Select a Province/Territory')" oninput="this.setCustomValidity('')">
-                        <option hidden value="">&nbsp;&nbsp;Province</option>
-                        <option value="AB">&nbsp;&nbsp;Alberta</option>
-                        <option value="BC">&nbsp;&nbsp;British Columbia</option>
-                        <option value="MB">&nbsp;&nbsp;Manitoba</option>
-                        <option value="NB">&nbsp;&nbsp;New Brunswick</option>
-                        <option value="NL">&nbsp;&nbsp;Newfoundland and Labrador</option>
-                        <option value="NS">&nbsp;&nbsp;Nova Scotia</option>
-                        <option value="ON">&nbsp;&nbsp;Ontario</option>
-                        <option value="PE">&nbsp;&nbsp;Prince Edward Island</option>
-                        <option value="QC">&nbsp;&nbsp;Quebec</option>
-                        <option value="SK">&nbsp;&nbsp;Saskatchewan</option>
-                        <option value="NT">&nbsp;&nbsp;Northwest Territories</option>
-                        <option value="NU">&nbsp;&nbsp;Nunavut</option>
-                        <option value="YT">&nbsp;&nbsp;Yukon</option>
+                        <option hidden value="">&nbsp;Province</option>
+                        <option value="AB">&nbsp;Alberta</option>
+                        <option value="BC">&nbsp;British Columbia</option>
+                        <option value="MB">&nbsp;Manitoba</option>
+                        <option value="NB">&nbsp;New Brunswick</option>
+                        <option value="NL">&nbsp;Newfoundland and Labrador</option>
+                        <option value="NS">&nbsp;Nova Scotia</option>
+                        <option value="ON">&nbsp;Ontario</option>
+                        <option value="PE">&nbsp;Prince Edward Island</option>
+                        <option value="QC">&nbsp;Quebec</option>
+                        <option value="SK">&nbsp;Saskatchewan</option>
+                        <option value="NT">&nbsp;Northwest Territories</option>
+                        <option value="NU">&nbsp;Nunavut</option>
+                        <option value="YT">&nbsp;Yukon</option>
 
                     </select>
 

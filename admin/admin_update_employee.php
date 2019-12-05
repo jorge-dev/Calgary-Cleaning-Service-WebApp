@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['admin_uId'])) {
     header('location: index.php?error=NeedtoLoginToseeAdminPage');
-    include_once("admin_update_employee.php");
+    include_once("admin/admin_update_employee.php");
 
     exit;
 }
@@ -56,7 +56,7 @@ if (!isset($_SESSION['admin_uId'])) {
                     </div>
                 </li>
             </ul>
-            <form action="include/logout_inc.php" method="post">
+            <form action="../include/logout_inc.php" method="post">
                 <button type="submit" class="btn btn-success">Logout</button>
             </form>
         </div>
@@ -105,14 +105,14 @@ if (!isset($_SESSION['admin_uId'])) {
 
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            require 'include/db_connection_inc.php';
+            require '../include/db_connection_inc.php';
  
             $up_SIN = mysqli_real_escape_string($connect, $_POST['up_sin']);
             $sql = "SELECT * from employee where SIN=? ";
 
             $stmt = mysqli_stmt_init($connect);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
-                header("Location: ../admin_update_employee.php?error=sqlErrorSelectEmp");
+                header("Location: admin_update_employee.php?error=sqlErrorSelectEmp");
                 exit();
             } else {
                 mysqli_stmt_bind_param($stmt, "s", $up_SIN);
@@ -190,7 +190,7 @@ if (!isset($_SESSION['admin_uId'])) {
                     echo ' <div class="d-flex justify-content-center align-items-center " ">
                     
 
-                    <form class=" create_emp_form text-center" action="include/update_emp_inc.php" method="POST" style="margin-top:20px;">
+                    <form class=" create_emp_form text-center" action="../include/update_emp_inc.php" method="POST" style="margin-top:20px;">
         
                         <h2 class=" text-uppercase">Update Employee</h2>
                         <input type="hidden" name="emp_sin" value="'.$sin.'">
@@ -295,19 +295,19 @@ if (!isset($_SESSION['admin_uId'])) {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/popper.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
+    <script src="../vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
 
     <script>
         $('.dropdown-toggle').dropdown();
-        window.history.replaceState({}, document.title, "/" + "471-Project/admin_update_employee.php");
+        window.history.replaceState({}, document.title, "/" + "471-Project/admin/admin_update_employee.php");
     </script>
 
 

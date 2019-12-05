@@ -29,7 +29,7 @@ if (isset($_POST['login_submit'])) {
                     $_SESSION['admin_id']  =$row['id'];
                     $_SESSION['admin_uId']  =$row['username'];
 
-                    header("Location: ../admin.php?login=success");
+                    header("Location: ../admin/admin.php?login=success");
                     exit();
                 }
                 else {

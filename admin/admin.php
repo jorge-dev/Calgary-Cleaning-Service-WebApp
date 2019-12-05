@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['admin_uId'])) {
     header('location: index.php?error=NeedtoLoginToseeAdminPage');
-    include_once("admin.php");
+    include_once("admin/admin.php");
 
     exit;
 }
@@ -37,7 +37,7 @@ if (!isset($_SESSION['admin_uId'])) {
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">View Employees</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="admin_view_cleaners.php">Cleaner</a>
@@ -51,7 +51,7 @@ if (!isset($_SESSION['admin_uId'])) {
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Modify Employee</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="admin_update_employee.php">Update</a>
@@ -61,7 +61,7 @@ if (!isset($_SESSION['admin_uId'])) {
                     </div>
                 </li>
             </ul>
-            <form action="include/logout_inc.php" method="post">
+            <form action="../include/logout_inc.php" method="post">
                 <button type="submit" class="btn btn-success">Logout</button>
             </form>
         </div>
@@ -73,13 +73,13 @@ if (!isset($_SESSION['admin_uId'])) {
         <div class="jumbotron">
             <div class="container">
                 <?php 
-                require 'include/db_connection_inc.php';
+                require '../include/db_connection_inc.php';
                 $sql = "SELECT f_name from employee where username =? " ;
                 $uname= $_SESSION['admin_uId'];
                 
                 $stmt= mysqli_stmt_init($connect);
                 if (!mysqli_stmt_prepare($stmt,$sql)) {
-                    header("Location: ../admin.php?error=sqlErrorSelectEmp");
+                    header("Location: admin.php?error=sqlErrorSelectEmp");
                     exit();
                 }
                 else {
@@ -149,50 +149,26 @@ if (!isset($_SESSION['admin_uId'])) {
             </div>
         </div>
 
-        <!-- <div class="container">
-    
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-            </div>
-
-            <hr>
-
-        </div> /container -->
+        
 
     </main>
 
-    <!-- <footer class="container">
-        <p>&copy; Company 2017-2018</p>
-    </footer> -->
+ 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/popper.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
+    <script src="../vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
 
-    <script>  window.history.replaceState({}, document.title, "/" + "471-Project/admin.php");</script>
+    <script>  window.history.replaceState({}, document.title, "/" + "471-Project/admin/admin.php");</script>
 </body>
 
 </html>
