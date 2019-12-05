@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 03, 2019 at 11:06 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.1.32
+-- Host: 127.0.0.1
+-- Generation Time: Dec 05, 2019 at 11:12 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,7 +29,7 @@ USE `471db_project`;
 --
 -- Table structure for table `cleaners`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `cleaners`;
@@ -57,7 +57,7 @@ INSERT INTO `cleaners` (`SIN`, `hourly_rate`) VALUES
 --
 -- Table structure for table `company`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `company`;
@@ -85,7 +85,7 @@ INSERT INTO `company` (`C_ID`, `name`, `rep_num`) VALUES
 --
 -- Table structure for table `contract`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:31 PM
 --
 
 DROP TABLE IF EXISTS `contract`;
@@ -97,7 +97,6 @@ CREATE TABLE `contract` (
   `service_type` varchar(10) NOT NULL,
   `num_hours` tinyint(4) NOT NULL,
   `status` varchar(10) NOT NULL,
-  `Est_num` smallint(6) NOT NULL,
   `C_id` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -105,16 +104,23 @@ CREATE TABLE `contract` (
 -- RELATIONSHIPS FOR TABLE `contract`:
 --   `C_id`
 --       `customers` -> `ID`
---   `Est_num`
---       `estimate` -> `number`
 --
+
+--
+-- Dumping data for table `contract`
+--
+
+INSERT INTO `contract` (`number`, `start_date`, `end_date`, `fee`, `service_type`, `num_hours`, `status`, `C_id`) VALUES
+(20, '2019-12-03', '2019-12-05', '0.9999', 'Deep Clean', 25, 'Active', 6541839),
+(32, '2019-11-03', '2019-11-05', '0.9999', 'Dry Clean', 5, 'Active', 943827),
+(55, '2019-03-30', '2019-04-05', '0.9999', 'Back Scrub', 45, 'Active', 3156879);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `customers`
 --
--- Creation: Dec 03, 2019 at 10:05 PM
+-- Creation: Dec 03, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `customers`;
@@ -142,6 +148,7 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`ID`, `username`, `pwd`, `user_type`, `phone_num`, `type`, `street`, `postal_code`, `city`, `province`, `email`) VALUES
 (943827, 'cement78', '$2y$10$AI.afhhddTE2nXQGihyDyO8jJo0HF7AR5GQcHM618TW8PepaHL5Q.', 'customer', '145-789-9999', 'Company', 'Los Pinos Blvd', 'T2A6N9', 'Calgary', 'AB', 'cement@m.com'),
+(3156879, 'cake16', '$2y$10$Ip3a2MxTM5Wp2b/8eG8QuuLbaWNiw.qcJGNLLl655nDVFzq513l0e', 'customer', '403-678-4949', 'Residential', '1234 NorthWay Street NW', 'T3K6H3', 'Calgary', 'AB', 'cake16@gmail.com'),
 (6541839, 'mick94', '$2y$10$oWWoJZqHmREW/N2eYNygrefXfCpzAZkCtJ1hFizFUm6aN8LjhKAgu', 'customer', '159-789-6985', 'Residential', '76 Barlow Tr', 't3k4y7', 'Calgary', 'AB', 'mick@gmail.com');
 
 -- --------------------------------------------------------
@@ -149,7 +156,7 @@ INSERT INTO `customers` (`ID`, `username`, `pwd`, `user_type`, `phone_num`, `typ
 --
 -- Table structure for table `department`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `department`;
@@ -180,7 +187,7 @@ INSERT INTO `department` (`number`, `name`) VALUES
 --
 -- Table structure for table `dept_locations`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `dept_locations`;
@@ -200,7 +207,7 @@ CREATE TABLE `dept_locations` (
 --
 -- Table structure for table `employee`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `employee`;
@@ -248,7 +255,7 @@ INSERT INTO `employee` (`SIN`, `Id`, `username`, `pwd`, `user_type`, `gender`, `
 --
 -- Table structure for table `equipment`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 05, 2019 at 07:29 PM
 --
 
 DROP TABLE IF EXISTS `equipment`;
@@ -257,7 +264,7 @@ CREATE TABLE `equipment` (
   `description` text NOT NULL,
   `name` varchar(35) NOT NULL,
   `status` varchar(15) NOT NULL,
-  `D_num` tinyint(4) NOT NULL
+  `D_num` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -266,34 +273,20 @@ CREATE TABLE `equipment` (
 --       `department` -> `number`
 --
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `estimate`
---
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Dumping data for table `equipment`
 --
 
-DROP TABLE IF EXISTS `estimate`;
-CREATE TABLE `estimate` (
-  `number` smallint(6) NOT NULL,
-  `status` varchar(10) NOT NULL DEFAULT 'Undefined',
-  `hours` tinyint(4) NOT NULL,
-  `cost` decimal(6,4) NOT NULL,
-  `service_type` varchar(15) NOT NULL,
-  `D_num` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONSHIPS FOR TABLE `estimate`:
---
+INSERT INTO `equipment` (`Id`, `description`, `name`, `status`, `D_num`) VALUES
+(2, 'chris', 'chrischen16', 'in stock', 3),
+(3, 'pointy', 'horn', 'active', 2);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `has_reservation`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `has_reservation`;
@@ -316,7 +309,7 @@ CREATE TABLE `has_reservation` (
 --
 -- Table structure for table `it`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `it`;
@@ -343,7 +336,7 @@ INSERT INTO `it` (`SIN`, `salary`) VALUES
 --
 -- Table structure for table `maintenance`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `maintenance`;
@@ -368,29 +361,9 @@ INSERT INTO `maintenance` (`SIN`, `Salary`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `offered_locations`
---
--- Creation: Dec 02, 2019 at 09:35 PM
---
-
-DROP TABLE IF EXISTS `offered_locations`;
-CREATE TABLE `offered_locations` (
-  `S_ID` smallint(4) NOT NULL,
-  `locations` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONSHIPS FOR TABLE `offered_locations`:
---   `S_ID`
---       `services` -> `Id`
---
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `other_employee`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `other_employee`;
@@ -417,7 +390,7 @@ INSERT INTO `other_employee` (`SIN`, `salary`) VALUES
 --
 -- Table structure for table `requested_building`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `requested_building`;
@@ -441,7 +414,7 @@ CREATE TABLE `requested_building` (
 --
 -- Table structure for table `residential`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:09 PM
 --
 
 DROP TABLE IF EXISTS `residential`;
@@ -463,6 +436,7 @@ CREATE TABLE `residential` (
 --
 
 INSERT INTO `residential` (`C_ID`, `f_name`, `l_name`, `gender`) VALUES
+(3156879, 'Chris', 'Chen', 'Male'),
 (6541839, 'Michael', 'Medina', 'Other');
 
 -- --------------------------------------------------------
@@ -470,7 +444,7 @@ INSERT INTO `residential` (`C_ID`, `f_name`, `l_name`, `gender`) VALUES
 --
 -- Table structure for table `sales associate`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `sales associate`;
@@ -498,7 +472,7 @@ INSERT INTO `sales associate` (`SIN`, `salary`, `num_sales`) VALUES
 --
 -- Table structure for table `services`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 05, 2019 at 09:45 PM
 --
 
 DROP TABLE IF EXISTS `services`;
@@ -521,7 +495,7 @@ CREATE TABLE `services` (
 --
 -- Table structure for table `special_res`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `special_res`;
@@ -530,7 +504,7 @@ CREATE TABLE `special_res` (
   `status` varchar(10) NOT NULL DEFAULT 'Undefined',
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
-  `comments` text DEFAULT NULL,
+  `comments` text,
   `C_id` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -545,7 +519,7 @@ CREATE TABLE `special_res` (
 --
 -- Table structure for table `supplies`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 05, 2019 at 07:28 PM
 --
 
 DROP TABLE IF EXISTS `supplies`;
@@ -562,12 +536,19 @@ CREATE TABLE `supplies` (
 -- RELATIONSHIPS FOR TABLE `supplies`:
 --
 
+--
+-- Dumping data for table `supplies`
+--
+
+INSERT INTO `supplies` (`Id`, `name`, `qty`, `in_stock`, `ordered_date`, `D_num`) VALUES
+(2, 'Chris Chen', 2, 1, '2019-11-30', 3);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `works_on`
 --
--- Creation: Dec 02, 2019 at 09:35 PM
+-- Creation: Dec 03, 2019 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `works_on`;
@@ -584,6 +565,15 @@ CREATE TABLE `works_on` (
 --   `Contr_num`
 --       `contract` -> `number`
 --
+
+--
+-- Dumping data for table `works_on`
+--
+
+INSERT INTO `works_on` (`CL_SIN`, `Contr_num`, `hours`) VALUES
+('354-852-487', 20, 25),
+('354-852-487', 32, 5),
+('333-333-333', 55, 45);
 
 --
 -- Indexes for dumped tables
@@ -606,7 +596,6 @@ ALTER TABLE `company`
 --
 ALTER TABLE `contract`
   ADD PRIMARY KEY (`number`),
-  ADD KEY `contract_est_fk` (`Est_num`),
   ADD KEY `contract_cust_fk` (`C_id`);
 
 --
@@ -644,13 +633,7 @@ ALTER TABLE `employee`
 --
 ALTER TABLE `equipment`
   ADD PRIMARY KEY (`Id`),
-  ADD KEY `equ_dep_fk` (`D_num`);
-
---
--- Indexes for table `estimate`
---
-ALTER TABLE `estimate`
-  ADD PRIMARY KEY (`number`);
+  ADD KEY `eq_dep` (`D_num`);
 
 --
 -- Indexes for table `has_reservation`
@@ -670,12 +653,6 @@ ALTER TABLE `it`
 --
 ALTER TABLE `maintenance`
   ADD UNIQUE KEY `SIN` (`SIN`);
-
---
--- Indexes for table `offered_locations`
---
-ALTER TABLE `offered_locations`
-  ADD KEY `off_loc_serv_fk` (`S_ID`);
 
 --
 -- Indexes for table `other_employee`
@@ -739,6 +716,24 @@ ALTER TABLE `department`
   MODIFY `number` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `equipment`
+--
+ALTER TABLE `equipment`
+  MODIFY `Id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `Id` smallint(6) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `supplies`
+--
+ALTER TABLE `supplies`
+  MODIFY `Id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -758,8 +753,7 @@ ALTER TABLE `company`
 -- Constraints for table `contract`
 --
 ALTER TABLE `contract`
-  ADD CONSTRAINT `contract_cust_fk` FOREIGN KEY (`C_id`) REFERENCES `customers` (`ID`),
-  ADD CONSTRAINT `contract_est_fk` FOREIGN KEY (`Est_num`) REFERENCES `estimate` (`number`);
+  ADD CONSTRAINT `contract_cust_fk` FOREIGN KEY (`C_id`) REFERENCES `customers` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `dept_locations`
@@ -777,7 +771,7 @@ ALTER TABLE `employee`
 -- Constraints for table `equipment`
 --
 ALTER TABLE `equipment`
-  ADD CONSTRAINT `equ_dep_fk` FOREIGN KEY (`D_num`) REFERENCES `department` (`number`);
+  ADD CONSTRAINT `eq_dep` FOREIGN KEY (`D_num`) REFERENCES `department` (`number`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `has_reservation`
@@ -797,12 +791,6 @@ ALTER TABLE `it`
 --
 ALTER TABLE `maintenance`
   ADD CONSTRAINT `inheritance2` FOREIGN KEY (`SIN`) REFERENCES `employee` (`SIN`) ON DELETE CASCADE;
-
---
--- Constraints for table `offered_locations`
---
-ALTER TABLE `offered_locations`
-  ADD CONSTRAINT `off_loc_serv_fk` FOREIGN KEY (`S_ID`) REFERENCES `services` (`Id`);
 
 --
 -- Constraints for table `other_employee`
@@ -846,6 +834,99 @@ ALTER TABLE `special_res`
 ALTER TABLE `works_on`
   ADD CONSTRAINT `workson_cl_fk` FOREIGN KEY (`CL_SIN`) REFERENCES `cleaners` (`SIN`),
   ADD CONSTRAINT `workson_contr_fk` FOREIGN KEY (`Contr_num`) REFERENCES `contract` (`number`);
+
+
+--
+-- Metadata
+--
+USE `phpmyadmin`;
+
+--
+-- Metadata for table cleaners
+--
+
+--
+-- Metadata for table company
+--
+
+--
+-- Metadata for table contract
+--
+
+--
+-- Metadata for table customers
+--
+
+--
+-- Metadata for table department
+--
+
+--
+-- Metadata for table dept_locations
+--
+
+--
+-- Metadata for table employee
+--
+
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', '471db_project', 'employee', '{\"CREATE_TIME\":\"2019-12-03 15:09:47\",\"col_order\":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,15,14,16,17],\"col_visib\":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]}', '2019-12-04 05:17:38');
+
+--
+-- Metadata for table equipment
+--
+
+--
+-- Metadata for table has_reservation
+--
+
+--
+-- Metadata for table it
+--
+
+--
+-- Metadata for table maintenance
+--
+
+--
+-- Metadata for table other_employee
+--
+
+--
+-- Metadata for table requested_building
+--
+
+--
+-- Metadata for table residential
+--
+
+--
+-- Metadata for table sales associate
+--
+
+--
+-- Metadata for table services
+--
+
+--
+-- Metadata for table special_res
+--
+
+--
+-- Metadata for table supplies
+--
+
+--
+-- Metadata for table works_on
+--
+
+--
+-- Metadata for database 471db_project
+--
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

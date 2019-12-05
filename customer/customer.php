@@ -24,7 +24,9 @@ if (!isset($_SESSION['cust_id'])) {
 <body>
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-        <a class="navbar-brand font-weight-bold" href="customer.php">Customer </a>
+        <a class="navbar-brand font-weight-bold" href="customer.php">
+            <h3>Customer</h3>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,23 +35,9 @@ if (!isset($_SESSION['cust_id'])) {
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="create_employee.php">Create Employee <span
-                            class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">View Employees</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="admin_view_cleaners.php">Cleaner</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="admin_view_maintains.php">Maintenance</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="admin_view_admins.php">Admin</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="admin_view_sales.php">Sales</a>
 
-                    </div>
                 </li>
+
 
             </ul>
             <form action="../include/logout_inc.php" method="post">
@@ -59,9 +47,114 @@ if (!isset($_SESSION['cust_id'])) {
     </nav>
 
     <main role="main">
-        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="d-flex justify-content-center align-items-center admin_tables">
 
-        <div class="container">
+
+            <form class=" create_emp_form text-center " id="request" action="../include/request_emp_inc.php"
+                method="POST" style="margin-top:20px;">
+
+                <h2 class=" text-uppercase">Request a reservation for an Employee</h2>
+                <?php
+                     if (@$_GET['error'] == 'EmpHasReserv') {
+                        
+                        echo ' 
+                        <br/>
+                        <div class="alert d-flex justify-content-center bg-danger mx-auto alert-dismissible fade show" role="alert">
+                            <p class="text-center alert-heading" style ="width:340px;"><strong class="alert-heading">Failed!</strong>  <br/> Employee Request Already Exists.</p>
+                            <button type="button" class="pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                       </div>';
+                     
+                     }
+
+                     if (@$_GET['createReq'] == 'success') {
+                        
+                        echo ' 
+                        <br/>
+                        <div class="alert d-flex justify-content-center bg-success mx-auto alert-dismissible fade show" role="alert">
+                            <p class="text-center alert-heading" style ="width:340px;"><strong class="alert-heading">Success!</strong>  <br/> Request created succesfully.</p>
+                            <button type="button" class="pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                       </div>';
+                     
+                     }
+                ?>
+                <input type="hidden" name="emp_sin">
+
+                <div class=" form-row ">
+                    <div class=" wrap-input100 form-group col-md-6">
+                        <label for="" class="mt-2">Employee Reservation Number</label>
+                        <input class="input300 form-control" type="text" name="res_num" placeholder="43455" required
+                            maxlength="7" pattern="\d*"
+                            oninvalid="this.setCustomValidity(&apos;Reservation Number is Required&apos;)"
+                            oninput="this.setCustomValidity(&apos;&apos;)">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class=" wrap-input100   form-group col-md-6">
+                        <label for="" class="mt-2">Number of Hours</label>
+                        <input class="input300 form-control" type="text" name="num_hours" placeholder="13" required
+                            maxlength="5" pattern="\d*"
+                            oninvalid="this.setCustomValidity(&apos;Number of Hours is Required&apos;)"
+                            oninput="this.setCustomValidity(&apos;&apos;)">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                </div>
+                <hr class="" />
+                <div class="fomr-row">
+                    <div class=" wrap-input100   form-group ">
+                        <label for="" class="mt-2">Project Start Date<span class="span_format">
+                                &nbsp;&nbsp;(YYYY-MM-DD)</span>
+                        </label>
+                        <input class="input300 form-control" type="text"
+                            pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
+                            name="start_date" placeholder="YYYY-DD-MM" required
+                            oninvalid="this.setCustomValidity('Valid Start Date is Required: YYYY-MM-DD')"
+                            oninput="this.setCustomValidity('')">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class=" wrap-input100   form-group ">
+                        <label for="" class="mt-2">Project End Date<span class="span_format">
+                                &nbsp;&nbsp;(YYYY-MM-DD)</span>
+                        </label>
+                        <input class="input300 form-control " type="text"
+                            pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
+                            name="end_date" placeholder="YYYY-DD-MM" required
+                            oninvalid="this.setCustomValidity('Valid End Date is Required: YYYY-MM-DD')"
+                            oninput="this.setCustomValidity('')">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class=" wrap-input100   form-group">
+                        <label for="" class="mt-2">Reason for Request<span class="span_format">
+                                &nbsp;&nbsp;(YYYY-MM-DD)</span>
+                        </label>
+                        <textarea class="input300 form-control" rows="4" cols="5" name="reason" form="request"
+                            placeholder="Enter text here" required></textarea>
+                        <span class="focus-input100"></span>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+                <hr class="" />
+
+
+
+                <button type="submit" id="update_emp_submit" name="request_emp_submit"
+                    class="btn mt-4  btn-md btn-custom btn-block text-uppercase">
+                    Update Employee
+                </button>
+
+
+            </form>
 
         </div>
 
