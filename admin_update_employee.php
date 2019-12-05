@@ -131,7 +131,6 @@ if (!isset($_SESSION['admin_uId'])) {
                      
                         <th scope="col">SIN</th>
                         <th scope="col">Job Type</th>
-                        
                         <th scope="col">Username</th>
                         <th scope="col">Email</th>
                         <th scope="col">First Name</th>
@@ -169,7 +168,6 @@ if (!isset($_SESSION['admin_uId'])) {
                         <tr>
                             <td >' . $sin . '</td>
                             <td>' . $j_type . '</td>
-                           
                             <td>' . $username . '</td>
                             <td>' . $email . '</td>
                             <td>' . $first . '</td>
@@ -195,53 +193,22 @@ if (!isset($_SESSION['admin_uId'])) {
                     <form class=" create_emp_form text-center" action="include/update_emp_inc.php" method="POST" style="margin-top:20px;">
         
                         <h2 class=" text-uppercase">Update Employee</h2>
-                        <input type="hidden" name="emp_sin" value="">';
+                        <input type="hidden" name="emp_sin" value="'.$sin.'">
         
-                        if($j_type !== "cleaner"){
-                            echo '
-                            <div class="form-row ">
-                                <div class="wrap-input100  form-group  has_salary">
-                                    <label for="" class="mt-2">Salary </span> </label>
-                                    <input class="input200 form-control " required type="number" min="1" max="999999.9999" id="salary" step="0.0001" value="" name="emp_salary" placeholder="$5000.25" oninvalid="this.setCustomValidity(&apos;Starting Salary is required! Max Value is 999,999.9999&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100">
-                                        <i class="fa fa-dollar-sign" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                            </div>';
-                        }else {
-                            echo ' 
-                            <div class="form-row">
-                                <div class="wrap-input100  form-group has_hour_rate">
-                                     <label for="" class="mt-2">Hourly Rate </label>
-                                     <input class="input200 form-control " required type="number" min="1" max="999.9999" id="hour_rate" step="0.0001" name="emp_hourly_Rate" placeholder="$999.9999" oninvalid="this.setCustomValidity(&apos;Hourly Rate is required! Max Value is 999.9999&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
-                                     <span class="focus-input100"></span>
-                                     <span class="symbol-input100">
-                                         <i class="fa fa-dollar-sign" aria-hidden="true"></i>
-                                     </span>
-                                </div>
-    
-                        </div>';
-                        }
-                        
-        
-                           
-
-
-                        echo '
-                        <hr />
+                    
+                      
                       
                         <div class="form-row ">
                             <div class=" wrap-input100   form-group col-md-6">
                                 <label for="" class="mt-2">First Name</label>
-                                <input class="input300 form-control" type="text" name="emp_f_name" placeholder="First Name" required oninvalid="this.setCustomValidity(&apos;First Name is Required&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
+                                <input class="input300 form-control" type="text" name="emp_f_name" value="'.$first.'" placeholder="First Name" required oninvalid="this.setCustomValidity(&apos;First Name is Required&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
                                 <span class="focus-input100"></span>
                             </div>
         
         
                             <div class="wrap-input100   col-md-6" data-validate="Last Name is required">
                                 <label for="" class="mt-2">Last Name</label>
-                                <input class="input300 form-control " type="text" name="emp_l_name" placeholder="Last Name" required oninvalid="this.setCustomValidity(&apos;Last Name is Required&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
+                                <input class="input300 form-control " type="text" name="emp_l_name" value="'.$last.'" placeholder="Last Name" required oninvalid="this.setCustomValidity(&apos;Last Name is Required&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
                                 <span class="focus-input100"></span>
                             </div>
         
@@ -255,12 +222,12 @@ if (!isset($_SESSION['admin_uId'])) {
                         <div class="form-row ">
                             <div class=" wrap-input100   form-group col-md-6 ">
                                 <label for="cust-type">Phone Number (123-456-7890)</label>
-                                <input class="input300 form-control " type="tel" name="emp_phone_num" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="587-451-6780" required oninvalid="this.setCustomValidity(&apos;Valid Phone Number is Required: 555-555-5555:&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
+                                <input class="input300 form-control " type="tel" name="emp_phone_num" value="'.$phone.'" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="587-451-6780" required oninvalid="this.setCustomValidity(&apos;Valid Phone Number is Required: 555-555-5555:&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
                                 <span class="focus-input100"></span>
                             </div>
                             <div class=" wrap-input100   form-group col-md-6 ">
                                 <label for="cust-type">Address</label>
-                                <input class="input300 form-control " type="text" name="emp_address" placeholder="1234 Main St" required oninvalid="this.setCustomValidity(&apos;Address is required&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
+                                <input class="input300 form-control " type="text" name="emp_address" value="'.$address.'"placeholder="1234 Main St" required oninvalid="this.setCustomValidity(&apos;Address is required&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
                                 <span class="focus-input100"></span>
                             </div>
         
@@ -271,13 +238,13 @@ if (!isset($_SESSION['admin_uId'])) {
                         <div class="form-row">
                             <div class=" wrap-input100   form-group col-md-6">
                                 <label for="cust-type">City</label>
-                                <input class="input300 form-control " type="text" name="emp_city" placeholder="Calgary" required oninvalid="this.setCustomValidity(&apos;City is required&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
+                                <input class="input300 form-control " type="text" name="emp_city" value="'.$city.'" placeholder="Calgary" required oninvalid="this.setCustomValidity(&apos;City is required&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
                                 <span class="focus-input100"></span>
                             </div>
         
                             <div class="wrap-input100  form-group col-md-6">
                                 <label for="cust-type">Postal Code (Format: A1A1A1)</label>
-                                <input class=" input300 form-control " type="text" name="emp_postal_code" pattern="[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]" placeholder="T3K6Y7" required oninvalid="this.setCustomValidity(&apos;Valid Postal Code is Required: A0A0A0&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
+                                <input class=" input300 form-control " type="text" name="emp_postal_code" value="'.$postal_code.'"  pattern="[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]" placeholder="T3K6Y7" required oninvalid="this.setCustomValidity(&apos;Valid Postal Code is Required: A0A0A0&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
                                 <span class="focus-input100"></span>
                             </div>
         
@@ -287,7 +254,7 @@ if (!isset($_SESSION['admin_uId'])) {
         
         
         
-                        <button type="submit" id="update_emp_submit" name="create_emp_submit" class="btn mt-4  btn-md btn-custom btn-block text-uppercase">
+                        <button type="submit" id="update_emp_submit" name="update_emp_submit" class="btn mt-4  btn-md btn-custom btn-block text-uppercase">
                             Update Employee
                         </button>
         
@@ -295,13 +262,9 @@ if (!isset($_SESSION['admin_uId'])) {
                     </form>
         
                 </div>
-        
+    
         
         ';
-
-
-
-
 
                     exit();
                 } else {
