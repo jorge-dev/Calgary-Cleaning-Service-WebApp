@@ -15,7 +15,8 @@ if (!isset($_SESSION['admin_uId'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="adminStyles.css">
     <title>Delete Employee</title>
 </head>
@@ -24,17 +25,20 @@ if (!isset($_SESSION['admin_uId'])) {
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <a class="navbar-brand font-weight-bold" href="admin.php">Admin </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="create_employee.php">Create Employee <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="create_employee.php">Create Employee <span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">View Employees</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">View Employees</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="admin_view_cleaners.php">Cleaner</a>
                         <div class="dropdown-divider"></div>
@@ -47,7 +51,8 @@ if (!isset($_SESSION['admin_uId'])) {
                     </div>
                 </li>
                 <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Modify Employee</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Modify Employee</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="admin_update_employee.php">Update</a>
                         <div class="dropdown-divider"></div>
@@ -87,7 +92,10 @@ if (!isset($_SESSION['admin_uId'])) {
                 <div class="form-row ">
                     <div class=" wrap-input100   form-group">
                         <label class=" font-weight-bold justify-content-center mt-2">Enter Employees SIN </label>
-                        <input class="input300 form-control" type="text" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" name="del_sin" placeholder="999-999-999" oninvalid="this.setCustomValidity('Valid Sin Required: 000-000-000')" oninput="this.setCustomValidity('')">
+                        <input class="input300 form-control" type="text" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                            name="del_sin" placeholder="999-999-999"
+                            oninvalid="this.setCustomValidity('Valid Sin Required: 000-000-000')"
+                            oninput="this.setCustomValidity('')">
                         <span class="focus-input100"></span>
                     </div>
 
@@ -95,7 +103,8 @@ if (!isset($_SESSION['admin_uId'])) {
 
 
 
-                <button type="submit" id="emp_submit" name="search_emp_submit" class="btn mt-3 mb-3  btn-md btn-custom btn-block text-uppercase">
+                <button type="submit" id="emp_submit" name="search_emp_submit"
+                    class="btn mt-3 mb-3  btn-md btn-custom btn-block text-uppercase">
                     Search
                 </button>
 
@@ -121,7 +130,7 @@ if (!isset($_SESSION['admin_uId'])) {
 
 
                 if ($m = mysqli_fetch_assoc($response)) {
-                    echo ' <div class=" text-center  container-fluid admin_tables">
+                    echo ' <div class=" text-center  container-fluid ">
                     <table class="table table-lg table-hover table-striped table-bordered table-dark " style="border-radius:10px;">
                     <tr class="bg-success">
                         <th colspan="13" style="font-size:1.8em;font-weight:bold;">Employee</th>
@@ -220,7 +229,9 @@ if (!isset($_SESSION['admin_uId'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
 
-    <script>  window.history.replaceState({}, document.title, "/" + "471-Project/admin_delete_employee.php");</script>
+    <script>
+    window.history.replaceState({}, document.title, "/" + "471-Project/admin_delete_employee.php");
+    </script>
 
 
 </body>

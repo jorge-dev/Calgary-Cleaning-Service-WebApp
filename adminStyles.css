@@ -33,8 +33,10 @@ body {
   padding: 15px;
 }
 
-
-.admin_tables .admin_form{
+.admin_form{
+  margin-top: 0em;
+}
+.admin_tables {
   margin-top: 7em;
  
   

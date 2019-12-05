@@ -15,15 +15,16 @@ if (!isset($_SESSION['admin_uId'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="adminStyles.css">
     <title>Admin Page</title>
 </head>
 
 <body>
 
-   
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <a class="navbar-brand font-weight-bold" href="admin.php">Admin </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,7 +70,7 @@ if (!isset($_SESSION['admin_uId'])) {
 
 
     <main>
-        
+
         <?php
         require 'include/db_connection_inc.php';
         $jtype = "cleaner";
@@ -87,8 +88,8 @@ if (!isset($_SESSION['admin_uId'])) {
            
            
                 if ($m = mysqli_fetch_assoc($response) ) { 
-               echo' <div class=" text-center  container-fluid admin_tables">
-                    <table class="table table-lg table-hover table-striped table-bordered table-dark ">
+               echo' <div class=" text-center  container-fluid ">
+                    <table class="table table-lg table-hover table-striped table-bordered table-dark admin_tables ">
                     <tr class="bg-success">
                         <th colspan="11" style="font-size:1.8em;font-weight:bold;">Cleaner Employees</th>
                     </tr>
@@ -145,10 +146,10 @@ if (!isset($_SESSION['admin_uId'])) {
             mysqli_close($connect);
             ?>
 
-           
-  
 
-</main>
+
+
+    </main>
 
 
 
@@ -172,8 +173,3 @@ if (!isset($_SESSION['admin_uId'])) {
 </body>
 
 </html>
-
-
-
-
-   
