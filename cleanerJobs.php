@@ -74,17 +74,38 @@
   require "include/db_connection_inc.php";
   // Retrieve Database info for current cleaner
   // echo $_SESSION['cleaner_emp_id'];
+ 
+ // $sql = "SELECT DISTINCT c.number, c.start_date, c.end_date, cu.street, cu.email, cu.phone_num FROM contract as c, works_on as w, cleaners as cl, customers as cu WHERE ('{$_SESSION['cleaner_emp_id']}' = w.CL_SIN) AND w.Contr_num = c.number AND c.C_id  = cu.ID";
+
+$tempfname = "CREATE TEMPORARY TABLE tempfname
+        SELECT c.ID, r.f_name FROM customers as c INNER JOIN residential as r ON c.ID = r.C_ID";
+$stmt= mysqli_stmt_init($connect);
+if (!mysqli_stmt_prepare($stmt,$tempfname)) {
+  header("Location: ../cleanerJobs.php?error=sqlerrorEmpSELECT");
+  exit();
+}
+mysqli_stmt_execute($stmt);
+
+$tempcpname = "CREATE TEMPORARY TABLE tempcpname
+        SELECT c.ID, cp.name FROM customers as c INNER JOIN company as cp ON c.ID = cp.C_ID";
+if (!mysqli_stmt_prepare($stmt,$tempcpname)) {
+  header("Location: ../cleanerJobs.php?error=sqlerrorEmpSELECT");
+  exit();
+}
+mysqli_stmt_execute($stmt);
+
+$tempallname = "CREATE TEMPORARY TABLE tempallname 
+                  (SELECT * FROM tempcpname) 
+                  UNION 
+                  (SELECT * FROM tempfname)";     
+if (!mysqli_stmt_prepare($stmt,$tempallname)) {
+  header("Location: ../cleanerJobs.php?error=sqlerrorEmpSELECT");
+  exit();
+}
+mysqli_stmt_execute($stmt);
+
+$sql = "SELECT DISTINCT t.name, c.start_date, c.end_date, cu.street, cu.email, cu.phone_num, c.number FROM contract as c, works_on as w, cleaners as cl, customers as cu, tempallname as t WHERE ('{$_SESSION['cleaner_emp_id']}' = w.CL_SIN) AND w.Contr_num = c.number AND c.C_id  = cu.ID AND cu.ID = t.ID ";
   
-  // SELECT cu.email FROM customers as cu WHERE cu.ID IN (SELECT c.C_id FROM contract as c WHERE c.number IN (SELECT w.Contr_num FROM works_on as w WHERE w.CL_SIN IN (SELECT SIN FROM cleaners as cl where cl.SIN = '354-852-487')))
-
-
-
-  // SELECT c.number FROM contract as c WHERE c.number IN (SELECT w.Contr_num FROM works_on as w WHERE w.CL_SIN IN (SELECT SIN FROM cleaners as cl where cl.SIN = '354-852-487'))
-  //$sql = "SELECT w.hours from works_on where ($_SESSION[cleaner_emp_id] = w.CL_SIN)";
-  $sql = "SELECT DISTINCT c.number, c.start_date, c.end_date, cu.street, cu.email FROM contract as c, works_on as w, cleaners as cl, customers as cu WHERE ('{$_SESSION['cleaner_emp_id']}' = w.CL_SIN) AND w.Contr_num = c.number AND c.C_id  = cu.ID";
-  // $sql = "SELECT c.number FROM contract as c, works_on as w, cleaners as cl WHERE('{$_SESSION['cleaner_emp_id']}' = w.CL_SIN) AND w.Contr_num = c.number";
-  //$sql="Select * from employee where f_name = '$_SESSION[\"cleaner_emp_id\"]";
-  // $sql="Select * from employee where f_name IS NOT NULL";
   $stmt= mysqli_stmt_init($connect);
   if (!mysqli_stmt_prepare($stmt,$sql)) {
       header("Location: ../cleanerJobs.php?error=sqlerrorEmpSELECT");
@@ -100,23 +121,26 @@
           <div class="container">  
             <table class="table table-hover table-striped table-dark">
                 <tr>
-                  <th colspan="5">Your Customers</th>
+                  <th colspan="7">Your Customers</th>
                 </tr> 
                 <tr>
-                  <th>Contract Number</th>
+                  <th>Customer Name</th>
                   <th>Start Date</th>
                   <th>End Date</th>
                   <th>Customer Street</th>
                   <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Contract Number</th> 
                 </tr> 
               <?php while($row = mysqli_fetch_assoc($response)){
-              
                 echo '<tr> 
-                <td>'. $row['number'] .'</td> 
+                <td>'. $row['name'] .'</td> 
                 <td>'. $row['start_date'] .'</td> 
                 <td>'. $row['end_date'] .'</td>
                 <td>'. $row['street'] .'</td>
                 <td>'. $row['email'] .'</td>
+                <td>'. $row['phone_num'] .'</td>
+                <td>'. $row['number'] .'</td> 
                 </tr>';
               } ?> 
             </table> </div> <?php 
@@ -131,3 +155,4 @@
     
   </body>
 </html>
+
