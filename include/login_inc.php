@@ -65,8 +65,9 @@ if (isset($_POST['login_submit'])) {
                     session_start();
                     $_SESSION['cust_id']  =$row['ID'];
                     $_SESSION['cust_uId']  =$row['username'];
+                    $_SESSION['cust_type']  =$row['type'];
 
-                    header("Location: ../customer.php?login=success");
+                    header("Location: ../customer/customer.php?login=success");
                     exit();
                 }
                 else {
