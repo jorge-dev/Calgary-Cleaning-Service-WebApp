@@ -35,7 +35,7 @@ if (!isset($_SESSION['cust_id'])) {
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-
+                <a class="nav-link" href="customer_view_req.php"><h5>View Previous Requests</h5> <span class="sr-only">(current)</span></a>
                 </li>
 
 
@@ -80,15 +80,27 @@ if (!isset($_SESSION['cust_id'])) {
                        </div>';
                      
                      }
+
+                     if (@$_GET['deletion'] == 'success') {
+                        // header_remove();
+                        echo ' 
+                         <br/>
+                         <div class="alert bg-success mx-auto alert-dismissible fade show" role="alert">
+                             <p class="text-center alert-heading" style ="width:340px;"><strong class="alert-heading">Success!</strong>  <br/> Reservation succesfully deleted.</p>
+                             <button type="button" class="pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                             </button>
+                        </div>';
+                     }
                 ?>
                 <input type="hidden" name="emp_sin">
 
                 <div class=" form-row ">
                     <div class=" wrap-input100 form-group col-md-6">
-                        <label for="" class="mt-2">Employee Reservation Number</label>
+                        <label for="" class="mt-2">Employee Reference Number</label>
                         <input class="input300 form-control" type="text" name="res_num" placeholder="43455" required
                             maxlength="7" pattern="\d*"
-                            oninvalid="this.setCustomValidity(&apos;Reservation Number is Required&apos;)"
+                            oninvalid="this.setCustomValidity(&apos;Reference Number is Required&apos;)"
                             oninput="this.setCustomValidity(&apos;&apos;)">
                         <span class="focus-input100"></span>
                     </div>
@@ -150,7 +162,7 @@ if (!isset($_SESSION['cust_id'])) {
 
                 <button type="submit" id="update_emp_submit" name="request_emp_submit"
                     class="btn mt-4  btn-md btn-custom btn-block text-uppercase">
-                    Update Employee
+                    Create Reservation
                 </button>
 
 
