@@ -23,28 +23,35 @@ if (!isset($_SESSION['maint_emp_id'])) {
 </head>
 
 <body>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
-        <a class="navbar-brand font-weight-bold" href="equipment.php".php">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-brand font-weight-bold" href="equipment.php" .php">
             <h3>Equipment</h3>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                <a class="nav-link  " href="equipment_search.php"><h5>View Equipment</h5> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link  " href="equipment_search.php">
+                        <h5>View Equipment</h5> <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li class="nav-item ">
-                <a class="nav-link" href="equipment_add.php"><h5>Add Equipment</h5> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="equipment_add.php">
+                        <h5>Add Equipment</h5> <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li class="nav-item ">
-                <a class="nav-link " href="equipment_update.php"><h5> Update Equipment</h5> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="equipment_update.php">
+                        <h5> Update Equipment</h5> <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li class="nav-item ">
-                <a class="nav-link text-success" href="equipment_delete.php"><h5>  Delete Equipment</h5> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-success" href="equipment_delete.php">
+                        <h5> Delete Equipment</h5> <span class="sr-only">(current)</span>
+                    </a>
                 </li>
 
 
@@ -58,14 +65,14 @@ if (!isset($_SESSION['maint_emp_id'])) {
 
     <div class="d-flex justify-content-center align-items-center " style="margin-top:55px;">
 
-<form name="myform" class="bg-dark pr-3 pl-4 pb-4 pt-4 pb-4   text-center" method="POST" style="margin-top:55px;margin-bottom:25px;">
-    <h1 class="d-flex justify-content-center ">Search Employee </h1>
+        <form name="myform" class="bg-dark pr-3 pl-4 pb-4 pt-4 pb-4   text-center" method="POST" style="margin-top:55px;margin-bottom:25px;">
+            <h1 class="d-flex justify-content-center ">Search Employee </h1>
 
-    <?php
+            <?php
 
-    if (@$_GET['updated'] == 'success') {
+            if (@$_GET['updated'] == 'success') {
 
-        echo ' 
+                echo ' 
 <br/>
 <div class="alert bg-success mx-auto alert-dismissible fade show" role="alert">
     <p class="text-center alert-heading" style ="width:340px;"><strong class="alert-heading">Success!</strong>  <br/> Employee was succesfully updated.</p>
@@ -73,25 +80,25 @@ if (!isset($_SESSION['maint_emp_id'])) {
     <span aria-hidden="true">&times;</span>
     </button>
 </div>';
-    }
-    ?>
-    <div class="form-row ">
-        <div class=" wrap-input100   form-group">
-            <label class=" font-weight-bold justify-content-center mt-2">Enter Equipment Id </label>
-            <input class="input300 form-control" type="text" required  pattern="\d*" name="del_id" placeholder="Id" oninvalid="this.setCustomValidity('Valid Id Required')" oninput="this.setCustomValidity('')">
-            <span class="focus-input100"></span>
-        </div>
+            }
+            ?>
+            <div class="form-row ">
+                <div class=" wrap-input100   form-group">
+                    <label class=" font-weight-bold justify-content-center mt-2">Enter Equipment Id </label>
+                    <input class="input300 form-control" type="text" required pattern="\d*" name="del_id" placeholder="Id" oninvalid="this.setCustomValidity('Valid Id Required')" oninput="this.setCustomValidity('')">
+                    <span class="focus-input100"></span>
+                </div>
 
+            </div>
+
+
+
+            <button type="submit" id="emp_submit" name="EID" class="btn mt-3 mb-3  btn-md btn-custom btn-block text-uppercase">
+                Search
+            </button>
+
+        </form>
     </div>
-
-
-
-    <button type="submit" id="emp_submit" name="EID" class="btn mt-3 mb-3  btn-md btn-custom btn-block text-uppercase">
-        Search
-    </button>
-
-</form>
-</div>
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -133,7 +140,7 @@ if (!isset($_SESSION['maint_emp_id'])) {
 
                 while ($row = mysqli_fetch_assoc($response)) {
                     $id = $row['Id'];
-                    
+
                     echo '
                       
                     <tr>

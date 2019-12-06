@@ -42,7 +42,7 @@ if (!isset($_SESSION['maint_emp_id'])) {
                 <a class="nav-link" href="equipment_add.php"><h5>Add Equipment</h5> <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
-                <a class="nav-link txt-success" href="equipment_update.php"><h5> Update Equipment</h5> <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-success" href="equipment_update.php"><h5> Update Equipment</h5> <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
                 <a class="nav-link" href="equipment_delete.php"><h5>  Delete Equipment</h5> <span class="sr-only">(current)</span></a>

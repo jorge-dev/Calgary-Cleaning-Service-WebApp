@@ -1,32 +1,27 @@
 <?php
-require 'db_connection_inc.php';
 
-$first = $_POST['SID'];
-$second = $_POST['name'];
-$third = $_POST['qty'];
-$forth = $_POST['in_stock'];
-$fifth = $_POST['ordered_date'];
-$sixth = $_POST['D_num'];
+if (isset($_POST['up_sup'])) {
+    require 'db_connection_inc.php';
 
-
-$sql1 = "SELECT * FROM supplies WHERE id = '$first';";
-$result1 = mysqli_query($connect, $sql1);
-$resultCheck = mysqli_num_rows($result1);
-
-if($resultCheck > 0){
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $qty = $_POST['qty'];
+    $stock = intval($_POST['stock']);
+    $o_date = $_POST['o_date'];
+    $dep = $_POST['dep'];
 
 
-    if($first == null || $second ==null || $third == null || $forth == null || $fifth == null || $sixth == null){
-        header("Location: ../supplies_update_fail_null.php");
-    }elseif($third < $forth){
-        header("Location: ../supplies_update_fail_qtySmallerThanStock.php");
+    $sql = "UPDATE supplies SET name=?, qty=?, in_stock=?, ordered_date=?, D_num=? WHERE Id=?;";
+    $stmt = mysqli_stmt_init($connect);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("Location: ../maintenance/supplies_update.php?error=sqlSelectError");
+        exit();
+    } else {
+mysqli_stmt_bind_param($stmt, "siisii", $name,$qty,$stock,$o_date,$dep,$id);
+        mysqli_stmt_execute($stmt);
+            echo'hello';
+            header("Location: ../maintenance/supplies.php?update=success");
+            exit();
+        
     }
-    else{
-        $sql = "UPDATE supplies SET name = '$second', qty = $third, in_stock = $forth, ordered_date = '$fifth', D_num = '$sixth' WHERE id = $first;" ;
-        mysqli_query($connect, $sql);
-        header("Location: ../supplies_update_success.php?submit=success");
-    }
-}else{
-    header("Location: ../supplies_update_fail_notInScope.php");
 }
-?>

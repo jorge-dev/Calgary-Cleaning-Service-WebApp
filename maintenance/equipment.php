@@ -107,17 +107,7 @@ if (!isset($_SESSION['maint_emp_id'])) {
                                 </button>
                            </div>';
                 }
-                if (@$_GET['signupSales'] == 'success') {
-                    // header_remove();
-                    echo ' 
-                            <br/>
-                            <div class="alert d-flex justify-content-center bg-success mx-auto alert-dismissible fade show" role="alert">
-                                <p class="text-center alert-heading" style ="width:340px;"><strong class="alert-heading">Success!</strong>  <br/> Sales account created succesfully.</p>
-                                <button type="button" class="pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                           </div>';
-                }
+
                 ?>
 
                 <p>To make changes to any equipment or view a list of current stock, use navbar on the top</p>

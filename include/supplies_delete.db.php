@@ -1,20 +1,21 @@
 <?php
-require 'db_connection_inc.php';
 
-$first = $_POST['SID'];
+if (isset($_GET['deleteSup'])) {
+    require 'db_connection_inc.php';
+    $first = $_GET['deleteSup'];
 
-$sql1 = "SELECT * FROM supplies WHERE id = '$first';";
-$result1 = mysqli_query($connect, $sql1);
-$resultCheck = mysqli_num_rows($result1);
+    $sql = "DELETE FROM supplies WHERE Id =?;";
+    $stmt = mysqli_stmt_init($connect);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("Location: ../maintenance/supplies_delete.php?error=sqlDeleteError");
+        exit();
+    } else {
+        mysqli_stmt_bind_param($stmt, "i", $first);
+        mysqli_stmt_execute($stmt);
+            header("Location: ../maintenance/supplies.php?delete=success");
+            exit();
+        }
 
-if($resultCheck > 0){
-    $sql = "DELETE FROM supplies WHERE id = '$first';" ;
-    mysqli_query($connect, $sql);
-
-
-    header("Location: ../supplies_delete_successful.php?submit=success");
-}else{
-    header("Location: ../supplies_update_fail_notInScope.php");
 }
 
 

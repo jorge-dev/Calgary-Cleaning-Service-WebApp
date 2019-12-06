@@ -1,19 +1,29 @@
 <?php
+
+if (isset($_POST['add_sup'])) {
+    echo'hello';
 require 'db_connection_inc.php';
 
-$first = $_POST['name'];
-$second = $_POST['qty'];
-$third = $_POST['in_stock'];
-$forth = $_POST['ordered_date'];
-$fifth = $_POST['D_num'];
+$name = $_POST['name'];
+$qty = $_POST['qty'];
+$stock = $_POST['stock'];
+$o_date = $_POST['o_date'];
+$dep = $_POST['dep'];
 
-if($first == null || $second ==null || $third == null || $forth == null || $fifth == null ){
-    header("Location: ../supplies_update_fail_null.php");
-}elseif($second < $third){
-    header("Location: ../supplies_update_fail_qtySmallerThanStock.php");
-}else{
-    $sql = "INSERT INTO supplies (name, qty, in_stock, ordered_date, D_num) VALUES ('$first', $second, $third, '$forth',$fifth);" ;
-    mysqli_query($connect, $sql);
-    header("Location: ../supplies_add_successful.php?submit=success");
+
+
+    $sql = "INSERT INTO supplies (name, qty, in_stock, ordered_date,D_num) VALUES (?,?,?,?,?);" ;
+    $stmt = mysqli_stmt_init($connect);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("Location: ../maintenance/supplies_add.php?error=sqlSelectError");
+        exit();
+    } else {
+mysqli_stmt_bind_param($stmt, "sibsi", $name,$qty,$stock,$o_date,$dep);
+        mysqli_stmt_execute($stmt);
+            echo'hello';
+            header("Location: ../maintenance/supplies.php?add=success");
+            exit();
+        
+    }
+
 }
-?>
