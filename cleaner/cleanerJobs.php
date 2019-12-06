@@ -16,42 +16,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Cleaner</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <!--===============================================================================================-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <!--===============================================================================================-->
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css" />
-    <!--===============================================================================================-->
-    <!-- <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css"> -->
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" />
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="custom3.css" />
 
     <!---- =============================================================================== -->
     <title>Create Employee</title>
 </head>
 
-<body class="createEmp">
-    <div class="wrapper">
-        <br>
-        <h1>Your Jobs</h1>
-        <br>
-        <div class="btn-group">
-            <form action="../include/logout_inc.php">
-                <button type="submit" name="login_submit" id="login_button" class="btn mt-4 mb-2  ">
-                    Log out
-                </button>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-brand font-weight-bold" href="cleaner.php">
+            <h3>Cleaner</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-linkt text-success" href="cleanerJobs.php">
+                        <h5>View Jobs</h5> <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+
+            <form action="../include/logout_inc.php" method="post">
+                <button type="submit" class="btn btn-success">Logout</button>
             </form>
+
         </div>
-    </div>
-    <div class="wrapper">
+    </nav>
+    <div class="text-center  container-fluid admin_tables">
         <?php
   require "../include/db_connection_inc.php";
 
@@ -101,9 +99,10 @@ $sql = "SELECT DISTINCT t.name, c.start_date, c.end_date, cu.street, cu.email, c
       
       $response = mysqli_stmt_get_result($stmt); ?>
         <?php if ($response !=NULL){?>
-        <div class="container">
-            <table class="table table-hover table-striped table-dark">
-                <tr>
+        <div class=" text-center  container-fluid admin_tables ">
+            <table class="table table-lg table-hover table-striped table-bordered table-dark ">
+                <tr class="bg-success">
+
                     <th colspan="7">Your Customers</th>
                 </tr>
                 <tr>
@@ -135,10 +134,27 @@ $sql = "SELECT DISTINCT t.name, c.start_date, c.end_date, cu.street, cu.email, c
 ?>
 
     </div>
-
     <script>
-    window.history.replaceState({}, document.title, "/" + "471-Project/cleaner/cleaner.php");
+    < script src = "../vendor/jquery/jquery-3.2.1.min.js" >
     </script>
-</body>
+    <!--===============================================================================================-->
+    <script src="../vendor/bootstrap/js/popper.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="../vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
 
-</html>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0
+    <script>
+    window.history.replaceState({}, document.title, "/" + "471-Project/cleaner/cleaner.php" ); </script> </body>
+        </html>
