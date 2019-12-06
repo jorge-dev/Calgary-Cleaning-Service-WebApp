@@ -18,7 +18,7 @@ $dep = $_POST['dep'];
         header("Location: ../maintenance/supplies_add.php?error=sqlSelectError");
         exit();
     } else {
-mysqli_stmt_bind_param($stmt, "sibsi", $name,$qty,$stock,$o_date,$dep);
+mysqli_stmt_bind_param($stmt, "siisi", $name,$qty,$stock,$o_date,$dep);
         mysqli_stmt_execute($stmt);
             echo'hello';
             header("Location: ../maintenance/supplies.php?add=success");

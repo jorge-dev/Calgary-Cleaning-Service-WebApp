@@ -114,7 +114,7 @@ if (isset($_POST['login_submit'])) {
                         $_SESSION['sales_emp_id']  =$row['Id'];
                         $_SESSION['sales_emp_uId']  =$row['username'];
                         $_SESSION['sales_emp_name']  =$row['f_name'];
-                        header("Location: ../sales_asoc.php?loginSales=success");
+                        header("Location: ../sales/sales.php?loginSales=success");
                         exit();
                     }
                     elseif($row['job_type'] == 'cleaner'){

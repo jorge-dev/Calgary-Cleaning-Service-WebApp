@@ -90,7 +90,7 @@ if (!isset($_SESSION['maint_emp_id'])) {
                     echo ' 
                             <br/>
                             <div class="alert d-flex justify-content-center bg-success mx-auto alert-dismissible fade show" role="alert">
-                                <p class="text-center alert-heading" style ="width:340px;"><strong class="alert-heading">Success!</strong>  <br/> Equipment was succesfully updated.</p>
+                                <p class="text-center alert-heading" style ="width:340px;"><strong class="alert-heading">Success!</strong>  <br/> Equipment was succesfully added.</p>
                                 <button type="button" class="pl-0 pr-2 pt-1 close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
