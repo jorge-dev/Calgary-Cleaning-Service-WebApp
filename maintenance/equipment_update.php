@@ -12,6 +12,7 @@ if (!isset($_SESSION['maint_emp_id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,13 +20,15 @@ if (!isset($_SESSION['maint_emp_id'])) {
     <title>Equipment Update</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="StyleSheet1.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="custom3.css" />
-    
+
 </head>
-<body >
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
-        <a class="navbar-brand font-weight-bold" href="equipment.php".php">
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-brand font-weight-bold" href="equipment.php" .php">
             <h3>Equipment</h3>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -36,16 +39,24 @@ if (!isset($_SESSION['maint_emp_id'])) {
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                <a class="nav-link  " href="equipment_search.php"><h5>Search Equipment</h5> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link  " href="equipment_search.php">
+                        <h5>View Equipment</h5> <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li class="nav-item ">
-                <a class="nav-link" href="equipment_add.php"><h5>Add Equipment</h5> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="equipment_add.php">
+                        <h5>Add Equipment</h5> <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li class="nav-item ">
-                <a class="nav-link text-success" href="equipment_update.php"><h5> Update Equipment</h5> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-success" href="equipment_update.php">
+                        <h5> Update Equipment</h5> <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li class="nav-item ">
-                <a class="nav-link" href="equipment_delete.php"><h5>  Delete Equipment</h5> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="equipment_delete.php">
+                        <h5> Delete Equipment</h5> <span class="sr-only">(current)</span>
+                    </a>
                 </li>
 
 
@@ -55,16 +66,17 @@ if (!isset($_SESSION['maint_emp_id'])) {
             </form>
         </div>
     </nav>
- 
-<main>
+
+    <main>
 
 
-<div class="d-flex justify-content-center align-items-center " style="margin-top:55px;">
+        <div class="d-flex justify-content-center align-items-center " style="margin-top:55px;">
 
-    <form name="myform" class="bg-dark pr-3 pl-4 pb-4 pt-4 pb-4   text-center" method="POST" style="margin-top:55px;margin-bottom:25px;">
-        <h1 class="d-flex justify-content-center ">Search Employee </h1>
+            <form name="myform" class="bg-dark pr-3 pl-4 pb-4 pt-4 pb-4   text-center" method="POST"
+                style="margin-top:55px;margin-bottom:25px;">
+                <h1 class="d-flex justify-content-center ">Search Employee </h1>
 
-        <?php
+                <?php
 
         if (@$_GET['updated'] == 'success') {
 
@@ -78,26 +90,29 @@ if (!isset($_SESSION['maint_emp_id'])) {
    </div>';
         }
         ?>
-        <div class="form-row ">
-            <div class=" wrap-input100   form-group">
-                <label class=" font-weight-bold justify-content-center mt-2">Enter Equipment Id </label>
-                <input class="input300 form-control" type="text" required  pattern="\d*" name="up_id" placeholder="Id" oninvalid="this.setCustomValidity('Valid Id Required')" oninput="this.setCustomValidity('')">
-                <span class="focus-input100"></span>
-            </div>
+                <div class="form-row ">
+                    <div class=" wrap-input100   form-group">
+                        <label class=" font-weight-bold justify-content-center mt-2">Enter Equipment Id </label>
+                        <input class="input300 form-control" type="text" required pattern="\d*" name="up_id"
+                            placeholder="Id" oninvalid="this.setCustomValidity('Valid Id Required')"
+                            oninput="this.setCustomValidity('')">
+                        <span class="focus-input100"></span>
+                    </div>
 
+                </div>
+
+
+
+                <button type="submit" id="emp_submit" name="search_emp_submit"
+                    class="btn mt-3 mb-3  btn-md btn-custom btn-block text-uppercase">
+                    Search
+                </button>
+
+            </form>
         </div>
 
 
-
-        <button type="submit" id="emp_submit" name="search_emp_submit" class="btn mt-3 mb-3  btn-md btn-custom btn-block text-uppercase">
-            Search
-        </button>
-
-    </form>
-</div>
-
-
-<?php
+        <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require '../include/db_connection_inc.php';
 
@@ -241,9 +256,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-</main>
+    </main>
 
-<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
     <script src="../vendor/bootstrap/js/popper.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -253,6 +268,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
 
-    <script>window.history.replaceState({}, document.title, "/" + "471-Project/maintenance/equipment_update.php");</script> 
+    <script>
+    window.history.replaceState({}, document.title, "/" + "471-Project/maintenance/equipment_update.php");
+    </script>
 </body>
+
 </html>

@@ -20,7 +20,8 @@ if (!isset($_SESSION['maint_emp_id'])) {
     <title>Supplies Update</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="StyleSheet1.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="custom3.css" />
 
 </head>
@@ -30,7 +31,8 @@ if (!isset($_SESSION['maint_emp_id'])) {
         <a class="navbar-brand font-weight-bold" href="supplies.php" .php">
             <h3>Supplies</h3>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -38,7 +40,7 @@ if (!isset($_SESSION['maint_emp_id'])) {
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
                     <a class="nav-link  " href="supplies_search.php">
-                        <h5>Search Supplies</h5> <span class="sr-only">(current)</span>
+                        <h5>View Supplies</h5> <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item ">
@@ -70,7 +72,8 @@ if (!isset($_SESSION['maint_emp_id'])) {
 
         <div class="d-flex justify-content-center align-items-center " style="margin-top:55px;">
 
-            <form name="myform" class="bg-dark pr-3 pl-4 pb-4 pt-4 pb-4   text-center" method="POST" style="margin-top:55px;margin-bottom:25px;">
+            <form name="myform" class="bg-dark pr-3 pl-4 pb-4 pt-4 pb-4   text-center" method="POST"
+                style="margin-top:55px;margin-bottom:25px;">
                 <h1 class="d-flex justify-content-center ">Search Employee </h1>
 
                 <?php
@@ -90,7 +93,9 @@ if (!isset($_SESSION['maint_emp_id'])) {
                 <div class="form-row ">
                     <div class=" wrap-input100   form-group">
                         <label class=" font-weight-bold justify-content-center mt-2">Enter Supplies Id </label>
-                        <input class="input300 form-control" type="text" required pattern="\d*" name="up_id" placeholder="Id" oninvalid="this.setCustomValidity('Valid Id Required')" oninput="this.setCustomValidity('')">
+                        <input class="input300 form-control" type="text" required pattern="\d*" name="up_id"
+                            placeholder="Id" oninvalid="this.setCustomValidity('Valid Id Required')"
+                            oninput="this.setCustomValidity('')">
                         <span class="focus-input100"></span>
                     </div>
 
@@ -98,7 +103,8 @@ if (!isset($_SESSION['maint_emp_id'])) {
 
 
 
-                <button type="submit" id="emp_submit" name="search_emp_submit" class="btn mt-3 mb-3  btn-md btn-custom btn-block text-uppercase">
+                <button type="submit" id="emp_submit" name="search_emp_submit"
+                    class="btn mt-3 mb-3  btn-md btn-custom btn-block text-uppercase">
                     Search
                 </button>
 
@@ -196,12 +202,12 @@ if (!isset($_SESSION['maint_emp_id'])) {
             </div>
             </div>
             <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <label for="" class="mt-2">In Stock</label>
                 <input class="input300 form-control" required type=" text" value="' . $in_stock . '"pattern="[0,1]" name="stock" placeholder="Only 0 or 1 " />
             </div>
             
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <label for="" class="mt-2">Ordered Date<span class="span_format"> &nbsp;&nbsp;(YYYY-MM-DD)</span>
                 </label>
                 <input class="input300 form-control" type="text" value="' . $ordered_date . '"pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" name="o_date" placeholder="YYYY-DD-MM" required oninvalid="this.setCustomValidity(&apos;Valid Date is Required: YYYY-MM-DD&apos;)" oninput="this.setCustomValidity(&apos;&apos;)">
@@ -258,7 +264,7 @@ if (!isset($_SESSION['maint_emp_id'])) {
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
 
     <script>
-        window.history.replaceState({}, document.title, "/" + "471-Project/maintenance/supplies_update.php");
+    window.history.replaceState({}, document.title, "/" + "471-Project/maintenance/supplies_update.php");
     </script>
 </body>
 

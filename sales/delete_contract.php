@@ -18,63 +18,66 @@ if (!isset($_SESSION['sales_emp_id'])) {
     <title>Supplies delete</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="custom4.css" />
 </head>
 
 <body>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
-    <a class="navbar-brand font-weight-bold" href="sales.php">
-      <h3>Sales</h3>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-brand font-weight-bold" href="sales.php">
+            <h3>Sales</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item ">
-          <a class="nav-link" href="create_service.php">
-            <h5>Create Service</h5> <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="create_contract.php">
-            <h5>Create Contract</h5> <span class="sr-only">(current)</span>
-          </a>
-        </li>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="create_service.php">
+                        <h5>Create Service</h5> <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="create_contract.php">
+                        <h5>Create Contract</h5> <span class="sr-only">(current)</span>
+                    </a>
+                </li>
 
-        <li class="nav-item ">
-          <a class="nav-link" href="list_all_contract.php">
-            <h5>View Contracts</h5> <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="update_contract_status.php">
-            <h5>Update Contract Status</h5> <span class="sr-only">(current)</span>
-          </a>
-        </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="list_all_contract.php">
+                        <h5>View Contracts</h5> <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="update_contract_status.php">
+                        <h5>Update Contract Status</h5> <span class="sr-only">(current)</span>
+                    </a>
+                </li>
 
-        <li class="nav-item ">
-          <a class="nav-link text-success" href="delete_contract.php">
-            <h5>Delete Contract</h5> <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        
-
+                <li class="nav-item ">
+                    <a class="nav-link text-success" href="delete_contract.php">
+                        <h5>Delete Contract</h5> <span class="sr-only">(current)</span>
+                    </a>
+                </li>
 
 
-      </ul>
 
-      <form action="../include/logout_inc.php" method="post">
-        <button type="submit" class="btn btn-success">Logout</button>
-      </form>
-    </div>
-  </nav>
+
+            </ul>
+
+            <form action="../include/logout_inc.php" method="post">
+                <button type="submit" class="btn btn-success">Logout</button>
+            </form>
+        </div>
+    </nav>
 
     <div class="d-flex justify-content-center align-items-center " style="margin-top:55px;">
 
-        <form name="myform" class="bg-dark pr-3 pl-4 pb-4 pt-4 pb-4   text-center" method="POST" style="margin-top:55px;margin-bottom:25px;">
+        <form name="myform" class="bg-dark pr-3 pl-4 pb-4 pt-4 pb-4   text-center" method="POST"
+            style="margin-top:55px;margin-bottom:25px;">
             <h1 class="d-flex justify-content-center ">Search Contract </h1>
 
             <?php
@@ -94,7 +97,9 @@ if (!isset($_SESSION['sales_emp_id'])) {
             <div class="form-row ">
                 <div class=" wrap-input100   form-group">
                     <label class=" font-weight-bold justify-content-center mt-2">Enter COntract number </label>
-                    <input class="input300 form-control" type="text" required pattern="\d*" name="del_con" placeholder="number" oninvalid="this.setCustomValidity('Valid number Required')" oninput="this.setCustomValidity('')">
+                    <input class="input300 form-control" type="text" required pattern="\d*" name="del_con"
+                        placeholder="number" oninvalid="this.setCustomValidity('Valid number Required')"
+                        oninput="this.setCustomValidity('')">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -102,7 +107,8 @@ if (!isset($_SESSION['sales_emp_id'])) {
 
 
 
-            <button type="submit" id="emp_submit" name="EID" class="btn mt-3 mb-3  btn-md btn-custom btn-block text-uppercase">
+            <button type="submit" id="emp_submit" name="EID"
+                class="btn mt-3 mb-3  btn-md btn-custom btn-block text-uppercase">
                 Search
             </button>
 
@@ -130,7 +136,7 @@ if (!isset($_SESSION['sales_emp_id'])) {
                 echo' <div class=" text-center  container-fluid admin_tables ">
                 <table class="table table-lg table-hover table-striped table-bordered table-dark ">
                 <tr class="bg-success">
-                    <th colspan="8" style="font-size:1.8em;font-weight:bold;">Contract List</th>
+                    <th colspan="9" style="font-size:1.8em;font-weight:bold;">Contract List</th>
                 </tr>
                 <tr>
                 <th scope="col"></th>
@@ -141,7 +147,7 @@ if (!isset($_SESSION['sales_emp_id'])) {
                     <th scope="col">Service Type</th>
                     <th scope="col">Number of Hours</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Ustomer Id</th>
+                    <th scope="col">CUstomer Id</th>
                     
                    
                 </tr>';
@@ -192,11 +198,7 @@ if (!isset($_SESSION['sales_emp_id'])) {
     }
     ?>
 
-    <div style="text-align: center; font-size:25px; font-display:inherit; color:black;">
-        <a href="supplies.php">
-            <button class="btn btn-custom mt-4 mb-2 mr-4" style="font-size:25px; ">BACK</button>
-        </a>
-    </div>
+
     <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
     <script src="../vendor/bootstrap/js/popper.js"></script>
@@ -207,7 +209,7 @@ if (!isset($_SESSION['sales_emp_id'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="https://kit.fontawesome.com/642ada6dc1.js" crossorigin="anonymous"></script>
     <script>
-        window.history.replaceState({}, document.title, "/" + "471-Project/sales/delete_contract.php");
+    window.history.replaceState({}, document.title, "/" + "471-Project/sales/delete_contract.php");
     </script>
 </body>
 
