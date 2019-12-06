@@ -26,7 +26,7 @@ if (isset($_POST['login_submit'])) {
                 }
                 elseif ($pwdCheck == true) {
                     session_start();
-                    $_SESSION['admin_id']  =$row['id'];
+                    $_SESSION['admin_id']  =$row['Id'];
                     $_SESSION['admin_uId']  =$row['username'];
 
                     header("Location: ../admin/admin.php?login=success");
@@ -103,15 +103,17 @@ if (isset($_POST['login_submit'])) {
                     
                     if($row['job_type'] == 'employee'){
                         session_start();
-                        $_SESSION['other_emp_id']  =$row['id'];
+                        $_SESSION['other_emp_id']  =$row['Id'];
                         $_SESSION['other_emp_uId']  =$row['username'];
+                        $_SESSION['other_emp_name']  =$row['f_name'];
                         header("Location: ../otherEmployee.php?loginEmp=success");
                         exit();
                     }
                     elseif($row['job_type'] == 'sales'){
                         session_start();
-                        $_SESSION['sales_emp_id']  =$row['id'];
+                        $_SESSION['sales_emp_id']  =$row['Id'];
                         $_SESSION['sales_emp_uId']  =$row['username'];
+                        $_SESSION['sales_emp_name']  =$row['f_name'];
                         header("Location: ../sales_asoc.php?loginSales=success");
                         exit();
                     }
@@ -119,14 +121,16 @@ if (isset($_POST['login_submit'])) {
                         session_start();
                         $_SESSION['cleaner_emp_id']  =$row['SIN'];
                         $_SESSION['cleaner_emp_uId']  =$row['username'];
+                        $_SESSION['cleaner_emp_name']  =$row['f_name'];
                         header("Location: ../cleaner/cleaner.php?loginCleane=success");
                         exit();
                     }
                     elseif($row['job_type'] == 'maintenance'){
                         session_start();
-                        $_SESSION['maint_emp_id']  =$row['id'];
+                        $_SESSION['maint_emp_id']  =$row['Id'];
                         $_SESSION['maint_emp_uId']  =$row['username'];
-                        header("Location: ../maintenance.php?loginMaint=success");
+                        $_SESSION['maint_emp_name']  =$row['f_name'];
+                        header("Location: ../maintenance/maintenance.php?loginMaint=success");
                         exit();
                     }
                     else{

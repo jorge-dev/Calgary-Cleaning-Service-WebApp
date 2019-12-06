@@ -2,7 +2,7 @@
 <?php
    session_start();
    if(!isset($_SESSION['cleaner_emp_uId'])) {
-    header('location: index.php?error=NeedtoLoginToseeEmployeePage');
+    header('location: ../index.php?error=NeedtoLoginToseeEmployeePage');
     include_once("cleaner/cleanerJobs.php");
 
     exit;

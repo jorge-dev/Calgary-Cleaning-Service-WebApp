@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['admin_uId'])) {
-    header('location: index.php?error=NeedtoLoginToseeAdminPage');
+    header('location: ../index.php?error=NeedtoLoginToseeAdminPage');
     include_once("admin/admin_update_employee.php");
 
     exit;

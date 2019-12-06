@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['cust_id'])) {
-    header('location: index.php?error=NeedtoLoginToseeAdminPage');
+    header('location: ../index.php?error=NeedtoLoginToseeAdminPage');
     include_once("customer/customer_view_req.php");
 
     exit;
