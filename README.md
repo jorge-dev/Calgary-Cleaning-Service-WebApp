@@ -26,6 +26,85 @@ Cleaners can only see the current jobs they have been assigned.
 # User Manual
 
 ## Login-Page:
+![image](https://user-images.githubusercontent.com/20519640/74610950-0d42b680-50b5-11ea-8bf1-ee024ce0368c.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610959-1af83c00-50b5-11ea-95da-5b57b247939e.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610963-20ee1d00-50b5-11ea-8473-0d531e854ec0.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610966-251a3a80-50b5-11ea-8b6f-6961960dd4e2.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610969-29465800-50b5-11ea-8c49-a449d43f30e7.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610971-2d727580-50b5-11ea-9d53-01d2123da5e1.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610972-32cfc000-50b5-11ea-8abb-81eea434777d.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610974-36634700-50b5-11ea-8a12-16ccab27b9ae.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610976-3a8f6480-50b5-11ea-9791-503564071149.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610978-411ddc00-50b5-11ea-96e4-886a764147d9.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610981-4549f980-50b5-11ea-9c71-cbd63efaecde.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610986-4d099e00-50b5-11ea-9717-b870f68911f8.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610988-5135bb80-50b5-11ea-9a32-dad5bdc4c856.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610990-5561d900-50b5-11ea-84ea-1954059695f4.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610993-5abf2380-50b5-11ea-945d-222d93ba5fbe.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610997-5eeb4100-50b5-11ea-9c5c-c84f725daf2e.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74610999-627ec800-50b5-11ea-94ba-897a35db69ab.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611002-66aae580-50b5-11ea-849b-1efeb0789866.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611003-6ad70300-50b5-11ea-9773-3914bb7c6ca1.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611004-6e6a8a00-50b5-11ea-8829-5be501c6c348.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611006-732f3e00-50b5-11ea-875d-525b401c269d.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611008-77f3f200-50b5-11ea-9fe9-141dce06c699.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611014-7d513c80-50b5-11ea-8fbb-e94c93fb0cab.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611017-80e4c380-50b5-11ea-9c8d-ccfb341a31ce.png)
+
+
+![image](https://user-images.githubusercontent.com/20519640/74611020-84784a80-50b5-11ea-8a12-103131805c2c.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611021-88a46800-50b5-11ea-913a-e696ac03adb5.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611024-8c37ef00-50b5-11ea-95e4-e6701f3f5b21.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611025-8fcb7600-50b5-11ea-9afb-e3da3d96d2b0.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611026-935efd00-50b5-11ea-9f6e-3b6c6c6a24bd.png)
+
+
+![image](https://user-images.githubusercontent.com/20519640/74611028-96f28400-50b5-11ea-9d84-b1a9847d5854.png)
+
+
+![image](https://user-images.githubusercontent.com/20519640/74611031-9a860b00-50b5-11ea-9b11-3af924059dce.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611032-9eb22880-50b5-11ea-8485-69fa7505175c.png)
+
+
+![image](https://user-images.githubusercontent.com/20519640/74611034-a376dc80-50b5-11ea-9588-d4e92bab9716.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611037-ab368100-50b5-11ea-9539-b4b49f217eb8.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611039-b5f11600-50b5-11ea-98a3-d4b041af8c62.png)
+
+![image](https://user-images.githubusercontent.com/20519640/74611042-ba1d3380-50b5-11ea-8b43-8665ab6a0965.png)
+
+
+
+
  
 This is the homepage for our project website, which includes the Users to login as either Admin, Customer and  Employee with different account information that saves in database. The first text field allows users to choose which type to login(“Admin”, “Customers”,”Employee”).
 
@@ -39,20 +118,6 @@ In the login page, we provide an email typo check for users if the format of the
 Fail Login Page
  
 If a user information is not in the database or someone with the wrong credentials tries to log in then a proper message is displayed to let the customer know about the problem.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
