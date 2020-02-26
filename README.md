@@ -1,4 +1,6 @@
 # Introduction to the Project 
+[Take a look at project demo](http://3.229.41.242/471-Project/index.php) (Use test@me.com as admin email and 1234 as password)
+
 As described below, we design this project to help address Calgary Cleaning Services’ data storage and retrieval problems. Calgary Cleaning Services is a small company that relies on Excel and other physical means of storage to store its information. It was a nice and easy way to keep track of records, but their business has been experiencing a spike in demand and they need a better solution to keep track of their data as their business expands. We thought this was a great opportunity to have a hands-on experience on a real project that could be beneficial for someone.
 
 We knew they were in need of a better solution, and we decided to create this project to address their needs. We created a fully functional website with a modern design and very good backend functionality that connects to a database to store all the data they need to keep track of. We used PHP language for a backend and CSS, jQuery and Html for the frontend (with a few other libraries that in a sense are just glorified Jquery implementation like Bootstrap). For ease of use and accessibility, we used XAMPP software to function as our local server. 
